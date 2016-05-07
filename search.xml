@@ -58,11 +58,9 @@
   
     
     <entry>
-      <title><![CDATA[关于]]></title>
-      <url>http://qianmeng.github.io/about/index.html</url>
-      <content type="html"><![CDATA[<p>大家好，我是XXX。欢迎来到我的个人技术博客。</p>
-<p>这里用markdown写下你的简介，就跟平时写md一样就可以了。</p>
-]]></content>
+      <title></title>
+      <url>http://qianmeng.github.io/tags/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
@@ -72,9 +70,11 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://qianmeng.github.io/tags/index.html</url>
-      <content type="html"></content>
+      <title><![CDATA[关于]]></title>
+      <url>http://qianmeng.github.io/about/index.html</url>
+      <content type="html"><![CDATA[<p>大家好，我是XXX。欢迎来到我的个人技术博客。</p>
+<p>这里用markdown写下你的简介，就跟平时写md一样就可以了。</p>
+]]></content>
     </entry>
     
   
