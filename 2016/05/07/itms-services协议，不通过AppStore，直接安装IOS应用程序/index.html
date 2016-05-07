@@ -7,7 +7,7 @@
 
     
 
-    <title>自信心是成功的根基</title>
+    <title>itms-services协议，不通过AppStore，直接安装IOS应用程序 | 自信心是成功的根基</title>
     <meta name="author" content="钱猛">
     
     <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="itms-services协议，不通过AppStore，直接安装IOS应用程序"/>
     <meta property="og:site_name" content="钱猛 &amp; 博客"/>
 
     
@@ -229,12 +229,12 @@
             <div class="article-title">
                 
     
-        <h1>无题</h1>
+        <h1>itms-services协议，不通过AppStore，直接安装IOS应用程序</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2016-05-07T07:15:13.524Z"><a href="/tags/index.html">2016-05-07</a></time>
+            <time class="pink-link-context" datetime="2016-05-07T12:52:47.000Z"><a href="/2016/05/07/itms-services协议，不通过AppStore，直接安装IOS应用程序/">2016-05-07</a></time>
 
             
 
@@ -244,7 +244,30 @@
 
 
             <div class="entry pink-link-context">
-                
+                <p>最近开发的一个IOS项目需要不通过将APP发布到Appstore上直接安装到客户手机上，本来觉得苹果这么封闭的流程，应该不可以实现的吧，结果竟然还正能实现，这边主要是利用苹果自家的浏览器safari和itms-services协议，下面介绍下主要步骤和实现过程中遇到的问题。<br><a id="more"></a></p>
+<blockquote>
+<p>通过itms-services协议，可以通过safari浏览器直接在iOS设备上安装应用程序。利用这种方式，只要在内网布置一个服务器，测试人员只需要通过测试设备的safari浏览器访问特定的url既可以实现安装</p>
+</blockquote>
+<p>这边首先需要将项目打包成ipa文件和生成.plist文件。</p>
+<p>####一、打包ipa和生成.plist文件具体步骤：<br>1、在苹果开发者后台生成签名文件，使用developer profile或者adhoc distribution profile这边注意不能使用distribution profile，因为这不是发布到Appstore。<br>2、生成archive，点击菜单栏product中的archive选项进行打包<br>3、在organizer中点击archive进行distribute，发布的过程中注意选择save for enterprise distribution，不然会失败，完成保存会生成俩文件 .ipa文件和 .plist文件。其中.ipa文件就是应用程序文件， .plist文件是苹果需要通过itms-services协议访问的文件。</p>
+<p>下面是.plist文件的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  </span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;  </span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;  </span><br><span class="line">&lt;dict&gt;  </span><br><span class="line">    &lt;key&gt;items&lt;/key&gt;  </span><br><span class="line">    &lt;array&gt;  </span><br><span class="line">        &lt;dict&gt;  </span><br><span class="line">            &lt;key&gt;assets&lt;/key&gt;  </span><br><span class="line">            &lt;array&gt;  </span><br><span class="line">                &lt;dict&gt;  </span><br><span class="line">                    &lt;key&gt;kind&lt;/key&gt;  </span><br><span class="line">                    &lt;string&gt;software-package&lt;/string&gt;  </span><br><span class="line">                    &lt;key&gt;url&lt;/key&gt;  </span><br><span class="line">                    &lt;string&gt;http://218.94.107.227:8996/wJob/job.ipa&lt;/string&gt;  </span><br><span class="line">                &lt;/dict&gt;  </span><br><span class="line">            &lt;/array&gt;  </span><br><span class="line">            &lt;key&gt;metadata&lt;/key&gt;  </span><br><span class="line">            &lt;dict&gt;  </span><br><span class="line">                &lt;key&gt;bundle-identifier&lt;/key&gt;  </span><br><span class="line">                &lt;string&gt;com.qgbes.pjob&lt;/string&gt;  </span><br><span class="line">                &lt;key&gt;bundle-version&lt;/key&gt;  </span><br><span class="line">                &lt;string&gt;1.0.0&lt;/string&gt;  </span><br><span class="line">                &lt;key&gt;kind&lt;/key&gt;  </span><br><span class="line">                &lt;string&gt;software&lt;/string&gt;  </span><br><span class="line">                &lt;key&gt;title&lt;/key&gt;  </span><br><span class="line">                &lt;string&gt;测试APP免Appstore安装项目&lt;/string&gt;  </span><br><span class="line">            &lt;/dict&gt;  </span><br><span class="line">        &lt;/dict&gt;  </span><br><span class="line">    &lt;/array&gt;  </span><br><span class="line">&lt;/dict&gt;  </span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure>
+<p>属性不多，不做具体解释，这边只关心一点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;url&lt;/key&gt;  </span><br><span class="line">&lt;string&gt;http://218.94.107.227:8996/wJob/job.ipa&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+<p>这边是我们生成的ipa文件存放的位置。</p>
+<p>####二、现在万事俱备只欠东风啦，只需要客户端能够成功访问到我们生成的.plist文件即可。</p>
+<p>本来觉得和ipa文件一样，放在服务器上是，访问一下就OK啦，结果发现，最新版本是不行的，之前确实可以通过http的方式进行访问plist文件进行安装，不过现在苹果规定必须以https的方式进行访问。</p>
+<p>以https方式访问plist文件的解决方案</p>
+<p>1、配置tomat支持https方式访问<br>2、利用dropbox分享外链进行访问原始文件<br>3、利用开源中国的git&amp;osc分享外链进行访问原始文件</p>
+<p>说说三种方式，第一种方式：对于只使用http方式访问来配置的tomcat，本身来改配置代价高，而且没必要。<br>第二种方式：dropbox是国外的，而且是要翻墙的，也就是存在不稳定情况，不通用。<br>第三种方式：国内网站，简单，稳定</p>
+<p>这边我们也就只是需要访问个文件，简单点就在git&amp;osc上放个文件，提供个文件链接就OK啦。</p>
+<p><img src="http://img.blog.csdn.net/20150927190635246" alt="这里写图片描述"></p>
+<p>OK，通过itms-services协议进行访问下载吧。</p>
+<p>####三、打开客户端safari浏览器，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">itms-services://?action=download-manifest&amp;url=‘plist文件地址’</span><br></pre></td></tr></table></figure>
+<p>这样就结束啦，反正我这边是安装成功啦~~~</p>
+<p>总结下注意点<br>1、签名要使用developer profile或者adhoc distribution profile,不能使用distribution profile<br>2、个人开发者证书只能在100个设备中实现无线安装<br>3、最新版ios设备支持https方式访问plist文件（ipa文件是可以通过http方式访问的）</p>
+
             </div>
         </div>
     </div>
@@ -252,6 +275,33 @@
 
 
 
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/05/07/itms-services协议，不通过AppStore，直接安装IOS应用程序/" data-title="itms-services协议，不通过AppStore，直接安装IOS应用程序" data-url="http://qianmeng.github.io/2016/05/07/itms-services协议，不通过AppStore，直接安装IOS应用程序/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
 
 
 
