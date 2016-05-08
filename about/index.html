@@ -44,7 +44,11 @@
             <i class="fa fa-navicon"></i>
         </a>
         <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客</a>
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<h7>
+			Total:<span id="busuanzi_value_site_pv"></span>. You:<span id="busuanzi_value_site_uv"></span>
+			</h7> 
+			</a> 
             <ul class="right hide-on-med-and-down">
                 
                     <li>
@@ -68,6 +72,14 @@
                             <i class="fa fa-bookmark "></i>
                             
                             分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tags "></i>
+                            
+                            标签
                         </a>
                     </li>
                 
@@ -136,6 +148,14 @@
                     <i class="fa fa-bookmark "></i>
                     
                     分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tags "></i>
+                    
+                    标签
                 </a>
             </li>
         
@@ -616,10 +636,12 @@
     <div class="footer-copyright pink-link-context">
         <div class="container">
             © 2016  All rights reserved.
-            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动</p>
         </div>
     </div>
-</footer>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 
 
     <noscript>
@@ -698,7 +720,7 @@
 
             
             // 添加new标签
-            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            $('.menu-search').append('<span class="new badge pink"></span>');
             
 
             // 搜索功能

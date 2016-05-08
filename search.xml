@@ -58,12 +58,6 @@
   
     
     <entry>
-      <title></title>
-      <url>http://qianmeng.github.io/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://qianmeng.github.io/about/index.html</url>
       <content type="html"><![CDATA[<p>&#x5927;&#x5BB6;&#x597D;&#xFF0C;&#x6211;&#x662F;XXX&#x3002;&#x6B22;&#x8FCE;&#x6765;&#x5230;&#x6211;&#x7684;&#x4E2A;&#x4EBA;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x3002;</p>
@@ -74,6 +68,12 @@
     <entry>
       <title><![CDATA[读书]]></title>
       <url>http://qianmeng.github.io/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://qianmeng.github.io/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
