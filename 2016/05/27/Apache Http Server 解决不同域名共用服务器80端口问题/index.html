@@ -1,0 +1,755 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Apache Http Server 解决不同域名共用服务器80端口问题 | 钱猛的个人博客</title>
+    <meta name="author" content="钱猛">
+    
+    <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Apache Http Server 解决不同域名共用服务器80端口问题"/>
+    <meta property="og:site_name" content="钱猛 &amp; 博客"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="钱猛 &amp; 博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<h7>
+			Total:<span id="busuanzi_value_site_pv"></span>. You:<span id="busuanzi_value_site_uv"></span>
+			</h7> 
+			</a> 
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tag "></i>
+                            
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://raw.githubusercontent.com/qianmeng/resources/master/head.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">钱猛</p>
+                        <p class="desc">全栈工程师</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tag "></i>
+                    
+                    标签
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/AngularJs/">
+                    AngularJs <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后台/">
+                    后台 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-CXF/">
+                    Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Hibernate/">
+                    Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Ehcache/">
+                    Ehcache <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/量化交易/">
+                    量化交易 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/Matlab/">
+                    Matlab <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/爬虫/">
+                    爬虫 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/PostGreSQL/">
+                    PostGreSQL <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Vollery/">
+                    Vollery <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Java/">
+                    Java <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Java/面试/">
+                    面试 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IOS/">
+                    IOS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/IOS/itms-services/">
+                    itms-services <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/后台/">后台</a><a class="breadcrumb" href="/categories/后台/Apache-Http-Server/">Apache Http Server</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Apache Http Server 解决不同域名共用服务器80端口问题</h1>
+    
+
+
+            </div>
+            <i class="fa fa-pencil-square"></i><time class="pink-link-context" datetime="2016-05-27T10:06:50.000Z"><a href="/2016/05/27/Apache Http Server 解决不同域名共用服务器80端口问题/">2016-05-27</a></time>
+
+			<i class="fa fa-flag"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span> 人点击
+            
+    <div class="tags-row">
+        
+            <a href="/tags/Apache-Http-Server/" class="chip pink lighten-1">Apache Http Server</a>
+        
+            <a href="/tags/服务/" class="chip pink lighten-1">服务</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#一-前期准备"><span class="section table-of-contents-text">一、前期准备：</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-安装apache-http-server"><span class="section table-of-contents-text">1、安装Apache Http Server：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-俩个模拟服务器我这边使用的是iis一个-和tomcat一个windows下iis是现成的而且可以模拟不同服务器虽然没啥意思嘿嘿"><span class="section table-of-contents-text">2、俩个模拟服务器，我这边使用的是IIS一个、和tomcat一个（Windows下IIS是现成的，而且可以模拟不同服务器，虽然没啥意思，嘿嘿）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#3-修改host文件-cwindowssystem32driversetchosts"><span class="section table-of-contents-text">3、修改HOST文件 （C:\Windows\System32\drivers\etc\HOSTS）</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#二-修改配置文件"><span class="section table-of-contents-text">二、修改配置文件</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>&#x4ECA;&#x5929;&#x90E8;&#x7F72;&#x7F51;&#x7AD9;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x7A81;&#x7136;&#x8BF4;&#x4ED6;&#x4EEC;&#x53EA;&#x6709;&#x4E00;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E00;&#x4E2A;&#x516C;&#x7F51;IP&#xFF0C;&#x800C;&#x4E14;&#x73B0;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5DF2;&#x7ECF;&#x6709;&#x4E00;&#x4E2A;&#x53D1;&#x5E03;&#x4E2D;&#x7684;&#x7F51;&#x7AD9;&#xFF08;&#x663E;&#x7136;80&#x7AEF;&#x53E3;&#x5DF2;&#x88AB;&#x5360;&#x7528;&#xFF09;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x60F3;&#x60F3;&#x529E;&#x6CD5;&#x600E;&#x4E48;&#x6837;&#x624D;&#x80FD;&#x90E8;&#x7F72;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x5230;&#x4ED6;&#x4EEC;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x800C;&#x4E14;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x516C;&#x7F51;IP&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x9047;&#x5230;&#x8FD9;&#x79CD;&#x9700;&#x6C42;&#xFF0C;&#x5F00;&#x59CB;&#x89C9;&#x5F97;&#x80AF;&#x5B9A;&#x5B9E;&#x73B0;&#x4E0D;&#x4E86;&#xFF0C;&#x4F46;&#x540E;&#x6765;&#x767E;&#x5EA6;&#x4E0B;&#xFF0C;&#x7ADF;&#x7136;&#x771F;&#x6709;&#x65B9;&#x6CD5;&#x89E3;&#x51B3;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x5F3A;&#x5927;&#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x53D1;&#x73B0;&#x4EE3;&#x7406;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;nginx&#xFF0C;Apache Http Server&#xFF0C;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x5728;IIS&#x4E0A;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#xFF08;&#x4E0D;&#x901A;&#x7528;&#xFF0C;&#x4E0D;&#x8003;&#x8651;&#xFF09;&#xFF0C;&#x5927;&#x4F53;&#x770B;&#x4E86;&#x4E0B;&#xFF0C;&#x611F;&#x89C9;Apache Http Server&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x51B3;&#x5B9A;&#x4F7F;&#x7528;&#x5B83;&#x5566;&#xFF0C;&#x9996;&#x5148;&#x5728;&#x672C;&#x5730;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#x6A21;&#x62DF;&#x73AF;&#x5883;&#x6D4B;&#x8BD5;&#xFF0C;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x9047;&#x5230;&#x4E86;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x73B0;&#x5728;&#x628A;&#x914D;&#x7F6E;&#x8FC7;&#x7A0B;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF0C;&#x4F9B;&#x9047;&#x5230;&#x540C;&#x6837;&#x95EE;&#x9898;&#x7684;&#x670B;&#x53CB;&#x53C2;&#x8003;&#x3002;<br><a id="more"></a></p>
+<h3 id="&#x4E00;-&#x524D;&#x671F;&#x51C6;&#x5907;"><a href="#&#x4E00;&#x3001;&#x524D;&#x671F;&#x51C6;&#x5907;&#xFF1A;" class="headerlink" title="&#x4E00;&#x3001;&#x524D;&#x671F;&#x51C6;&#x5907;&#xFF1A;"></a>&#x4E00;&#x3001;&#x524D;&#x671F;&#x51C6;&#x5907;&#xFF1A;</h3><h4 id="1-&#x5B89;&#x88C5;apache-http-server"><a href="#1&#x3001;&#x5B89;&#x88C5;Apache-Http-Server&#xFF1A;" class="headerlink" title="1&#x3001;&#x5B89;&#x88C5;Apache Http Server&#xFF1A;"></a>1&#x3001;&#x5B89;&#x88C5;Apache Http Server&#xFF1A;</h4><p>&#x6211;&#x4E0B;&#x8F7D;&#x7684;&#x662F; httpd-2.2.25-win32-x86-no_ssl.msi&#xFF08;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x767E;&#x5EA6;&#x641C;&#x4E0B;Apache Http Server&#xFF09;</p>
+<h4 id="2-&#x4FE9;&#x4E2A;&#x6A21;&#x62DF;&#x670D;&#x52A1;&#x5668;&#x6211;&#x8FD9;&#x8FB9;&#x4F7F;&#x7528;&#x7684;&#x662F;iis&#x4E00;&#x4E2A;-&#x548C;tomcat&#x4E00;&#x4E2A;windows&#x4E0B;iis&#x662F;&#x73B0;&#x6210;&#x7684;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x4E0D;&#x540C;&#x670D;&#x52A1;&#x5668;&#x867D;&#x7136;&#x6CA1;&#x5565;&#x610F;&#x601D;&#x563F;&#x563F;"><a href="#2&#x3001;&#x4FE9;&#x4E2A;&#x6A21;&#x62DF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6211;&#x8FD9;&#x8FB9;&#x4F7F;&#x7528;&#x7684;&#x662F;IIS&#x4E00;&#x4E2A;&#x3001;&#x548C;tomcat&#x4E00;&#x4E2A;&#xFF08;Windows&#x4E0B;IIS&#x662F;&#x73B0;&#x6210;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x4E0D;&#x540C;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x867D;&#x7136;&#x6CA1;&#x5565;&#x610F;&#x601D;&#xFF0C;&#x563F;&#x563F;&#xFF09;" class="headerlink" title="2&#x3001;&#x4FE9;&#x4E2A;&#x6A21;&#x62DF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6211;&#x8FD9;&#x8FB9;&#x4F7F;&#x7528;&#x7684;&#x662F;IIS&#x4E00;&#x4E2A;&#x3001;&#x548C;tomcat&#x4E00;&#x4E2A;&#xFF08;Windows&#x4E0B;IIS&#x662F;&#x73B0;&#x6210;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x4E0D;&#x540C;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x867D;&#x7136;&#x6CA1;&#x5565;&#x610F;&#x601D;&#xFF0C;&#x563F;&#x563F;&#xFF09;"></a>2&#x3001;&#x4FE9;&#x4E2A;&#x6A21;&#x62DF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6211;&#x8FD9;&#x8FB9;&#x4F7F;&#x7528;&#x7684;&#x662F;IIS&#x4E00;&#x4E2A;&#x3001;&#x548C;tomcat&#x4E00;&#x4E2A;&#xFF08;Windows&#x4E0B;IIS&#x662F;&#x73B0;&#x6210;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x4E0D;&#x540C;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x867D;&#x7136;&#x6CA1;&#x5565;&#x610F;&#x601D;&#xFF0C;&#x563F;&#x563F;&#xFF09;</h4><h4 id="3-&#x4FEE;&#x6539;host&#x6587;&#x4EF6;-cwindowssystem32driversetchosts"><a href="#3&#x3001;&#x4FEE;&#x6539;HOST&#x6587;&#x4EF6;-&#xFF08;C-Windows-System32-drivers-etc-HOSTS&#xFF09;" class="headerlink" title="3&#x3001;&#x4FEE;&#x6539;HOST&#x6587;&#x4EF6; &#xFF08;C:\Windows\System32\drivers\etc\HOSTS&#xFF09;"></a>3&#x3001;&#x4FEE;&#x6539;HOST&#x6587;&#x4EF6; &#xFF08;C:\Windows\System32\drivers\etc\HOSTS&#xFF09;</h4><p>  &#x589E;&#x52A0;&#x4FE9;&#x9879;&#xFF08;&#x6A21;&#x62DF;&#x4E0D;&#x540C;&#x57DF;&#x540D;&#xFF09;<br>  127.0.0.1 www.aaa.com<br>  127.0.0.1 www.bbb.com</p>
+<h3 id="&#x4E8C;-&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x4E8C;&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x4E8C;&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x4E8C;&#x3001;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3><p>&#x73B0;&#x5728;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x5C31;&#x7B97;&#x5B8C;&#x6210;&#x5566;&#xFF0C;&#x73B0;&#x5728;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x4FEE;&#x6539;Apache Http Server&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;httpd.conf&#x3001;httpd-vhosts.conf&#xFF09;</p>
+<p>1&#x3001;httpd.conf     &#x4F4D;&#x7F6E;&#xFF1A;C:\Program Files (x86)\Apache Software Foundation\Apache2.2\conf\httpd.conf</p>
+<p>&#x5C06;&#x4E0B;&#x9762;&#x4E94;&#x5904;&#x7684;&#x6CE8;&#x91CA;&#x53BB;&#x6389;</p>
+<blockquote>
+<p>LoadModule proxy_module modules/mod_proxy.so<br>     LoadModule proxy_connect_module modules/mod_proxy_connect.so<br>     LoadModule proxy_http_module modules/mod_proxy_http.so<br>     LoadModule proxy_ftp_module modules/mod_proxy_ftp.so<br>         Include conf/extra/httpd-vhosts.conf</p>
+</blockquote>
+<p>2&#x3001;httpd-vhosts.conf     &#x4F4D;&#x7F6E;&#xFF1A;C:\Program Files (x86)\Apache Software Foundation\Apache2.2\conf\extra\httpd-vhosts.conf</p>
+<p>  &#x589E;&#x52A0;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;     &lt;VirtualHost *:80&gt;</span><br><span class="line">&gt;     ProxyPreserveHost On</span><br><span class="line">&gt;     ServerAdmin aaa@qq.com</span><br><span class="line">&gt;     ServerName  www.bbb.com</span><br><span class="line">&gt;     ProxyPass / http://www.bbb.com:8084/</span><br><span class="line">&gt;     ProxyPassReverse / http://www.bbb.com:8084/</span><br><span class="line">&gt;     SetEnv force-proxy-request-1.0.1</span><br><span class="line">&gt;     SetEnv proxy-nokeepalive 1 </span><br><span class="line">&gt;     &lt;/VirtualHost&gt;</span><br><span class="line">&gt; </span><br><span class="line">&gt;    &lt;VirtualHost *:80&gt;</span><br><span class="line">&gt;     ProxyPreserveHost On</span><br><span class="line">&gt;     ServerAdmin bbb@qq.com</span><br><span class="line">&gt;     ServerName  www.aaa.com</span><br><span class="line">&gt;     ProxyPass / http://www.aaa.com:8083/</span><br><span class="line">&gt;     ProxyPassReverse / http://www.aaa.com:8083/</span><br><span class="line">&gt;     SetEnv force-proxy-request-1.0.1</span><br><span class="line">&gt;     SetEnv proxy-nokeepalive 1 </span><br><span class="line">&gt;     &lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x4E0B;&#x9762;&#x5C06;IIS&#x670D;&#x52A1;&#x5668;&#x548C;tomcat&#x670D;&#x52A1;&#x90FD;&#x542F;&#x52A8;&#x8D77;&#x6765;&#xFF0C;&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x6765;&#x770B;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6211;&#x7684;&#x4FE9;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x7AEF;&#x53E3;&#x5206;&#x522B;&#x4E3A;8083&#x548C;8084<br>&#x8FD0;&#x884C;&#x8D77;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x8BBF;&#x95EE;<a href="http://www.aaa.com:8083" target="_blank" rel="external">http://www.aaa.com:8083</a> &#x548C; <a href="http://www.bbb.com:8084" target="_blank" rel="external">http://www.bbb.com:8084</a> &#x4FE9;&#x4E2A;&#x7F51;&#x7AD9;&#x8BBF;&#x95EE;&#x6B63;&#x5E38;&#xFF0C;&#x914D;&#x7F6E;&#x7ED3;&#x675F;</p>
+<p>&#x770B;&#x8D77;&#x6765;&#x786E;&#x5B9E;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x6709;&#x51E0;&#x4E2A;&#x5730;&#x65B9;&#x9700;&#x6C42;&#x6CE8;&#x610F;&#x7684;<br>1&#x3001;IIS&#x670D;&#x52A1;&#x5668;&#x9ED8;&#x8BA4;&#x5360;&#x7528;&#x4E86;80&#x7AEF;&#x53E3;&#xFF0C;&#x5B89;&#x88C5;Apache Http Server&#x65F6;&#x5982;&#x679C;&#x542F;&#x52A8;&#x4E0D;&#x6210;&#x529F;&#xFF0C;&#x8BF7;&#x4FEE;&#x6539;IIS&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x4E3A;&#x5176;&#x4ED6;&#x7AEF;&#x53E3;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;8084<br>2&#x3001;ProxyPass / <a href="http://www.aaa.com:8083/" target="_blank" rel="external">http://www.aaa.com:8083/</a>   &#x8FD9;&#x53E5;&#x540E;&#x9762;&#x4E00;&#x5B9A;&#x8981;&#x52A0;&#x4E0A;&#x201C;/&#x201D;,&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6211;&#x627E;&#x4E86;&#x4E00;&#x5929;&#x624D;&#x89E3;&#x51B3;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x52A0;&#x4E0A;&#x7684;&#x8BDD;&#xFF0C;&#x5373;&#x4F7F;&#x7F51;&#x7AD9;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x4E5F;&#x4F1A;&#x663E;&#x793A;&#x4E0D;&#x6B63;&#x5E38;&#xFF0C;&#x4F1A;&#x62A5;&#x7C7B;&#x4F3C;&#x7684;&#x9519;&#x8BEF;</p>
+<blockquote>
+<p>[Mon Jul 20 16:34:49 2015] [error] [client 127.0.0.1] proxy: DNS<br>lookup failure for: 127.0.0.1:8084iis-85.png returned by /iis-85.png,<br>referer: <a href="http://www.aaa.com/" target="_blank" rel="external">http://www.aaa.com/</a></p>
+</blockquote>
+<p>&#x4EE5;&#x4E0A;&#x5C31;&#x662F;&#x6211;&#x4F7F;&#x7528;&#x7684;Apache Http Server&#x4EE3;&#x7406;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;80&#x7AEF;&#x53E3;&#x5171;&#x7528;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x53CD;&#x6B63;&#x6211;&#x662F;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x5566;&#xFF0C;&#x5728;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x770B;&#x4E86;&#x7F51;&#x4E0A;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x6709;&#x4E9B;&#x662F;&#x660E;&#x663E;&#x9519;&#x8BEF;&#xFF0C;&#x6839;&#x672C;&#x8DD1;&#x4E0D;&#x8D77;&#x6765;&#xFF0C;&#x800C;&#x4E14;&#x540C;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x88AB;&#x8F6C;&#x53D1;&#x4E86;N&#x6B21;&#xFF0C;&#x8FD9;&#x91CC;&#x5410;&#x4E0B;&#x69FD;&#xFF0C;&#x6CA1;&#x9A8C;&#x8BC1;&#x8FC7;&#x7684;&#x4E1C;&#x897F;&#x653E;&#x5230;&#x7F51;&#x4E0A;&#xFF0C;&#x771F;&#x662F;&#x5BB3;&#x4EBA;&#x554A;&#xFF01;</p>
+
+            </div>
+        </div>
+    </div>
+</article>  
+
+
+
+
+<div class="card"> 
+	 <nav id="pagination" >
+		
+		
+		<a href="/2016/05/01/AngularJs+JQuery 结合使用存在的问题 之 input hidden 问题解决方案/" >&nbsp;&nbsp;&nbsp;&nbsp;下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		
+		<div class="clearfix"></div>
+	</nav> 
+	</div>
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/05/27/Apache Http Server 解决不同域名共用服务器80端口问题/" data-title="Apache Http Server 解决不同域名共用服务器80端口问题" data-url="http://qianmeng.github.io/2016/05/27/Apache Http Server 解决不同域名共用服务器80端口问题/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="http://weibo.com/u/1819068247" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qian_meng" target="_blank">CSDN 地址</a>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">Github地址</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016  All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动</p>
+        </div>
+    </div>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal();
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56073371" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"145"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</body>
+</html>
