@@ -4,29 +4,91 @@
 
     
   <url>
-    <loc>http://qianmeng.github.io/2016/05/07/itms-services%E5%8D%8F%E8%AE%AE%EF%BC%8C%E4%B8%8D%E9%80%9A%E8%BF%87AppStore%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85IOS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</loc>
-    <lastmod>2016-05-07T12:53:56.904Z</lastmod>
+    <loc>http://qianmeng.github.io/2016/05/07/Ehcache%20%E5%88%9D%E6%8E%A2%EF%BC%88%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%89/</loc>
+    <lastmod>2016-05-09T14:16:30.201Z</lastmod>
     <data>
         <display>
-        <title>itms-services协议，不通过AppStore，直接安装IOS应用程序</title>
-        <pubTime>2016-05-07T12:52:47.000Z</pubTime>
+        <title>Ehcache 初探（在项目中的简单使用）</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
         
+        <tag>服务</tag>
+         
+        <tag>Ehcache</tag>
+         
          
            
+             
+              <breadCrumb title="后台" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/"/>
+          
+             
+              <breadCrumb title="Ehcache" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/Ehcache/"/>
+          
         </display>
     </data>
     </url>
 
     
   <url>
-    <loc>http://qianmeng.github.io/2016/05/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2016-05-07T12:45:08.192Z</lastmod>
+    <loc>http://qianmeng.github.io/2016/05/07/AngularJs%20%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E4%B8%8D%E8%83%BD%E4%BB%A5key-value%20%E5%BD%A2%E5%BC%8F%E4%BC%A0%E5%88%B0%E5%90%8E%E5%8F%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2016-05-09T14:16:04.342Z</lastmod>
     <data>
         <display>
-        <title>我的第一篇博客</title>
+        <title>AngularJs 表单提交数据不能以key-value 形式传到后台的解决方案</title>
         <pubTime>2016-05-07T10:06:50.000Z</pubTime>
         
         <tag>AngularJs</tag>
+         
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://qianmeng.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="AngularJs" url="http://qianmeng.github.io/categories/%E5%89%8D%E7%AB%AF/AngularJs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/Apache%20Http%20Server%20%E8%A7%A3%E5%86%B3%E4%B8%8D%E5%90%8C%E5%9F%9F%E5%90%8D%E5%85%B1%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A880%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2016-05-09T14:15:30.709Z</lastmod>
+    <data>
+        <display>
+        <title>Apache Http Server 解决不同域名共用服务器80端口问题</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Apache Http Server</tag>
+         
+        <tag>服务</tag>
+         
+         
+           
+             
+              <breadCrumb title="后台" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/"/>
+          
+             
+              <breadCrumb title="Apache Http Server" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/Apache-Http-Server/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/AngularJs%20&%20JQuery%20%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B9%8B%20input%20hidden%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2016-05-09T14:13:59.687Z</lastmod>
+    <data>
+        <display>
+        <title>AngularJs & JQuery 结合使用存在的问题 之 input hidden 问题解决方案</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>AngularJs</tag>
+         
+        <tag>JavaScript</tag>
          
         <tag>JQuery</tag>
          
@@ -36,7 +98,361 @@
               <breadCrumb title="前端" url="http://qianmeng.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
           
              
-              <breadCrumb title="AngualrJs" url="http://qianmeng.github.io/categories/%E5%89%8D%E7%AB%AF/AngualrJs/"/>
+              <breadCrumb title="AngularJs" url="http://qianmeng.github.io/categories/%E5%89%8D%E7%AB%AF/AngularJs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/Apache%20%20CXF%20%E5%BA%94%E7%94%A8%E5%B0%8F%E7%BB%93/</loc>
+    <lastmod>2016-05-09T14:03:28.899Z</lastmod>
+    <data>
+        <display>
+        <title>Apache  CXF 应用小结</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Apache  CXF</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="后台" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/"/>
+          
+             
+              <breadCrumb title="Apache  CXF" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/Apache-CXF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/itms-services%E5%8D%8F%E8%AE%AE%EF%BC%8C%E4%B8%8D%E9%80%9A%E8%BF%87AppStore%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85IOS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2016-05-09T13:59:51.625Z</lastmod>
+    <data>
+        <display>
+        <title>itms-services协议，不通过AppStore，直接安装IOS应用程序</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>IOS</tag>
+         
+        <tag>协议</tag>
+         
+         
+           
+             
+              <breadCrumb title="IOS" url="http://qianmeng.github.io/categories/IOS/"/>
+          
+             
+              <breadCrumb title="itms-services" url="http://qianmeng.github.io/categories/IOS/itms-services/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/Hibernate%20%E6%98%A0%E5%B0%84%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%ADJson%E5%AD%97%E6%AE%B5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2016-05-09T13:53:04.735Z</lastmod>
+    <data>
+        <display>
+        <title>Hibernate 映射数据库中Json字段的解决方案</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Hibernate</tag>
+         
+        <tag>PostgreSQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="后台" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/"/>
+          
+             
+              <breadCrumb title="Hibernate" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/Hibernate/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/Matlab%E5%A4%84%E7%90%86Timer%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2016-05-09T13:51:26.147Z</lastmod>
+    <data>
+        <display>
+        <title>Matlab处理Timer工具函数</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Matlab</tag>
+         
+        <tag>量化</tag>
+         
+         
+           
+             
+              <breadCrumb title="量化交易" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/"/>
+          
+             
+              <breadCrumb title="Matlab" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/Matlab/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/Matlab%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E8%82%A1%E7%A5%A8%E4%BA%A4%E6%98%93%E6%95%B0%E6%8D%AE%E4%B9%8BTimer%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/</loc>
+    <lastmod>2016-05-09T13:51:02.612Z</lastmod>
+    <data>
+        <display>
+        <title>Matlab实时监控股票交易数据之Timer函数应用实例</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Matlab</tag>
+         
+        <tag>量化</tag>
+         
+         
+           
+             
+              <breadCrumb title="量化交易" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/"/>
+          
+             
+              <breadCrumb title="Matlab" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/Matlab/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/MetaQ%20%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%88%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E6%A1%86%E6%9E%B6%EF%BC%89/</loc>
+    <lastmod>2016-05-09T13:50:16.237Z</lastmod>
+    <data>
+        <display>
+        <title>MetaQ 简单使用（数据同步框架）</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>服务</tag>
+         
+        <tag>MetaQ</tag>
+         
+         
+           
+             
+              <breadCrumb title="后台" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/"/>
+          
+             
+              <breadCrumb title="MetaQ" url="http://qianmeng.github.io/categories/%E5%90%8E%E5%8F%B0/MetaQ/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/PostGreSQL%20-%20%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%EF%BC%88ORDBMS%EF%BC%89%E5%88%9D%E6%8E%A2/</loc>
+    <lastmod>2016-05-09T13:49:26.179Z</lastmod>
+    <data>
+        <display>
+        <title>PostGreSQL - 对象关系数据库系统（ORDBMS）初探</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>PostGreSQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+             
+              <breadCrumb title="PostGreSQL" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostGreSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/PostGreSQL%20%E7%BB%93%E5%90%88%20Hibernate%20%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/</loc>
+    <lastmod>2016-05-09T13:48:40.437Z</lastmod>
+    <data>
+        <display>
+        <title>PostGreSQL 结合 Hibernate 在项目中的使用小结</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Hibernate</tag>
+         
+        <tag>PostGreSQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+             
+              <breadCrumb title="PostGreSQL" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostGreSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/PostGreSQL%20%E4%B8%ADJson%20Array%20%E8%B5%8B%E5%80%BC%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2016-05-09T13:47:52.265Z</lastmod>
+    <data>
+        <display>
+        <title>PostGreSQL 之服务器配置</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>PostGreSQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+             
+              <breadCrumb title="PostGreSQL" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostGreSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/PostGreSQL%20%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2016-05-09T13:47:41.135Z</lastmod>
+    <data>
+        <display>
+        <title>PostGreSQL 中Json Array 赋值方法总结</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>PostGreSQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+             
+              <breadCrumb title="PostGreSQL" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostGreSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/PostGreSQL%20%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC%EF%BC%88.backup%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%EF%BC%89/</loc>
+    <lastmod>2016-05-09T13:46:54.942Z</lastmod>
+    <data>
+        <display>
+        <title>PostGreSQL 自动备份脚本（.backup文件格式）</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>PostGreSQL</tag>
+         
+        <tag>数据库</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+             
+              <breadCrumb title="PostGreSQL" url="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostGreSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/Vollery%20%E6%A1%86%E6%9E%B6%E4%B9%8BStringRequest%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85/</loc>
+    <lastmod>2016-05-09T13:46:09.986Z</lastmod>
+    <data>
+        <display>
+        <title>Vollery 框架之StringRequest二次封装</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Vollery</tag>
+         
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://qianmeng.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="Vollery" url="http://qianmeng.github.io/categories/Android/Vollery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/WEB%20%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88J2EE%E5%BC%80%E5%8F%91%EF%BC%89/</loc>
+    <lastmod>2016-05-09T13:45:16.653Z</lastmod>
+    <data>
+        <display>
+        <title>WEB 面试题（J2EE开发）</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>J2EE</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="http://qianmeng.github.io/categories/Java/"/>
+          
+             
+              <breadCrumb title="面试" url="http://qianmeng.github.io/categories/Java/%E9%9D%A2%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qianmeng.github.io/2016/05/07/%E9%87%91%E8%9E%8D%E5%88%86%E6%9E%90%E4%B9%8B%E8%82%A1%E7%A5%A8%E7%9B%B8%E5%85%B3%E5%8E%86%E5%8F%B2%E6%95%B0%E6%8D%AE%E7%88%AC%E8%99%AB%E5%9C%B0%E5%9D%80/</loc>
+    <lastmod>2016-05-09T13:44:22.116Z</lastmod>
+    <data>
+        <display>
+        <title>金融分析之股票相关历史数据爬虫地址</title>
+        <pubTime>2016-05-07T10:06:50.000Z</pubTime>
+        
+        <tag>Matlab</tag>
+         
+        <tag>股票</tag>
+         
+         
+           
+             
+              <breadCrumb title="量化交易" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/"/>
+          
+             
+              <breadCrumb title="爬虫" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/%E7%88%AC%E8%99%AB/"/>
           
         </display>
     </data>

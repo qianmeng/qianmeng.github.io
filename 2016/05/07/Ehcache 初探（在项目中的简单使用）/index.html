@@ -1,0 +1,764 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Ehcache 初探（在项目中的简单使用） | 钱猛的个人博客</title>
+    <meta name="author" content="钱猛">
+    
+    <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Ehcache 初探（在项目中的简单使用）"/>
+    <meta property="og:site_name" content="钱猛 &amp; 博客"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="钱猛 &amp; 博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<h7>
+			Total:<span id="busuanzi_value_site_pv"></span>. You:<span id="busuanzi_value_site_uv"></span>
+			</h7> 
+			</a> 
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tag "></i>
+                            
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://raw.githubusercontent.com/qianmeng/resources/master/head.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">钱猛</p>
+                        <p class="desc">全栈工程师</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tag "></i>
+                    
+                    标签
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/AngularJs/">
+                    AngularJs <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后台/">
+                    后台 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-CXF/">
+                    Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Ehcache/">
+                    Ehcache <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Hibernate/">
+                    Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/量化交易/">
+                    量化交易 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/Matlab/">
+                    Matlab <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/爬虫/">
+                    爬虫 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/PostGreSQL/">
+                    PostGreSQL <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Vollery/">
+                    Vollery <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Java/">
+                    Java <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Java/面试/">
+                    面试 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IOS/">
+                    IOS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/IOS/itms-services/">
+                    itms-services <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/后台/">后台</a><a class="breadcrumb" href="/categories/后台/Ehcache/">Ehcache</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Ehcache 初探（在项目中的简单使用）</h1>
+    
+
+
+            </div>
+            <i class="fa fa-pencil-square"></i><time class="pink-link-context" datetime="2016-05-07T10:06:50.000Z"><a href="/2016/05/07/Ehcache 初探（在项目中的简单使用）/">2016-05-07</a></time>
+
+			<i class="fa fa-flag"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span> 人点击
+            
+    <div class="tags-row">
+        
+            <a href="/tags/服务/" class="chip pink lighten-1">服务</a>
+        
+            <a href="/tags/Ehcache/" class="chip pink lighten-1">Ehcache</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#前期准备"><span class="section table-of-contents-text">前期准备</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#项目现有环境eclipse开发spring40"><span class="section table-of-contents-text">项目现有环境，eclipse开发，spring4.0</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#ehcachexml文件配置"><span class="section table-of-contents-text">ehcache.xml文件配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#applicationcontext-servicesxml文件配置"><span class="section table-of-contents-text">applicationContext-services.xml文件配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#jobinfocachemanager-文件具体实现"><span class="section table-of-contents-text">JobInfoCacheManager 文件具体实现</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#总结"><span class="section table-of-contents-text">总结</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>&#x6700;&#x8FD1;&#x5728;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;android&#x9879;&#x76EE;&#xFF0C;&#x9879;&#x76EE;&#x662F;&#x9762;&#x5411;&#x5728;&#x6821;&#x5927;&#x5B66;&#x751F;&#x7684;&#xFF0C;&#x636E;&#x8BF4;&#x63A8;&#x5E7F;&#x8D77;&#x6765;&#xFF0C;&#x8BBF;&#x95EE;&#x91CF;&#x5FC5;&#x5C06;&#x5F88;&#x5927;&#xFF0C;&#x9488;&#x5BF9;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x518D;&#x770B;&#x770B;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x6709;&#x7684;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x6846;&#x67B6;&#xFF0C;&#x7ADF;&#x7136;&#x6CA1;&#x6709;&#x9488;&#x5BF9;&#x9AD8;&#x8BBF;&#x95EE;&#x91CF;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x91CC;&#x5FC5;&#x5B9A;&#x7528;&#x5230;&#x7F13;&#x5B58;&#x6280;&#x672F;&#xFF0C;&#x73B0;&#x6709;&#x7684;&#x6846;&#x67B6;&#x4E2D;&#x4E5F;&#x6700;&#x591A;&#x5B58;&#x5728;Hibernate&#x7F13;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x9488;&#x5BF9;&#x6570;&#x636E;&#x5C42;&#x7684;&#x7F13;&#x5B58;&#xFF0C;&#x5FC5;&#x7136;&#x4F1A;&#x7528;&#x5230;Hibernate&#x7684;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#xFF0C;&#x7ADF;&#x7136;&#x6846;&#x67B6;&#x4E2D;&#x8FDE;Hibernate&#x7684;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x90FD;&#x6CA1;&#x7528;&#x8FC7;&#xFF0C;&#x770B;&#x5230;&#x8FD9;&#x4E9B;&#xFF0C;&#x60F3;&#x60F3;&#x4E5F;&#x6CA1;&#x6709;&#x5728;&#x73B0;&#x6709;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x505A;&#x7B80;&#x5355;&#x6269;&#x5C55;&#x7684;&#x5FC5;&#x8981;&#x4E86;&#xFF0C;&#x4E8E;&#x662F;&#x51B3;&#x5B9A;&#x9488;&#x5BF9;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x7F13;&#x5B58;&#x8FD9;&#x5C42;&#x8FDB;&#x884C;&#x7814;&#x7A76;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x4E86;&#x4E0D;&#x5C11;&#x7F13;&#x5B58;&#x6280;&#x672F;&#xFF0C;&#x6709;&#x4E9B;&#x6BD4;&#x8F83;&#x964C;&#x751F;&#xFF0C;&#x6709;&#x4E9B;&#x4E0D;&#x9002;&#x5408;&#x73B0;&#x6709;&#x9879;&#x76EE;&#xFF0C;&#x8FD8;&#x6709;&#x4E9B;&#x4F7F;&#x7528;&#x4E0A;&#x4E0D;&#x662F;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x6700;&#x7EC8;&#x786E;&#x5B9A;&#x9009;&#x62E9;&#x4E86;ehcache&#xFF0C;&#x53D1;&#x73B0;Hibernate&#x7684;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x5C31;&#x662F;&#x4F7F;&#x7528;Ehcache&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4F46;&#x6BD5;&#x7ADF;&#x662F;&#x5D4C;&#x5957;&#x5728;Hibernate&#x6846;&#x67B6;&#x4E2D;&#x7684;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x5C31;&#x5927;&#x6253;&#x6298;&#x6263;&#x4E86;&#xFF0C;&#x4F8B;&#x5982;Hibernate&#x7684;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x5BF9;&#x4E8E;&#x67E5;&#x8BE2;&#x5217;&#x8868;&#x53EA;&#x80FD;&#x9488;&#x5BF9;&#x56FA;&#x5B9A;&#x4E0D;&#x53D8;&#x7684;&#x7ED3;&#x679C;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#xFF0C;&#x53E6;&#x5916;&#x4E0D;&#x652F;&#x6301;&#x5BF9;&#x7F13;&#x5B58;&#x7684;&#x52A8;&#x6001;&#x6DFB;&#x52A0;&#x4FEE;&#x6539;&#xFF0C;Ehcache&#x672C;&#x8EAB;&#x5355;&#x72EC;&#x5C31;&#x662F;&#x5F88;&#x5F3A;&#x5927;&#xFF0C;&#x4E8E;&#x662F;&#x51B3;&#x5B9A;&#x5355;&#x72EC;&#x63D0;&#x51FA;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+<p>Ehcache &#x662F;&#x73B0;&#x5728;&#x6700;&#x6D41;&#x884C;&#x7684;&#x7EAF;Java&#x5F00;&#x6E90;&#x7F13;&#x5B58;&#x6846;&#x67B6;&#xFF0C;&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x3001;&#x7ED3;&#x6784;&#x6E05;&#x6670;&#x3001;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x3002;</p>
+<p>&#x5173;&#x4E8E;Ehcache&#x539F;&#x7406;&#x6027;&#x7684;&#x4E1C;&#x897F;&#x8FD9;&#x8FB9;&#x5C31;&#x4E0D;&#x505A;&#x8BE6;&#x7EC6;&#x7684;&#x8BB0;&#x5F55;&#x4E86;&#xFF0C;&#x6BD5;&#x7ADF;&#x4E5F;&#x662F;&#x521A;&#x521A;&#x63A5;&#x89E6;&#xFF0C;&#x7406;&#x89E3;&#x7684;&#x591A;&#x4F1A;&#x6709;&#x504F;&#x5DEE;&#xFF0C;&#x8BB0;&#x5F55;&#x4E0B;&#x4E00;&#x7BC7;&#x6BD4;&#x8F83;&#x8BE6;&#x7EC6;&#x7684;&#x6587;&#x7AE0;&#x4F9B;&#x4EE5;&#x540E;&#x53C2;&#x8003;&#xFF1A;</p>
+<blockquote>
+<p><a href="http://raychase.iteye.com/blog/1545906" target="_blank" rel="external">http://raychase.iteye.com/blog/1545906</a></p>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x9879;&#x76EE;&#x4E2D;Ehcache&#x7684;&#x7B80;&#x5355;&#x4F7F;&#x7528;&#x3002;<br><a id="more"></a></p>
+<h3 id="&#x524D;&#x671F;&#x51C6;&#x5907;"><a href="#&#x524D;&#x671F;&#x51C6;&#x5907;" class="headerlink" title="&#x524D;&#x671F;&#x51C6;&#x5907;"></a>&#x524D;&#x671F;&#x51C6;&#x5907;</h3><h4 id="&#x9879;&#x76EE;&#x73B0;&#x6709;&#x73AF;&#x5883;eclipse&#x5F00;&#x53D1;spring40"><a href="#&#x9879;&#x76EE;&#x73B0;&#x6709;&#x73AF;&#x5883;&#xFF0C;eclipse&#x5F00;&#x53D1;&#xFF0C;spring4-0" class="headerlink" title="&#x9879;&#x76EE;&#x73B0;&#x6709;&#x73AF;&#x5883;&#xFF0C;eclipse&#x5F00;&#x53D1;&#xFF0C;spring4.0"></a>&#x9879;&#x76EE;&#x73B0;&#x6709;&#x73AF;&#x5883;&#xFF0C;eclipse&#x5F00;&#x53D1;&#xFF0C;spring4.0</h4><p>1&#x3001;&#x4ECE;&#x5B98;&#x7F51;&#x4E0A;&#x4E0B;&#x8F7D;Ehcache&#x6700;&#x65B0;&#x7248;&#x672C;ehcache-2.8.3-distribution&#xFF0C;&#x89E3;&#x538B;&#x6587;&#x4EF6;&#x5C06;lib&#x4E0B;&#x7684;&#x4E09;&#x4E2A;jar&#x5305;  &#x62F7;&#x5230;&#x9879;&#x76EE;&#x4E2D;&#xFF08;&#x660E;&#x663E;&#x770B;&#x5230;&#x6240;&#x9700;jar&#x5305;&#x90FD;&#x5F88;&#x5C0F;&#xFF09;</p>
+<p>2&#x3001;&#x5C06;ehcache.xml&#x6587;&#x4EF6;&#x8003;&#x5230;&#x9879;&#x76EE;src&#x6839;&#x76EE;&#x5F55;&#x4E0B;<br>&#x6587;&#x4EF6;&#x914D;&#x7F6E;</p>
+<h4 id="ehcachexml&#x6587;&#x4EF6;&#x914D;&#x7F6E;"><a href="#ehcache-xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;" class="headerlink" title="ehcache.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;"></a>ehcache.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;</h4><p>&#x589E;&#x52A0;cache&#x8282;&#x70B9;,&#x8FD9;&#x91CC;&#x7531;&#x4E8E;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x8BBE;&#x7F6E;&#x6700;&#x5927;&#x7F13;&#x5B58;&#x6570;&#x91CF;maxElementsInMemory&#x4E3A;100000&#xFF0C;&#x8FC7;&#x671F;&#x8BBE;&#x7F6E;&#x4E3A;&#x6C38;&#x4E0D;&#x8FC7;&#x671F;&#xFF0C;&#x56E0;&#x4E3A;&#x8FC7;&#x671F;&#x6570;&#x636E;&#x9700;&#x624B;&#x52A8;&#x5904;&#x7406;&#xFF0C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;cachename=&quot;jobInfoListCache&quot;</span><br><span class="line">     maxElementsInMemory=&quot;100000&quot; //&#x6700;&#x5927;&#x7F13;&#x5B58;&#x6570;&#x91CF;</span><br><span class="line">     eternal=&quot;true&quot;                 //&#x6C38;&#x4E0D;&#x8FC7;&#x671F;&#xFF0C;&#x624B;&#x52A8;&#x5904;&#x7406;&#x8FC7;&#x671F;&#x6570;&#x636E;</span><br><span class="line">     overflowToDisk=&quot;false&quot;&gt;       //&#x5185;&#x5B58;&#x8D85;&#x51FA;&#x65F6;&#x4E0D;&#x653E;&#x5230;&#x78C1;&#x76D8;</span><br><span class="line">        &lt;searchableallowDynamicIndexing=&quot;true&quot;&gt;</span><br><span class="line">        &lt;searchAttributename=&quot;positionTitle&quot;expression=&quot;value.getPositionTitle()&quot;/&gt;</span><br><span class="line">           &lt;searchAttributename=&quot;cityCode&quot; expression=&quot;value.getCityCode()&quot;/&gt;</span><br><span class="line">           &lt;searchAttributename=&quot;distinctCode&quot;expression=&quot;value.getDistinctCode()&quot;/&gt;</span><br><span class="line">           &lt;searchAttributename=&quot;positionTypeId&quot;expression=&quot;value.getPositionTypeId()&quot;/&gt;</span><br><span class="line">           &lt;searchAttributename=&quot;releaseTime&quot;expression=&quot;value.getReleaseTime()&quot;/&gt;</span><br><span class="line">        &lt;/searchable&gt;</span><br><span class="line">&lt;/cache&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="applicationcontext-servicesxml&#x6587;&#x4EF6;&#x914D;&#x7F6E;"><a href="#applicationContext-services-xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;" class="headerlink" title="applicationContext-services.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;"></a>applicationContext-services.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;</h4><!--缓存配置 -->
+<pre><code>&lt;beanid=&quot;cacheManager&quot;
+   class=&quot;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&quot;&gt;
+   &lt;propertyname=&quot;configLocation&quot;value=&quot;classpath:ehcache.xml&quot;/&gt;
+    &lt;propertyname=&quot;shared&quot; value=&quot;true&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- &#x914D;&#x7F6E;&#x4E00;&#x4E2A;&#x7F13;&#x5B58;&#x5904;&#x7406;&#x63A5;&#x53E3;&#x7C7B;--&gt;
+&lt;beanid=&quot;jobInfoCacheManager&quot;class=&quot;com.quangao.service.cacheManager.JobInfoCacheManager&quot;&gt;
+    &lt;propertyname=&quot;cacheManager&quot;ref=&quot;cacheManager&quot;/&gt;
+    &lt;propertyname=&quot;_dao&quot; ref=&quot;GenericDao&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><h4 id="jobinfocachemanager-&#x6587;&#x4EF6;&#x5177;&#x4F53;&#x5B9E;&#x73B0;"><a href="#JobInfoCacheManager-&#x6587;&#x4EF6;&#x5177;&#x4F53;&#x5B9E;&#x73B0;" class="headerlink" title="JobInfoCacheManager &#x6587;&#x4EF6;&#x5177;&#x4F53;&#x5B9E;&#x73B0;"></a>JobInfoCacheManager &#x6587;&#x4EF6;&#x5177;&#x4F53;&#x5B9E;&#x73B0;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br></pre></td><td class="code"><pre><span class="line">package com.quangao.service.cacheManager;</span><br><span class="line"> </span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"> </span><br><span class="line">import net.sf.ehcache.Cache;</span><br><span class="line">import net.sf.ehcache.CacheManager;</span><br><span class="line">import net.sf.ehcache.Element;</span><br><span class="line">import net.sf.ehcache.search.Attribute;</span><br><span class="line">import net.sf.ehcache.search.Direction;</span><br><span class="line">import net.sf.ehcache.search.Query;</span><br><span class="line">import net.sf.ehcache.search.Result;</span><br><span class="line">import net.sf.ehcache.search.Results;</span><br><span class="line"> </span><br><span class="line">import com.quangao.dao.generic.GenericDao;</span><br><span class="line">import com.quangao.model.Enum.EnumStatusType;</span><br><span class="line">import com.quangao.model.jobposition.TJobPosition;</span><br><span class="line">import com.quangao.util.StringUtil;</span><br><span class="line"> </span><br><span class="line">public class JobInfoCacheManager {</span><br><span class="line"> </span><br><span class="line">    private CacheManagercacheManager;</span><br><span class="line"> </span><br><span class="line">    private GenericDao       _dao;</span><br><span class="line"> </span><br><span class="line">    private final   String          attrNames[]  = {&quot;positionTitle&quot;, &quot;cityCode&quot;,&quot;distinctCode&quot;,&quot;positionTypeId&quot;, &quot;releaseTime&quot; };</span><br><span class="line">    /**</span><br><span class="line">     * &#x83B7;&#x53D6;&#x804C;&#x4F4D;&#x5217;&#x8868;</span><br><span class="line">     *</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public List&lt;TJobPosition&gt; getTJobPositions()</span><br><span class="line">    {</span><br><span class="line">       String hql = &quot;fromTJobPosition where 1=1 and handleStatusId=&apos;&quot;</span><br><span class="line">              + EnumStatusType.FB.getKey() +&quot;&apos; order by releaseTime desc&quot;;</span><br><span class="line">       return_dao.getHql(hql);</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     *</span><br><span class="line">     * &#x521D;&#x59CB;&#x5316;&#x804C;&#x4F4D;&#x5217;&#x8868;&#x7F13;&#x5B58;</span><br><span class="line">     *</span><br><span class="line">     */</span><br><span class="line">    public void initJobInfoCache()</span><br><span class="line">    {</span><br><span class="line">       Cache cache = cacheManager.getCache(&quot;jobInfoListCache&quot;);</span><br><span class="line">       // &#x521D;&#x59CB;&#x5316;&#x5217;&#x8868;&#x6570;&#x636E;</span><br><span class="line">       List&lt;TJobPosition&gt; jobPositions = getTJobPositions();</span><br><span class="line">       if (jobPositions !=null &amp;&amp; jobPositions.size() &gt; 0)</span><br><span class="line">       {</span><br><span class="line">           TJobPosition tJobPosition = null;</span><br><span class="line">           for (int i = 0; i &lt; jobPositions.size(); i++)</span><br><span class="line">           {</span><br><span class="line">              tJobPosition = jobPositions.get(i);</span><br><span class="line">              Element element = new Element(tJobPosition.getId(),</span><br><span class="line">                     tJobPosition);</span><br><span class="line">              cache.put(element);</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line"> </span><br><span class="line">       // &#x52A8;&#x6001;&#x6CE8;&#x518C;&#x641C;&#x7D22;&#x9879;&#xFF0C;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x7814;&#x7A76;&#x4E2D;</span><br><span class="line">       //cache.registerDynamicAttributesExtractor(new</span><br><span class="line">       //DynamicAttributesExtractor() {</span><br><span class="line">       // public Map&lt;String,Object&gt; attributesFor(Element element) {</span><br><span class="line">       // Map&lt;String, Object&gt; attrs= new HashMap&lt;String, Object&gt;();</span><br><span class="line">       // TJobPosition value =(TJobPosition)element.getObjectValue();</span><br><span class="line">       // attrs.put(attrNames[0],value.getPositionTitle());</span><br><span class="line">       // attrs.put(attrNames[1],value.getCityCode());</span><br><span class="line">       // attrs.put(attrNames[2],value.getDistinctCode());</span><br><span class="line">       // attrs.put(attrNames[3],value.getPositionTypeId());</span><br><span class="line">       // return attrs;</span><br><span class="line">       // }</span><br><span class="line">       // });</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * &#x589E;&#x52A0;&#x804C;&#x4F4D;&#x7F13;&#x5B58;</span><br><span class="line">     *</span><br><span class="line">     * @param tJobPosition</span><br><span class="line">     */</span><br><span class="line">    public void addJobInfoCache(TJobPosition tJobPosition)</span><br><span class="line">    {</span><br><span class="line">       Cache cache = cacheManager.getCache(&quot;jobInfoListCache&quot;);</span><br><span class="line">       if (tJobPosition !=null)</span><br><span class="line">       {</span><br><span class="line">           Element element = new Element(tJobPosition.getId(), tJobPosition);</span><br><span class="line">           cache.put(element);</span><br><span class="line">       }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * &#x4FEE;&#x6539;&#x804C;&#x4F4D;&#x7F13;&#x5B58;</span><br><span class="line">     *</span><br><span class="line">     * @param tJobPosition</span><br><span class="line">     */</span><br><span class="line">    public void updateJobInfoCache(TJobPosition tJobPosition)</span><br><span class="line">    {</span><br><span class="line">       Cache cache = cacheManager.getCache(&quot;jobInfoListCache&quot;);</span><br><span class="line">       if (tJobPosition !=null)</span><br><span class="line">       {</span><br><span class="line">           // &#x76F8;&#x540C;key&#x503C;&#xFF0C;&#x5185;&#x5BB9;&#x4F1A;&#x88AB;&#x8986;&#x76D6;</span><br><span class="line">           Element element = new Element(tJobPosition.getId(), tJobPosition);</span><br><span class="line">           cache.put(element);</span><br><span class="line">       }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * &#x79FB;&#x9664;&#x804C;&#x4F4D;&#x7F13;&#x5B58;</span><br><span class="line">     *</span><br><span class="line">     * @param tJobPosition</span><br><span class="line">     */</span><br><span class="line">    public void removeJobInfoCache(TJobPosition tJobPosition)</span><br><span class="line">    {</span><br><span class="line">       Cache cache = cacheManager.getCache(&quot;jobInfoListCache&quot;);</span><br><span class="line">       if (tJobPosition !=null)</span><br><span class="line">       {</span><br><span class="line">           cache.remove(tJobPosition.getId());</span><br><span class="line">       }</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    /**</span><br><span class="line">     * &#x6839;&#x636E;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x7F13;&#x5B58;&#x5217;&#x8868;</span><br><span class="line">     *</span><br><span class="line">     * @param cityCode</span><br><span class="line">     * @param areaCode</span><br><span class="line">     * @param typeCode</span><br><span class="line">     * @param firstResult</span><br><span class="line">     * @param maxResult</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public List&lt;TJobPosition&gt;getJobPositionsByCondition(String positionTitle,</span><br><span class="line">           String cityCode, String areaCode, String typeCode,</span><br><span class="line">           Integer firstResult, Integer maxResult)</span><br><span class="line">    {</span><br><span class="line">       Cache cache = cacheManager.getCache(&quot;jobInfoListCache&quot;);</span><br><span class="line">       List&lt;TJobPosition&gt; listTJobPositions = newArrayList&lt;TJobPosition&gt;();</span><br><span class="line"> </span><br><span class="line">      </span><br><span class="line">       /**</span><br><span class="line">        *</span><br><span class="line">        * &#x8FD9;&#x662F;&#x65B0;&#x7248;&#x672C;&#x7684;&#x5F3A;&#x5927;&#x4E4B;&#x5904;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x7F13;&#x5B58;&#x503C;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x5728;ehcache.xml&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x503C;&#x5BF9;&#x8C61;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;&#x641C;&#x7D22;&#x9879;</span><br><span class="line">        *&lt;searchableallowDynamicIndexing=&quot;true&quot;&gt;</span><br><span class="line">            &lt;searchAttributename=&quot;positionTitle&quot;expression=&quot;value.getPositionTitle()&quot;/&gt;</span><br><span class="line">              &lt;searchAttribute name=&quot;cityCode&quot;expression=&quot;value.getCityCode()&quot;/&gt;</span><br><span class="line">              &lt;searchAttribute name=&quot;distinctCode&quot;expression=&quot;value.getDistinctCode()&quot;/&gt;</span><br><span class="line">              &lt;searchAttribute name=&quot;positionTypeId&quot;expression=&quot;value.getPositionTypeId()&quot;/&gt;</span><br><span class="line">              &lt;searchAttribute name=&quot;releaseTime&quot;expression=&quot;value.getReleaseTime()&quot;/&gt;</span><br><span class="line">      &lt;/searchable&gt;</span><br><span class="line">        */</span><br><span class="line">       Attribute&lt;String&gt; positionTitlet = cache</span><br><span class="line">              .getSearchAttribute(attrNames[0]);</span><br><span class="line">       Attribute&lt;String&gt; cityCodet = cache.getSearchAttribute(attrNames[1]);</span><br><span class="line">       Attribute&lt;String&gt; areaCodet = cache.getSearchAttribute(attrNames[2]);</span><br><span class="line">       Attribute&lt;String&gt; typeCodet = cache.getSearchAttribute(attrNames[3]);</span><br><span class="line">       Attribute&lt;String&gt; releaseTime =cache.getSearchAttribute(attrNames[4]);</span><br><span class="line">       // &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x96C6;</span><br><span class="line">       Results results = null;</span><br><span class="line">       // &#x65B0;&#x5EFA;&#x7F13;&#x5B58;&#x503C;&#x67E5;&#x8BE2;</span><br><span class="line">       Query query = cache.createQuery().includeValues();</span><br><span class="line">       // &#x6839;&#x636E;&#x6761;&#x4EF6;&#x7D22;&#x5F15;</span><br><span class="line">       if (StringUtil.isNotBlankOrNull(positionTitle))</span><br><span class="line">       {</span><br><span class="line">           query.addCriteria(positionTitlet.ilike(&quot;*&quot; +positionTitle +&quot;*&quot;));</span><br><span class="line">       }</span><br><span class="line">       if (StringUtil.isNotBlankOrNull(cityCode))</span><br><span class="line">       {</span><br><span class="line">           query.addCriteria(cityCodet.eq(cityCode));</span><br><span class="line">       }</span><br><span class="line">       if (StringUtil.isNotBlankOrNull(areaCode))</span><br><span class="line">       {</span><br><span class="line">           query.addCriteria(areaCodet.eq(areaCode));</span><br><span class="line">       }</span><br><span class="line">       if (StringUtil.isNotBlankOrNull(typeCode))</span><br><span class="line">       {</span><br><span class="line">           query.addCriteria(typeCodet.eq(typeCode));</span><br><span class="line">       }</span><br><span class="line">       // &#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x6392;&#x5E8F;</span><br><span class="line">       query.addOrderBy(releaseTime, Direction.DESCENDING).end();</span><br><span class="line">       results = query.execute();</span><br><span class="line">       // &#x5206;&#x9875;&#x67E5;&#x627E;</span><br><span class="line">       // List&lt;Result&gt;listreResults = results.all();</span><br><span class="line">       List&lt;Result&gt; listreResults = results.range(firstResult,maxResult);</span><br><span class="line"> </span><br><span class="line">       // &#x5C06;&#x7ED3;&#x679C;&#x5C01;&#x88C5;&#x6210;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;</span><br><span class="line">       if (listreResults !=null &amp;&amp; listreResults.size() &gt; 0)</span><br><span class="line">       {</span><br><span class="line">           Result result = null;</span><br><span class="line">           for (int i = 0; i &lt; listreResults.size(); i++)</span><br><span class="line">           {</span><br><span class="line">              result = listreResults.get(i);</span><br><span class="line"> </span><br><span class="line">              System.out.println(&quot;+++++++++++&quot; + result.toString());</span><br><span class="line"> </span><br><span class="line">              listTJobPositions.add((TJobPosition)result.getValue());</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">       System.out.println(&quot;===============&quot; + results.size());</span><br><span class="line">       return listTJobPositions;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    public GenericDao get_dao()</span><br><span class="line">    {</span><br><span class="line">       return_dao;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    public void set_dao(GenericDao dao)</span><br><span class="line">    {</span><br><span class="line">       _dao = dao;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    public CacheManager getCacheManager()</span><br><span class="line">    {</span><br><span class="line">       returncacheManager;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    public void setCacheManager(CacheManager cacheManager)</span><br><span class="line">    {</span><br><span class="line">       this.cacheManager = cacheManager;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h3><pre><code>&#x770B;&#x4E86;Ehcache&#x7684;&#x76F8;&#x5173;&#x6587;&#x6863;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x5176;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#xFF0C;&#x800C;&#x4E14;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x771F;&#x5BF9;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x7279;&#x5B9A;&#x9700;&#x6C42;&#x505A;&#x4E86;&#x7B80;&#x5355;&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x5173;&#x4E8E;&#x6027;&#x80FD;&#x53C2;&#x6570;&#x8C03;&#x4F18;&#x8FD8;&#x6709;&#x5F85;&#x4F18;&#x5316;&#x5B8C;&#x5584;&#xFF0C;&#x540E;&#x671F;&#x53EF;&#x80FD;&#x4F1A;&#x7528;&#x5230;&#x5206;&#x5E03;&#x5F0F;&#xFF0C;&#x96C6;&#x7FA4;&#x7B49;&#x5E94;&#x7528;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x518D;&#x8FDB;&#x884C;&#x603B;&#x7ED3;&#x5B66;&#x4E60;&#x3002;
+</code></pre>
+            </div>
+        </div>
+    </div>
+</article>  
+
+
+
+
+<div class="card"> 
+	 <nav id="pagination" >
+		
+		<a href="/2016/05/07/Apache Http Server 解决不同域名共用服务器80端口问题/" >&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-left"></i>&nbsp;&nbsp;上一页</a>
+		
+		
+		<a href="/2016/05/07/Hibernate 映射数据库中Json字段的解决方案/" >&nbsp;&nbsp;&nbsp;&nbsp;下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		
+		<div class="clearfix"></div>
+	</nav> 
+	</div>
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/05/07/Ehcache 初探（在项目中的简单使用）/" data-title="Ehcache 初探（在项目中的简单使用）" data-url="http://qianmeng.github.io/2016/05/07/Ehcache 初探（在项目中的简单使用）/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="http://weibo.com/u/1819068247" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qian_meng" target="_blank">CSDN 地址</a>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">Github地址</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016  All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动</p>
+        </div>
+    </div>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal();
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56073371" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"145"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</body>
+</html>
