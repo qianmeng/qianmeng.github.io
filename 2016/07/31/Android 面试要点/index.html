@@ -1,0 +1,881 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Android 面试要点 | 钱猛的个人博客</title>
+    <meta name="author" content="钱猛">
+    
+    <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Android 面试要点"/>
+    <meta property="og:site_name" content="钱猛 &amp; 博客"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="钱猛 &amp; 博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<span style="color:#E91E63;font-size:18px;">
+			<i class="fa fa-flag"></i><span id="busuanzi_value_site_pv"></span>. 
+			<i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span>
+			</span> 
+			</a> 
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tag "></i>
+                            
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://raw.githubusercontent.com/qianmeng/resources/master/head.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">钱猛</p>
+                        <p class="desc">全栈工程师</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tag "></i>
+                    
+                    标签
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/面试/">
+                    面试 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/web/">
+                    web <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/前端/">
+                    前端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后台/">
+                    后台 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Hibernate/">
+                    Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-CXF/">
+                    Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Ehcache/">
+                    Ehcache <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/AngularJs/">
+                    AngularJs <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/量化交易/">
+                    量化交易 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/Matlab/">
+                    Matlab <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/爬虫/">
+                    爬虫 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/PostGreSQL/">
+                    PostGreSQL <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Vollery/">
+                    Vollery <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/总结/">
+                    总结 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/编程经验/">
+                    编程经验 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IOS/">
+                    IOS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/IOS/itms-services/">
+                    itms-services <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/微信/">
+                    微信 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/微信/帐号区别/">
+                    帐号区别 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/架构/">
+                    架构 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/架构/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/面试/">面试</a><a class="breadcrumb" href="/categories/面试/Android/">Android</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Android 面试要点</h1>
+    
+
+
+            </div>
+            <i class="fa fa-pencil-square"></i><time class="pink-link-context" datetime="2016-07-31T10:06:50.000Z"><a href="/2016/07/31/Android 面试要点/">2016-07-31</a></time>
+
+			<i class="fa fa-flag"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span> 人点击
+            
+    <div class="tags-row">
+        
+            <a href="/tags/面试/" class="chip pink lighten-1">面试</a>
+        
+            <a href="/tags/Android/" class="chip pink lighten-1">Android</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#java技术"><span class="section table-of-contents-text">Java技术</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#java基础"><span class="section table-of-contents-text">Java基础</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#集合类"><span class="section table-of-contents-text">集合类</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#多线程相关"><span class="section table-of-contents-text">多线程相关</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#字符"><span class="section table-of-contents-text">字符</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#注解"><span class="section table-of-contents-text">注解</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#android技术"><span class="section table-of-contents-text">Android技术</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#android基础"><span class="section table-of-contents-text">Android基础</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#resource相关"><span class="section table-of-contents-text">Resource相关</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#虚拟机"><span class="section table-of-contents-text">虚拟机</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#view相关"><span class="section table-of-contents-text">View相关</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#动画"><span class="section table-of-contents-text">动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#图片处理"><span class="section table-of-contents-text">图片处理</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#项目经验"><span class="section table-of-contents-text">项目经验</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#开发工具"><span class="section table-of-contents-text">开发工具</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#项目工程"><span class="section table-of-contents-text">项目工程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#开放平台"><span class="section table-of-contents-text">开放平台</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#设计相关"><span class="section table-of-contents-text">设计相关</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <blockquote>
+<p>&#x672C;&#x6587;&#x662F;&#x5728;CSDN&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E0D;&#x9519;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x5C5E;&#x4E8E;&#x8F6C;&#x8F7D;&#x3002;</p>
+</blockquote>
+<p>&#x6574;&#x4E2A;&#x9762;&#x8BD5;&#x9898;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;Java&#x3001;Android&#x548C;&#x9879;&#x76EE;&#x7ECF;&#x9A8C;&#x3002;</p>
+<h3 id="java&#x6280;&#x672F;"><a href="#Java&#x6280;&#x672F;" class="headerlink" title="Java&#x6280;&#x672F;"></a>Java&#x6280;&#x672F;</h3><h4 id="java&#x57FA;&#x7840;"><a href="#Java&#x57FA;&#x7840;" class="headerlink" title="Java&#x57FA;&#x7840;"></a>Java&#x57FA;&#x7840;</h4><p>1.&#x5BF9;&#x62BD;&#x8C61;&#x3001;&#x7EE7;&#x627F;&#x3001;&#x591A;&#x6001;&#x7684;&#x7406;&#x89E3;</p>
+<p>2.&#x6CDB;&#x578B;&#x7684;&#x4F5C;&#x7528;&#x53CA;&#x4F7F;&#x7528;&#x573A;&#x666F;</p>
+<p>3.&#x679A;&#x4E3E;&#x7684;&#x7279;&#x70B9;&#x53CA;&#x4F7F;&#x7528;&#x573A;&#x666F;</p>
+<p>4.&#x7EBF;&#x7A0B;sleep&#x548C;wait&#x7684;&#x533A;&#x522B;</p>
+<p>5.JAVA&#x53CD;&#x5C04;&#x673A;&#x5236;</p>
+<p>6.weak/soft/strong&#x5F15;&#x7528;&#x7684;&#x533A;&#x522B;</p>
+<p>7.Object&#x7684;hashCode()&#x4E0E;equals()&#x7684;&#x533A;&#x522B;&#x548C;&#x4F5C;&#x7528;</p>
+<h4 id="&#x96C6;&#x5408;&#x7C7B;"><a href="#&#x96C6;&#x5408;&#x7C7B;" class="headerlink" title="&#x96C6;&#x5408;&#x7C7B;"></a>&#x96C6;&#x5408;&#x7C7B;</h4><p>1.JAVA&#x5E38;&#x7528;&#x96C6;&#x5408;&#x7C7B;&#x529F;&#x80FD;&#x3001;&#x533A;&#x522B;&#x548C;&#x6027;&#x80FD;  </p>
+<p>2.&#x5E76;&#x53D1;&#x76F8;&#x5173;&#x7684;&#x96C6;&#x5408;&#x7C7B;  </p>
+<p>3.&#x90E8;&#x5206;&#x5E38;&#x7528;&#x96C6;&#x5408;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<h4 id="&#x591A;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;"><a href="#&#x591A;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;" class="headerlink" title="&#x591A;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;"></a>&#x591A;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;</h4><p>1.Thread&#x3001;Runnable&#x3001;Callable&#x3001;Futrue&#x7C7B;&#x5173;&#x7CFB;&#x4E0E;&#x533A;&#x522B;</p>
+<p>2.JDK&#x4E2D;&#x9ED8;&#x8BA4;&#x63D0;&#x4F9B;&#x4E86;&#x54EA;&#x4E9B;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x6709;&#x4F55;&#x533A;&#x522B;</p>
+<p>3.&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x6709;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5206;&#x522B;&#x9610;&#x8FF0;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x7528;&#x6CD5;</p>
+<p>4.&#x5728;&#x7406;&#x89E3;&#x9ED8;&#x8BA4;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7EBF;&#x7A0B;&#x6C60;</p>
+<h4 id="&#x5B57;&#x7B26;"><a href="#&#x5B57;&#x7B26;" class="headerlink" title="&#x5B57;&#x7B26;"></a>&#x5B57;&#x7B26;</h4><p>1.String&#x7684;&#x4E0D;&#x53EF;&#x53D8;&#x6027;</p>
+<p>2.StringBuilder&#x548C;StringBuffer&#x7684;&#x533A;&#x522B;</p>
+<p>3.&#x5B57;&#x7B26;&#x96C6;&#x7684;&#x7406;&#x89E3;&#xFF1A;Unicode&#x3001;UTF-8&#x3001;GB2312&#x7B49; </p>
+<p>4.&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x76F8;&#x5173;&#x95EE;&#x9898;</p>
+<h4 id="&#x6CE8;&#x89E3;"><a href="#&#x6CE8;&#x89E3;" class="headerlink" title="&#x6CE8;&#x89E3;"></a>&#x6CE8;&#x89E3;</h4><p>1.&#x6CE8;&#x89E3;&#x7684;&#x4F7F;&#x7528; </p>
+<p>2.&#x6CE8;&#x89E3;&#x7684;&#x7EA7;&#x522B;&#x53CA;&#x610F;&#x4E49;  </p>
+<p>3.&#x5982;&#x4F55;&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</p>
+<h3 id="android&#x6280;&#x672F;"><a href="#Android&#x6280;&#x672F;" class="headerlink" title="Android&#x6280;&#x672F;"></a>Android&#x6280;&#x672F;</h3><h4 id="android&#x57FA;&#x7840;"><a href="#Android&#x57FA;&#x7840;" class="headerlink" title="Android&#x57FA;&#x7840;"></a>Android&#x57FA;&#x7840;</h4><p>1.&#x56DB;&#x5927;&#x7EC4;&#x4EF6;&#x7684;&#x610F;&#x4E49;&#x53CA;&#x4F7F;&#x7528;&#xFF0C;&#x751F;&#x547D;&#x5468;&#x671F;&#x56DE;&#x8C03;&#x53CA;&#x610F;&#x4E49;</p>
+<p>2.AsyncTask&#x3001;Handler&#x7684;&#x4F7F;&#x7528;</p>
+<p>3.Android&#x7CFB;&#x7EDF;&#x5C42;&#x6B21;&#x6846;&#x67B6;&#x7ED3;&#x6784;</p>
+<p>4.AsyncTask&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<p>5.AsyncTask&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;&#x4EC0;&#x4E48;</p>
+<p>6.Android&#x5E38;&#x89C1;&#x7684;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;</p>
+<p>7.Looper&#x3001;Handler&#x548C;MessageQueue&#x7684;&#x5173;&#x7CFB;  </p>
+<p>8.Activity&#x7684;&#x542F;&#x52A8;&#x6D41;&#x7A0B;&#xFF08;&#x8003;&#x5BDF;&#x5BF9;Framwork&#x7684;&#x719F;&#x6089;&#x7A0B;&#x5EA6;&#xFF09;</p>
+<p>9.&#x591A;&#x8FDB;&#x7A0B;&#x5F00;&#x53D1;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;(Application&#x7C7B;&#x533A;&#x5206;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FDB;&#x7A0B;&#x95F4;&#x5185;&#x5B58;&#x4E0D;&#x53EF;&#x89C1;&#x3001;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x8BAF;&#x65B9;&#x5F0F;)</p>
+<h4 id="resource&#x76F8;&#x5173;"><a href="#Resource&#x76F8;&#x5173;" class="headerlink" title="Resource&#x76F8;&#x5173;"></a>Resource&#x76F8;&#x5173;</h4><p>1..9&#x56FE;&#x7247;&#x7684;&#x610F;&#x4E49;</p>
+<p>2.style&#x548C;theme&#x7684;&#x4F5C;&#x7528;&#x53CA;&#x7528;&#x6CD5;</p>
+<p>3.dpi&#x3001;sp&#x3001;px&#x7684;&#x533A;&#x522B;&#x4EE5;&#x53CA;&#x8F6C;&#x6362;&#x5173;&#x7CFB;</p>
+<p>4.raw&#x548C;assets&#x6587;&#x4EF6;&#x5939;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x4E8C;&#x8005;&#x6709;&#x4F55;&#x533A;&#x522B;</p>
+<p>5.Android&#x7CFB;&#x7EDF;&#x5982;&#x4F55;&#x5728;&#x591A;&#x4E2A;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x67E5;&#x627E;&#x5339;&#x914D;&#x6700;&#x5408;&#x9002;&#x7684;&#x8D44;&#x6E90;</p>
+<h4 id="&#x865A;&#x62DF;&#x673A;"><a href="#&#x865A;&#x62DF;&#x673A;" class="headerlink" title="&#x865A;&#x62DF;&#x673A;"></a>&#x865A;&#x62DF;&#x673A;</h4><p>1.Java&#x5185;&#x5B58;&#x6A21;&#x578B; </p>
+<p>2.Android&#x865A;&#x62DF;&#x673A;&#x7684;&#x7279;&#x70B9;</p>
+<p>3.Dalvik&#x548C;Art&#x7684;&#x533A;&#x522B;</p>
+<p>4.&#x719F;&#x6089;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#xFF0C;&#x4E86;&#x89E3;&#x865A;&#x62DF;&#x673A;&#x7684;GC&#x7C7B;&#x578B;</p>
+<h4 id="view&#x76F8;&#x5173;"><a href="#View&#x76F8;&#x5173;" class="headerlink" title="View&#x76F8;&#x5173;"></a>View&#x76F8;&#x5173;</h4><p>1.&#x5E38;&#x7528;&#x7EC4;&#x4EF6;&#x7684;&#x4F7F;&#x7528;&#xFF1A;ListView&#x3001;RecyclerView&#x53CA;Adapter&#x7684;&#x4F7F;&#x7528;</p>
+<p>2.View&#x4E4B;&#x95F4;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;</p>
+<p>3.Invalidate&#x4E0E;postInvalidate&#x7684;&#x533A;&#x522B;</p>
+<p>4.&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;(&#x6839;&#x636E;&#x9879;&#x76EE;&#x7ECF;&#x9A8C;&#x8BE2;&#x95EE;&#x76F8;&#x5173;&#x7EC4;&#x4EF6;)&#x3002;</p>
+<p>5.onMeasure/onLayout/onDraw&#x7684;&#x4F5C;&#x7528;</p>
+<p>6.Paint&#x3001;Matrix&#x3001;Shader&#x7B49;&#x7ED8;&#x5236;&#x76F8;&#x5173;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;</p>
+<p>7.&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;</p>
+<h4 id="&#x52A8;&#x753B;"><a href="#&#x52A8;&#x753B;" class="headerlink" title="&#x52A8;&#x753B;"></a>&#x52A8;&#x753B;</h4><p>1.Android&#x6709;&#x54EA;&#x4E9B;&#x52A8;&#x753B;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F; </p>
+<p>2.Interpolator&#x7C7B;&#x7684;&#x610F;&#x4E49;&#x548C;&#x5E38;&#x7528;&#x7684;Interpolator</p>
+<p>3.ViewAnimation&#x4E0E;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;</p>
+<p>4.&#x5982;&#x4F55;&#x81EA;&#x5B9A;&#x4E49;ViewAnimation</p>
+<p>5.&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;</p>
+<h4 id="&#x56FE;&#x7247;&#x5904;&#x7406;"><a href="#&#x56FE;&#x7247;&#x5904;&#x7406;" class="headerlink" title="&#x56FE;&#x7247;&#x5904;&#x7406;"></a>&#x56FE;&#x7247;&#x5904;&#x7406;</h4><p>1.&#x4E00;&#x822C;&#x9879;&#x76EE;&#x4E2D;&#x5982;&#x4F55;&#x52A0;&#x8F7D;&#x5927;&#x56FE;</p>
+<p>2.&#x56FE;&#x7247;&#x538B;&#x7F29;&#x7684;&#x65B9;&#x5F0F;</p>
+<p>3.&#x5982;&#x4F55;&#x4E0D;&#x538B;&#x7F29;&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x9AD8;&#x6E05;&#x56FE;</p>
+<p>4.&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x8FD9;&#x4E2A;&#x7F13;&#x5B58;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x4EC0;&#x4E48;</p>
+<p>5.&#x8C08;&#x8C08;&#x81EA;&#x5DF1;&#x719F;&#x6089;&#x7684;&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x6846;&#x67B6;</p>
+<h3 id="&#x9879;&#x76EE;&#x7ECF;&#x9A8C;"><a href="#&#x9879;&#x76EE;&#x7ECF;&#x9A8C;" class="headerlink" title="&#x9879;&#x76EE;&#x7ECF;&#x9A8C;"></a>&#x9879;&#x76EE;&#x7ECF;&#x9A8C;</h3><h4 id="&#x5F00;&#x53D1;&#x5DE5;&#x5177;"><a href="#&#x5F00;&#x53D1;&#x5DE5;&#x5177;" class="headerlink" title="&#x5F00;&#x53D1;&#x5DE5;&#x5177;"></a>&#x5F00;&#x53D1;&#x5DE5;&#x5177;</h4><p>1.&#x4EE3;&#x7801;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF1A;SVN&#x3001;Git</p>
+<p>2.&#x5E38;&#x7528;&#x7684;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;:Hierarchy Viewer&#x3001;DDMS&#x7B49;</p>
+<p>3.CI&#x5DE5;&#x5177;&#xFF1A;Lint&#x68C0;&#x67E5;&#xFF0C;FindBugs&#x3001;Jenkins</p>
+<p>4.&#x5185;&#x5B58;&#x5206;&#x6790;&#x5DE5;&#x5177;&#xFF1A;dumpsys&#x3001;memoinfo&#x3001;MAT</p>
+<h4 id="&#x9879;&#x76EE;&#x5DE5;&#x7A0B;"><a href="#&#x9879;&#x76EE;&#x5DE5;&#x7A0B;" class="headerlink" title="&#x9879;&#x76EE;&#x5DE5;&#x7A0B;"></a>&#x9879;&#x76EE;&#x5DE5;&#x7A0B;</h4><p>1.APP&#x66F4;&#x65B0;&#x7B56;&#x7565;&#xFF1A;&#x63A8;&#x9001;&#x6216;&#x8005;&#x62C9;&#x53D6;&#xFF1F;</p>
+<p>2.&#x5982;&#x4F55;&#x7EDF;&#x4E00;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x5D29;&#x6E83;</p>
+<p>3.&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x7528;&#x6237;&#x884C;&#x4E3A;&#x6536;&#x96C6;</p>
+<p>4.&#x65E5;&#x5FD7;&#x7BA1;&#x7406;&#x6709;&#x54EA;&#x4E9B;&#x8981;&#x70B9;&#xFF1F;(Debug&#x5305;&#x5F00;&#x653E;&#xFF0C;release&#x5305;&#x5173;&#x95ED;&#xFF0C;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x53CD;&#x9988;)</p>
+<p>5.&#x6253;&#x5305;&#x65B9;&#x5F0F;Ant&#x3001;Maven&#x3001;Gradle</p>
+<p>6.&#x673A;&#x578B;&#x9002;&#x914D;&#x60C5;&#x51B5;</p>
+<h4 id="&#x5F00;&#x653E;&#x5E73;&#x53F0;"><a href="#&#x5F00;&#x653E;&#x5E73;&#x53F0;" class="headerlink" title="&#x5F00;&#x653E;&#x5E73;&#x53F0;"></a>&#x5F00;&#x653E;&#x5E73;&#x53F0;</h4><p>1.&#x662F;&#x5426;&#x4F7F;&#x7528;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x5E73;&#x53F0;  </p>
+<p>2.&#x5E38;&#x7528;&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x7684;&#x719F;&#x6089;&#x5EA6;(&#x5FAE;&#x4FE1;&#x3001;QQ&#x3001;&#x5FAE;&#x535A;&#x3001;&#x652F;&#x4ED8;&#x5B9D;&#x7B49;&#x5E38;&#x7528;&#x7684;&#x652F;&#x4ED8;&#x548C;&#x5206;&#x4EAB;)   </p>
+<p>3.&#x662F;&#x5426;&#x8FDB;&#x884C;&#x8FC7;&#x5BF9;&#x7B2C;&#x4E09;&#x65B9;&#x5E73;&#x53F0;&#x7684;&#x7EDF;&#x4E00;&#x5C01;&#x88C5;&#xFF1F;</p>
+<p>4.&#x662F;&#x5426;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x8FC7;SDK&#xFF1F;</p>
+<h4 id="&#x8BBE;&#x8BA1;&#x76F8;&#x5173;"><a href="#&#x8BBE;&#x8BA1;&#x76F8;&#x5173;" class="headerlink" title="&#x8BBE;&#x8BA1;&#x76F8;&#x5173;"></a>&#x8BBE;&#x8BA1;&#x76F8;&#x5173;</h4><p>1.&#x6709;&#x54EA;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3001;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</p>
+<p>2.&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x5728;Android&#x6E90;&#x7801;&#x4E2D;&#x7684;&#x5E94;&#x7528;</p>
+<p>3.&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5E94;&#x7528;</p>
+<p>4.&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5206;&#x5305;&#x65B9;&#x5F0F;</p>
+<p>5.MVC&#x5728;android&#x4E2D;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x5229;&#x5F0A;</p>
+<p>6.android&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5E38;&#x89C1;&#x5C42;&#x6B21;&#x7ED3;&#x6784;,&#x5305;&#x5212;&#x5206;</p>
+<p>7.&#x6709;&#x6CA1;&#x6709;&#x8BBE;&#x8BA1;&#x8FC7;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5C42;&#x7EA7;&#x7ED3;&#x6784;&#x3001;&#x5305;&#x5212;&#x5206;</p>
+
+            </div>
+        </div>
+    </div>
+</article>  
+<div class="card"> 
+	 <nav id="pagination" class="indigo" >
+		
+		
+		<a style="float: right;" href="/2016/07/31/关于编程，必须知道的 10 件事/" >&nbsp;&nbsp;&nbsp;&nbsp;下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		
+		<div class="clearfix"></div>
+	</nav> 
+</div>
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/07/31/Android 面试要点/" data-title="Android 面试要点" data-url="http://qianmeng.github.io/2016/07/31/Android 面试要点/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="http://weibo.com/u/1819068247" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qian_meng" target="_blank">CSDN 地址</a>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">Github地址</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016  All rights reserved. 
+        </div>
+    </div>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal();
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56073371" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"145"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</body>
+</html>

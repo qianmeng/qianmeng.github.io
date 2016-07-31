@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>关于编程，必须知道的10件事 | 钱猛的个人博客</title>
+    <meta name="author" content="钱猛">
+    
+    <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="关于编程，必须知道的10件事"/>
+    <meta property="og:site_name" content="钱猛 &amp; 博客"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="钱猛 &amp; 博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<span style="color:#E91E63;font-size:18px;">
+			<i class="fa fa-flag"></i><span id="busuanzi_value_site_pv"></span>. 
+			<i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span>
+			</span> 
+			</a> 
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tag "></i>
+                            
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://raw.githubusercontent.com/qianmeng/resources/master/head.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">钱猛</p>
+                        <p class="desc">全栈工程师</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tag "></i>
+                    
+                    标签
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/面试/">
+                    面试 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/web/">
+                    web <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/前端/">
+                    前端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后台/">
+                    后台 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Hibernate/">
+                    Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-CXF/">
+                    Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Ehcache/">
+                    Ehcache <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/AngularJs/">
+                    AngularJs <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/量化交易/">
+                    量化交易 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/Matlab/">
+                    Matlab <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/爬虫/">
+                    爬虫 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/PostGreSQL/">
+                    PostGreSQL <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Vollery/">
+                    Vollery <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/总结/">
+                    总结 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/编程经验/">
+                    编程经验 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IOS/">
+                    IOS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/IOS/itms-services/">
+                    itms-services <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/微信/">
+                    微信 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/微信/帐号区别/">
+                    帐号区别 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/架构/">
+                    架构 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/架构/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/总结/">总结</a><a class="breadcrumb" href="/categories/总结/编程经验/">编程经验</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>关于编程，必须知道的10件事</h1>
+    
+
+
+            </div>
+            <i class="fa fa-pencil-square"></i><time class="pink-link-context" datetime="2016-07-31T06:06:50.000Z"><a href="/2016/07/31/关于编程，必须知道的 10 件事/">2016-07-31</a></time>
+
+			<i class="fa fa-flag"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span> 人点击
+            
+    <div class="tags-row">
+        
+            <a href="/tags/总结/" class="chip pink lighten-1">总结</a>
+        
+            <a href="/tags/编程经验/" class="chip pink lighten-1">编程经验</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#我们总是错的"><span class="section table-of-contents-text">我们总是错的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#事情若有可能出错就一定会出错"><span class="section table-of-contents-text">事情若有可能出错，就一定会出错</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#所有的代码都烂"><span class="section table-of-contents-text">所有的代码都烂</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#错误bug总会存在"><span class="section table-of-contents-text">错误（Bug）总会存在</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#客户最大"><span class="section table-of-contents-text">客户最大</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#纸上谈兵是行不通的"><span class="section table-of-contents-text">纸上谈兵是行不通的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#少即是多"><span class="section table-of-contents-text">少即是多</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#编写代码只是我们所做工作的20而已"><span class="section table-of-contents-text">编写代码只是我们所做工作的20%而已</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#客户永远不知道他她想要的是什么"><span class="section table-of-contents-text">客户永远不知道他/她想要的是什么！</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#已经有人做过了"><span class="section table-of-contents-text">已经有人做过了</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <blockquote>
+<p>&#x672C;&#x6587;&#x662F;&#x5728;&#x4F2F;&#x4E50;&#x5728;&#x7EBF;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E0D;&#x9519;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x5C5E;&#x4E8E;&#x8F6C;&#x8F7D;&#x3002;</p>
+</blockquote>
+<p>&#x8981;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x9876;&#x7EA7;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x4E0D;&#x4EC5;&#x8981;&#x6280;&#x672F;&#x4E0A;&#x8FBE;&#x6807;&#xFF0C;&#x9762;&#x5BF9;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x65F6;&#x4E5F;&#x8981;&#x638C;&#x63E1;&#x4E0D;&#x540C;&#x7684;&#x201C;&#x6280;&#x672F;&#x201D;&#xFF0C;&#x624D;&#x80FD;&#x79F0;&#x5F97;&#x4E0A;&#x9876;&#x7EA7;&#x3002;</p>
+<h3 id="&#x6211;&#x4EEC;&#x603B;&#x662F;&#x9519;&#x7684;"><a href="#&#x6211;&#x4EEC;&#x603B;&#x662F;&#x9519;&#x7684;" class="headerlink" title="&#x6211;&#x4EEC;&#x603B;&#x662F;&#x9519;&#x7684;"></a>&#x6211;&#x4EEC;&#x603B;&#x662F;&#x9519;&#x7684;</h3><p>&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6709;&#x7740;&#x76F8;&#x5F53;&#x5927;&#x7684;&#x81EA;&#x6211;&#x610F;&#x8BC6;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x975E;&#x6280;&#x672F;&#x6027;&#x7F3A;&#x9677;&#xFF0C;&#x8FD9;&#x4E5F;&#x6B63;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x5F88;&#x96BE;&#x53D1;&#x73B0;&#x6211;&#x4EEC;&#x505A;&#x9519;&#x4E86;&#x4EC0;&#x4E48;&#x3002;&#x6211;&#x770B;&#x5230;&#x8FC7;&#x5F88;&#x591A;&#x65E0;&#x4F11;&#x6B62;&#x7684;&#x8BBE;&#x8BA1;&#x8BA8;&#x8BBA;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4E0D;&#x65AD;&#x5730;&#x53D1;&#x8868;&#x81EA;&#x5DF1;&#x7684;&#x60F3;&#x6CD5;&#x2026;&#x2026;&#x5475;&#x5475;&#xFF01;&#x731C;&#x731C;&#x600E;&#x6837;&#x2026;&#x2026;&#x6211;&#x4EEC;&#x90FD;&#x9519;&#x4E86;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x72AF;&#x9519;&#x7684;&#x79BB;&#x8C31;&#x7A0B;&#x5EA6;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x7406;&#x89E3;&#x5E76;&#x63A5;&#x53D7;&#x8FD9;&#x4E2A;&#x4E8B;&#x5B9E;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#x505A;&#x4E86;&#xFF0C;&#x624D;&#x80FD;&#x655E;&#x5F00;&#x5FC3;&#x80F8;&#x53BB;&#x542C;&#x542C;&#x522B;&#x4EBA;&#x7684;&#x610F;&#x89C1;&#xFF0C;&#x91C7;&#x7528;&#x4ED6;&#x4EEC;&#x7684;&#x60F3;&#x6CD5;&#xFF0C;&#x6765;&#x5F97;&#x51FA;&#x4E00;&#x4E2A;&#x66F4;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x3002;</p>
+<h3 id="&#x4E8B;&#x60C5;&#x82E5;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x9519;&#x5C31;&#x4E00;&#x5B9A;&#x4F1A;&#x51FA;&#x9519;"><a href="#&#x4E8B;&#x60C5;&#x82E5;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x9519;&#xFF0C;&#x5C31;&#x4E00;&#x5B9A;&#x4F1A;&#x51FA;&#x9519;" class="headerlink" title="&#x4E8B;&#x60C5;&#x82E5;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x9519;&#xFF0C;&#x5C31;&#x4E00;&#x5B9A;&#x4F1A;&#x51FA;&#x9519;"></a>&#x4E8B;&#x60C5;&#x82E5;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x9519;&#xFF0C;&#x5C31;&#x4E00;&#x5B9A;&#x4F1A;&#x51FA;&#x9519;</h3><p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x201C;&#x5E0C;&#x671B;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#xFF08;hope driven development&#xFF09;&#x201D;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x4E8E;&#x67D0;&#x4E9B;&#x4E8B;&#x5E76;&#x4E0D;&#x786E;&#x5B9A;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x53D1;&#x73B0;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#x4E86;&#x201C;&#x5E94;&#x8BE5;&#x201D;&#x8FD9;&#x4E2A;&#x8BCD;&#xFF0C;&#x90A3;&#x4F60;&#x5C31;&#x9EBB;&#x70E6;&#x4E86;&#x3002;</p>
+<p>&#x800C;&#x8FD9;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x5C3D;&#x5DF1;&#x6240;&#x80FD;&#x53BB;&#x4FDD;&#x8BC1;&#x5B83;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x610F;&#x5473;&#x7740;&#x4F60;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x3001;&#x8C03;&#x8BD5;&#x5E76;&#x9A8C;&#x8BC1;&#x9700;&#x6C42;&#x2026;&#x2026;</p>
+<h3 id="&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x70C2;"><a href="#&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x70C2;" class="headerlink" title="&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x70C2;"></a>&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x70C2;</h3><p>&#x5728;&#x6211;&#x62B1;&#x6028;&#x90A3;&#x4E9B;&#x6211;&#x78B0;&#x5230;&#x8FC7;&#x7684;&#x4EE3;&#x7801;&#x5341;&#x5E74;&#x4E4B;&#x4E45;&#x540E;&#xFF0C;&#x6211;&#x5F97;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x7CBE;&#x8F9F;&#x7684;&#x7ED3;&#x8BBA;&#xFF0C;&#x6240;&#x6709;&#x7684;(&#x5305;&#x62EC;&#x6211;&#x81EA;&#x5DF1;&#x5199;&#x7684;)&#x4EE3;&#x7801;&#xFF0C;&#x90FD;&#x70C2;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x70C2;&#x8FD8;&#x662F;&#x6709;&#x7B49;&#x7EA7;&#x4E4B;&#x5206;&#x7684;&#xFF0C;&#x4F46;&#x5373;&#x4FBF;&#x662F;&#x6211;&#x89C1;&#x8FC7;&#x5199;&#x5F97;&#x6700;&#x597D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E5F;&#x662F;&#x96BE;&#x4EE5;&#x8BFB;&#x61C2;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x628A;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x5199;&#x5F97;&#x66F4;&#x597D;&#x662F;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#x7684;&#xFF0C;&#x6070;&#x6070;&#x76F8;&#x53CD;&#xFF0C;&#x6700;&#x597D;&#x548C;&#x6700;&#x574F;&#x7684;&#x4EE3;&#x7801;&#x8FD8;&#x662F;&#x6709;&#x5929;&#x58E4;&#x4E4B;&#x522B;&#x7684;&#x3002;</p>
+<h3 id="&#x9519;&#x8BEF;bug&#x603B;&#x4F1A;&#x5B58;&#x5728;"><a href="#&#x9519;&#x8BEF;&#xFF08;Bug&#xFF09;&#x603B;&#x4F1A;&#x5B58;&#x5728;" class="headerlink" title="&#x9519;&#x8BEF;&#xFF08;Bug&#xFF09;&#x603B;&#x4F1A;&#x5B58;&#x5728;"></a>&#x9519;&#x8BEF;&#xFF08;Bug&#xFF09;&#x603B;&#x4F1A;&#x5B58;&#x5728;</h3><p>&#x6C38;&#x8FDC;&#x5B58;&#x5728;&#xFF01;&#x95EE;&#x9898;&#x53EA;&#x5728;&#x4E8E;&#x8981;&#x53D1;&#x73B0;&#x5B83;&#x56F0;&#x96BE;&#x4E0E;&#x5426;&#x3002;</p>
+<h3 id="&#x5BA2;&#x6237;&#x6700;&#x5927;"><a href="#&#x5BA2;&#x6237;&#x6700;&#x5927;" class="headerlink" title="&#x5BA2;&#x6237;&#x6700;&#x5927;"></a>&#x5BA2;&#x6237;&#x6700;&#x5927;</h3><p>&#x8BB8;&#x591A;&#x5BA2;&#x6237;&#x5E76;&#x4E0D;&#x5728;&#x4E4E;&#x4F60;&#x5728;&#x65B9;&#x6848;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x54EA;&#x4E9B;&#x6280;&#x672F;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x4E0D;&#x9700;&#x8981;&#x505A;&#x66F4;&#x591A;&#x7684;&#x4E8B;&#x2026;&#x2026;&#x6216;&#x901A;&#x4FD7;&#x4E0A;&#x8BF4;&#xFF0C;&#x4F60;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x4E86;&#x597D;&#x7684;&#x5B9E;&#x8DF5;&#x65B9;&#x6848;&#x3002;</p>
+<p>&#x4E5F;&#x56E0;&#x4E3A;&#x6211;&#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#xFF0C;&#x8981;&#x662F;&#x6211;&#x53EA;&#x8BF4;&#x4E86;&#x524D;&#x9762;&#x90A3;&#x4E00;&#x6BB5;&#xFF0C;&#x6211;&#x4F1A;&#x6536;&#x5230;&#x591A;&#x5C11;&#x6076;&#x8BC4;&#xFF0C;&#x8BA9;&#x6211;&#x8BF4;&#x5F97;&#x66F4;&#x6E05;&#x695A;&#x4E9B;&#x2026;&#x2026;&#x6211;&#x60F3;&#x8BF4;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x6C38;&#x8FDC;&#x4E0D;&#x5E94;&#x8BE5;&#x5FD8;&#x8BB0;&#x5BA2;&#x6237;&#x7684;&#x7ACB;&#x573A;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4E3A;&#x4E86;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x800C;&#x5728;&#x9879;&#x76EE;&#x5DE5;&#x7A0B;&#x4E2D;&#x8FC7;&#x5EA6;&#x575A;&#x6301;&#x91C7;&#x7528;&#xFF08;&#x67D0;&#x4E9B;&#xFF09;&#x6280;&#x672F;&#xFF0C;&#x4F46;&#x8981;&#x8BB0;&#x4F4F;&#xFF0C;&#x82E5;&#x8FD9;&#x4E9B;&#x6280;&#x672F;&#x65E0;&#x6CD5;&#x7ED9;&#x5BA2;&#x6237;&#x5E26;&#x6765;&#x4EF7;&#x503C;&#xFF0C;&#x90A3;&#x5C31;&#x653E;&#x5F03;&#x5427;&#xFF01;&#xFF08;&#x7F16;&#x6CE8;&#xFF1A;&#x5173;&#x4E8E;&#x5BA2;&#x6237;&#xFF0C;&#x4F5C;&#x8005;Alberto&#x5728;&#x5176;&#x524D;&#x51E0;&#x7BC7;&#x6587;&#x7AE0;&#x300A;&#x6211;&#x7684;10&#x4E2A;&#x5F00;&#x53D1;&#x539F;&#x5219;&#x300B;&#xFF08;<a href="http://blog.jobbole.com/996&#xFF09;&#x548C;&#x300A;&#x7A0B;&#x5E8F;&#x5458;&#x5E38;&#x72AF;&#x7684;5&#x4E2A;&#x975E;&#x6280;&#x672F;&#x6027;&#x9519;&#x8BEF;&#x300B;&#xFF08;http://blog.jobbole.com/977&#xFF09;&#x90FD;&#x6709;&#x63D0;&#x5230;&#xFF0C;&#x53EF;&#x89C1;&#x4ED6;&#x5BF9;&#x8FD9;&#x4E00;&#x70B9;&#x7684;&#x4F53;&#x4F1A;&#x3002;&#xFF09;" target="_blank" rel="external">http://blog.jobbole.com/996&#xFF09;&#x548C;&#x300A;&#x7A0B;&#x5E8F;&#x5458;&#x5E38;&#x72AF;&#x7684;5&#x4E2A;&#x975E;&#x6280;&#x672F;&#x6027;&#x9519;&#x8BEF;&#x300B;&#xFF08;http://blog.jobbole.com/977&#xFF09;&#x90FD;&#x6709;&#x63D0;&#x5230;&#xFF0C;&#x53EF;&#x89C1;&#x4ED6;&#x5BF9;&#x8FD9;&#x4E00;&#x70B9;&#x7684;&#x4F53;&#x4F1A;&#x3002;&#xFF09;</a></p>
+<h3 id="&#x7EB8;&#x4E0A;&#x8C08;&#x5175;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;"><a href="#&#x7EB8;&#x4E0A;&#x8C08;&#x5175;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;" class="headerlink" title="&#x7EB8;&#x4E0A;&#x8C08;&#x5175;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;"></a>&#x7EB8;&#x4E0A;&#x8C08;&#x5175;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;</h3><p>&#x6211;&#x66FE;&#x8BA4;&#x4E3A;&#xFF0C;&#x6211;&#x53EF;&#x4EE5;&#x5728;&#x524D;&#x671F;&#x5C31;&#x628A;&#x6211;&#x7684;&#x6574;&#x4E2A;&#x8BBE;&#x8BA1;&#x7F6E;&#x4E8E;&#x7EB8;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x53EA;&#x8981;&#x5C06;&#x7F3A;&#x6F0F;&#x5904;&#x586B;&#x4E0A;&#x5C31;&#x597D;&#xFF0C;&#x4F46;&#x8FD9;&#x6837;&#x6839;&#x672C;&#x884C;&#x4E0D;&#x901A;&#x3002;</p>
+<p>&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x662F;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x82E5;&#x4E0D;&#x4EB2;&#x624B;&#x53BB;&#x78B0;&#x78B0;&#x770B;&#xFF0C;&#x5F88;&#x96BE;&#x770B;&#x5230;&#x6240;&#x6709;&#x7684;&#x5B9E;&#x9645;&#x5C42;&#x9762;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x524D;&#x671F;&#x4FDD;&#x6301;&#x89C4;&#x5212;&#x4E0E;&#x8BBE;&#x8BA1;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x4F46;&#x4E0D;&#x8981;&#x8FC7;&#x5EA6;&#x575A;&#x6301;&#xFF0C;&#x4E5F;&#x4E0D;&#x8981;&#x628A;&#x8BBE;&#x8BA1;&#x56FE;&#x8868;&#x5F53;&#x4F5C;&#x5408;&#x7EA6;&#x56FA;&#x5B88;&#x3002;</p>
+<h3 id="&#x5C11;&#x5373;&#x662F;&#x591A;"><a href="#&#x5C11;&#x5373;&#x662F;&#x591A;" class="headerlink" title="&#x5C11;&#x5373;&#x662F;&#x591A;"></a>&#x5C11;&#x5373;&#x662F;&#x591A;</h3><p>&#x6216;&#x8005;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x77E5;&#x9053;&#x66F4;&#x597D;&#x7684;&#x8BF4;&#x6CD5;&#x662F;&#xFF1A;&#x201C;Keep it simple, stupid!&#x201D;&#xFF08;&#x4FDD;&#x6301;&#x7B80;&#x5355;&#xFF0C;KISS&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF09;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x7684;&#x5C31;&#x820D;&#x5F03;&#x5427;&#xFF01;&#x56E0;&#x4E3A;&#x8981;&#x8BB0;&#x4F4F;&#xFF1A;&#x201C;&#x4E8B;&#x60C5;&#x82E5;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x9519;&#xFF0C;&#x5C31;&#x4E00;&#x5B9A;&#x4F1A;&#x51FA;&#x9519;&#x3002;&#x201D; &#xFF08;&#x7F16;&#x6CE8;&#xFF1A;&#x9664;&#x4E86;KISS&#x539F;&#x5219;&#x4E4B;&#x5916;&#xFF0C;&#x6B64;&#x6587;&#x8FD8;&#x4ECB;&#x7ECD;&#x4E86;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x3002;&#xFF09;</p>
+<h3 id="&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x505A;&#x5DE5;&#x4F5C;&#x7684;20&#x800C;&#x5DF2;"><a href="#&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x505A;&#x5DE5;&#x4F5C;&#x7684;20-&#x800C;&#x5DF2;" class="headerlink" title="&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x505A;&#x5DE5;&#x4F5C;&#x7684;20%&#x800C;&#x5DF2;"></a>&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x505A;&#x5DE5;&#x4F5C;&#x7684;20%&#x800C;&#x5DF2;</h3><p>&#x8BF7;&#x51C6;&#x5907;&#x597D;&#xFF0C;&#x82B1;80%&#x7684;&#x65F6;&#x95F4;&#x7528;&#x4E8E;&#x601D;&#x8003;&#x3001;&#x8C03;&#x8BD5;&#x3001;&#x6D4B;&#x8BD5;&#x3001;&#x5F00;&#x4F1A;&#x3001;&#x8C08;&#x8BDD;&#x2026;&#x2026;&#x800C;&#x6240;&#x6709;&#x7684;&#x5176;&#x4ED6;&#x6D3B;&#x52A8;&#x90FD;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x82E5;&#x8981;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x4F18;&#x79C0;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x57F9;&#x517B;&#x5E7F;&#x6CDB;&#x800C;&#x5168;&#x9762;&#x7684;&#x6280;&#x5DE7;&#xFF08;Skill&#xFF09;&#xFF0C;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x6280;&#x672F;&#xFF08;Technical&#xFF09;&#x3002;</p>
+<h3 id="&#x5BA2;&#x6237;&#x6C38;&#x8FDC;&#x4E0D;&#x77E5;&#x9053;&#x4ED6;&#x5979;&#x60F3;&#x8981;&#x7684;&#x662F;&#x4EC0;&#x4E48;"><a href="#&#x5BA2;&#x6237;&#x6C38;&#x8FDC;&#x4E0D;&#x77E5;&#x9053;&#x4ED6;-&#x5979;&#x60F3;&#x8981;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF01;" class="headerlink" title="&#x5BA2;&#x6237;&#x6C38;&#x8FDC;&#x4E0D;&#x77E5;&#x9053;&#x4ED6;/&#x5979;&#x60F3;&#x8981;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF01;"></a>&#x5BA2;&#x6237;&#x6C38;&#x8FDC;&#x4E0D;&#x77E5;&#x9053;&#x4ED6;/&#x5979;&#x60F3;&#x8981;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF01;</h3><p>&#x5BA2;&#x6237;&#x82E5;&#x6709;&#x9700;&#x6C42;&#xFF0C;&#x6216;&#x662F;&#x60F3;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x8BE6;&#x7EC6;&#x60C5;&#x51B5;&#x2026;&#x2026;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x8981;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x5C31;&#x662F;&#xFF0C;&#x53D1;&#x73B0;&#x7EC6;&#x8282;&#x5E76;&#x53BB;&#x9664;&#x6240;&#x6709;&#x7684;&#x4E0D;&#x786E;&#x5B9A;&#x6027;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x9700;&#x6C42;&#x8F6C;&#x6362;&#x6210;&#x5BA2;&#x6237;&#x60F3;&#x8981;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<h3 id="&#x5DF2;&#x7ECF;&#x6709;&#x4EBA;&#x505A;&#x8FC7;&#x4E86;"><a href="#&#x5DF2;&#x7ECF;&#x6709;&#x4EBA;&#x505A;&#x8FC7;&#x4E86;" class="headerlink" title="&#x5DF2;&#x7ECF;&#x6709;&#x4EBA;&#x505A;&#x8FC7;&#x4E86;"></a>&#x5DF2;&#x7ECF;&#x6709;&#x4EBA;&#x505A;&#x8FC7;&#x4E86;</h3><p>&#x6240;&#x4EE5;&#x4E0D;&#x8981;&#x518D;&#x91CD;&#x65B0;&#x53D1;&#x660E;&#x8F6E;&#x5B50;&#xFF0C;&#x7528;&#x8C37;&#x6B4C;&#x627E;&#x627E;&#x770B;&#xFF0C;&#x6216;&#x8005;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF0C;&#x8BF7;&#x6559;&#x4F60;&#x7684;&#x540C;&#x4E8B;&#xFF0C;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x4ED6;&#x4EEC;&#x53EF;&#x80FD;&#x90FD;&#x5DF2;&#x7ECF;&#x505A;&#x4E86;&#x76F8;&#x540C;&#x3001;&#x6216;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+
+            </div>
+        </div>
+    </div>
+</article>  
+<div class="card"> 
+	 <nav id="pagination" class="indigo" >
+		
+		<a style="float: left;" href="/2016/07/31/Android 面试要点/" >&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-left"></i>&nbsp;&nbsp;上一页</a>
+		
+		
+		<a style="float: right;" href="/2016/07/31/前端工程师面试题汇总/" >&nbsp;&nbsp;&nbsp;&nbsp;下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		
+		<div class="clearfix"></div>
+	</nav> 
+</div>
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/07/31/关于编程，必须知道的 10 件事/" data-title="关于编程，必须知道的10件事" data-url="http://qianmeng.github.io/2016/07/31/关于编程，必须知道的 10 件事/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="http://weibo.com/u/1819068247" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qian_meng" target="_blank">CSDN 地址</a>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">Github地址</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016  All rights reserved. 
+        </div>
+    </div>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal();
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56073371" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"145"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</body>
+</html>
