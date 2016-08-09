@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://qianmeng.github.io/2016/08/07/%E6%9C%9F%E8%B4%A7%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/</loc>
+    <lastmod>2016-08-07T14:32:14.960Z</lastmod>
+    <data>
+        <display>
+        <title>期货知识扫描</title>
+        <pubTime>2016-08-07T10:06:50.000Z</pubTime>
+        
+        <tag>期货</tag>
+         
+        <tag>基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="量化交易" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/"/>
+          
+             
+              <breadCrumb title="期货" url="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/%E6%9C%9F%E8%B4%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qianmeng.github.io/2015/05/22/%E6%98%9F%E5%BA%A7%E6%80%A7%E6%A0%BC%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2016-08-06T10:24:50.709Z</lastmod>
     <data>
@@ -212,9 +237,9 @@
         <title>Apache Http Server 解决不同域名共用服务器80端口问题</title>
         <pubTime>2015-05-27T10:06:50.000Z</pubTime>
         
-        <tag>服务</tag>
-         
         <tag>Apache Http Server</tag>
+         
+        <tag>服务</tag>
          
          
            
@@ -618,9 +643,9 @@
         <title>Ehcache 初探（在项目中的简单使用）</title>
         <pubTime>2014-07-07T10:06:50.000Z</pubTime>
         
-        <tag>Ehcache</tag>
-         
         <tag>服务</tag>
+         
+        <tag>Ehcache</tag>
          
          
            
