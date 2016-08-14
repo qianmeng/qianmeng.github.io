@@ -1330,11 +1330,11 @@ hexo  s --&amp;gt; hexo server
       <category term="PostGreSQL" scheme="http://qianmeng.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostGreSQL/"/>
     
     
-      <category term="Hibernate" scheme="http://qianmeng.github.io/tags/Hibernate/"/>
-    
       <category term="PostGreSQL" scheme="http://qianmeng.github.io/tags/PostGreSQL/"/>
     
       <category term="数据库" scheme="http://qianmeng.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="Hibernate" scheme="http://qianmeng.github.io/tags/Hibernate/"/>
     
   </entry>
   
