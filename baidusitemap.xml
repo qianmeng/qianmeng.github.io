@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://qianmeng.github.io/2016/11/19/%E5%85%AC%E5%8F%B8%E7%AE%A1%E7%90%86%E5%BF%85%E9%A1%BB%E4%B8%A5%E6%89%93%E7%9A%8418%E7%A7%8D%E6%83%B0%E6%80%A0%E8%A1%8C%E4%B8%BA/</loc>
+    <lastmod>2016-11-19T05:32:32.870Z</lastmod>
+    <data>
+        <display>
+        <title>公司管理必须严打的18种惰怠行为</title>
+        <pubTime>2016-11-19T05:22:50.000Z</pubTime>
+        
+        <tag>总结</tag>
+         
+        <tag>公司管理</tag>
+         
+         
+           
+             
+              <breadCrumb title="总结" url="http://qianmeng.github.io/categories/%E6%80%BB%E7%BB%93/"/>
+          
+             
+              <breadCrumb title="公司管理" url="http://qianmeng.github.io/categories/%E6%80%BB%E7%BB%93/%E5%85%AC%E5%8F%B8%E7%AE%A1%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qianmeng.github.io/2016/08/13/%E8%82%A1%E7%A5%A8%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/</loc>
     <lastmod>2016-08-21T01:31:55.232Z</lastmod>
     <data>
@@ -11,9 +36,9 @@
         <title>股票知识扫盲</title>
         <pubTime>2016-08-13T10:06:50.000Z</pubTime>
         
-        <tag>基础</tag>
-         
         <tag>股票</tag>
+         
+        <tag>基础</tag>
          
          
            
@@ -161,9 +186,9 @@
         <title>Android 面试要点</title>
         <pubTime>2016-07-31T10:06:50.000Z</pubTime>
         
-        <tag>面试</tag>
-         
         <tag>Android</tag>
+         
+        <tag>面试</tag>
          
          
            
@@ -591,9 +616,9 @@
         <title>Vollery 框架之StringRequest二次封装</title>
         <pubTime>2015-08-07T10:06:50.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>Vollery</tag>
+         
+        <tag>Android</tag>
          
          
            
