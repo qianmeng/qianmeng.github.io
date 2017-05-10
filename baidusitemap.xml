@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://qianmeng.github.io/2016/07/31/%E5%B8%B8%E8%A7%81Android%E9%9D%A2%E8%AF%95%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88/</loc>
+    <lastmod>2017-05-10T12:00:41.635Z</lastmod>
+    <data>
+        <display>
+        <title>常见Android面试题及答案</title>
+        <pubTime>2016-07-31T10:06:50.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="面试" url="http://qianmeng.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+          
+             
+              <breadCrumb title="Android" url="http://qianmeng.github.io/categories/%E9%9D%A2%E8%AF%95/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qianmeng.github.io/2017/05/10/Python%20%E9%9D%A2%E8%AF%95%E9%97%AE%E7%AD%94%20Top%2025/</loc>
     <lastmod>2017-05-10T11:27:41.058Z</lastmod>
     <data>
@@ -11,9 +36,9 @@
         <title>Python 面试问答 Top 25</title>
         <pubTime>2017-05-10T10:06:50.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>面试</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -186,9 +211,9 @@
         <title>股票知识扫盲</title>
         <pubTime>2016-08-13T10:06:50.000Z</pubTime>
         
-        <tag>股票</tag>
-         
         <tag>基础</tag>
+         
+        <tag>股票</tag>
          
          
            
@@ -211,9 +236,9 @@
         <title>期货知识扫盲</title>
         <pubTime>2016-08-07T10:06:50.000Z</pubTime>
         
-        <tag>基础</tag>
-         
         <tag>期货</tag>
+         
+        <tag>基础</tag>
          
          
            
@@ -437,9 +462,9 @@
         <title>Apache Http Server 解决不同域名共用服务器80端口问题</title>
         <pubTime>2015-05-27T10:06:50.000Z</pubTime>
         
-        <tag>服务</tag>
-         
         <tag>Apache Http Server</tag>
+         
+        <tag>服务</tag>
          
          
            
@@ -766,9 +791,9 @@
         <title>MetaQ 简单使用（数据同步框架）</title>
         <pubTime>2014-08-01T10:06:50.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>服务</tag>
+         
+        <tag>Java</tag>
          
         <tag>MetaQ</tag>
          
@@ -793,9 +818,9 @@
         <title>Ehcache 初探（在项目中的简单使用）</title>
         <pubTime>2014-07-07T10:06:50.000Z</pubTime>
         
-        <tag>Ehcache</tag>
-         
         <tag>服务</tag>
+         
+        <tag>Ehcache</tag>
          
          
            
