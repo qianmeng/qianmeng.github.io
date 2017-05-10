@@ -1,0 +1,950 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Android 高级面试题及答案 | 钱猛的个人博客</title>
+    <meta name="author" content="钱猛">
+    
+    <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Android 高级面试题及答案"/>
+    <meta property="og:site_name" content="钱猛 &amp; 博客"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="钱猛 &amp; 博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<span style="color:#E91E63;font-size:18px;">
+			<i class="fa fa-flag"></i><span id="busuanzi_value_site_pv"></span>. 
+			<i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span>
+			</span> 
+			</a> 
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tag "></i>
+                            
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://raw.githubusercontent.com/qianmeng/resources/master/head.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">钱猛</p>
+                        <p class="desc">全栈工程师</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tag "></i>
+                    
+                    标签
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/面试/">
+                    面试 <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/Android/">
+                    Android <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/Python/">
+                    Python <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/web/">
+                    web <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/前端/">
+                    前端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/AngularJs/">
+                    AngularJs <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后台/">
+                    后台 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-CXF/">
+                    Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Ehcache/">
+                    Ehcache <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Hibernate/">
+                    Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/架构/">
+                    架构 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/架构/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/量化交易/">
+                    量化交易 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/Matlab/">
+                    Matlab <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/期货/">
+                    期货 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/股票/">
+                    股票 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/爬虫/">
+                    爬虫 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/PostGreSQL/">
+                    PostGreSQL <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Vollery/">
+                    Vollery <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IOS/">
+                    IOS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/IOS/itms-services/">
+                    itms-services <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/总结/">
+                    总结 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/个人技能/">
+                    个人技能 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/公司管理/">
+                    公司管理 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/编程经验/">
+                    编程经验 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/个人总结/">
+                    个人总结 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/微信/">
+                    微信 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/微信/帐号区别/">
+                    帐号区别 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/星座/">
+                    星座 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/星座/归类/">
+                    归类 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/星座/性格/">
+                    性格 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    
+<nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/面试/">面试</a><a class="breadcrumb" href="/categories/面试/Android/">Android</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Android 高级面试题及答案</h1>
+    
+
+
+            </div>
+            <i class="fa fa-pencil-square"></i><time class="pink-link-context" datetime="2017-05-10T11:06:50.000Z"><a href="/2017/05/10/Android 高级面试题及答案/">2017-05-10</a></time>
+
+			<i class="fa fa-flag"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span> 人点击
+            
+    <div class="tags-row">
+        
+            <a href="/tags/面试/" class="chip pink lighten-1">面试</a>
+        
+            <a href="/tags/Android/" class="chip pink lighten-1">Android</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#一-性能优化"><span class="section table-of-contents-text">一 性能优化</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-如何对-android-应用进行性能分析"><span class="section table-of-contents-text">1、如何对 Android 应用进行性能分析</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-什么情况下会导致内存泄露"><span class="section table-of-contents-text">2、什么情况下会导致内存泄露</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#i-静态集合类引起内存泄露"><span class="section table-of-contents-text">I. 静态集合类引起内存泄露</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iiremove-方法无法删除set集-objectshashfirstname-lastname"><span class="section table-of-contents-text">II.remove 方法无法删除set集  Objects.hash(firstName, lastName);</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iii-observer-我们在使用监听器的时候往往是addxxxlistener但是当我们不需要的时候忘记removexxxlistener就容易内存leak"><span class="section table-of-contents-text">III. observer 我们在使用监听器的时候，往往是addxxxlistener，但是当我们不需要的时候，忘记removexxxlistener，就容易内存leak。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iv各种数据链接没有关闭数据库contentprovideriosokect等-cursor"><span class="section table-of-contents-text">IV.各种数据链接没有关闭，数据库contentprovider，io，sokect等。cursor</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#v内部类"><span class="section table-of-contents-text">V.内部类：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#vi单例"><span class="section table-of-contents-text">VI.单例</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#3如何避免-oom-异常"><span class="section table-of-contents-text">3.如何避免 OOM 异常</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iarraymapsparsearray代替hashmap"><span class="section table-of-contents-text">I.ArrayMap/SparseArray代替hashmap</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#ii避免在android里面使用enum"><span class="section table-of-contents-text">II.避免在android里面使用Enum</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iii减少bitmap的内存占用"><span class="section table-of-contents-text">III.减少bitmap的内存占用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#ilistviewgridviewrecycleview-contentview的复用"><span class="section table-of-contents-text">I.listview/gridview/recycleview contentview的复用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iiinbitmap-属性对于内存对象的复用argb_8888rbg_565argb_4444alpha_8"><span class="section table-of-contents-text">II.inBitmap 属性对于内存对象的复用ARGB_8888/RBG_565/ARGB_4444/ALPHA_8</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#iii避免在ondraw方法里面-new对象"><span class="section table-of-contents-text">III.避免在ondraw方法里面 new对象</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#ivstringbuilder-代替"><span class="section table-of-contents-text">IV.StringBuilder 代替</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#4-android-中如何捕获未捕获的异常"><span class="section table-of-contents-text">4、Android 中如何捕获未捕获的异常</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#5-anr-是什么怎样避免和解决-anr重要"><span class="section table-of-contents-text">5、ANR 是什么？怎样避免和解决 ANR（重要）</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#1-keydispatchtimeout5-seconds-主要类型按键或触摸事件在特定时间内无响应"><span class="section table-of-contents-text">1）. KeyDispatchTimeout(5 seconds) –主要类型按键或触摸事件在特定时间内无响应</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#2-broadcasttimeout10-seconds-broadcastreceiver在特定时间内无法处理完成"><span class="section table-of-contents-text">2）. BroadcastTimeout(10 seconds) –BroadcastReceiver在特定时间内无法处理完成</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#3-servicetimeout20-seconds-小概率类型-service在特定的时间内无法处理完成"><span class="section table-of-contents-text">3）. ServiceTimeout(20 seconds) –小概率类型 Service在特定的时间内无法处理完成</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#1避免在activity里面做耗时操作oncreate-onresume"><span class="section table-of-contents-text">1）避免在activity里面做耗时操作，oncreate & onresume</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#2避免在onreceiver里面做过多操作"><span class="section table-of-contents-text">2）避免在onReceiver里面做过多操作</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#3避免在intent-receiver里启动一个activity因为它会创建一个新的画面并从当前用户正在运行的程序上抢夺焦点"><span class="section table-of-contents-text">3）避免在Intent Receiver里启动一个Activity，因为它会创建一个新的画面，并从当前用户正在运行的程序上抢夺焦点。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#4尽量使用handler来处理ui-thread-workthread的交互"><span class="section table-of-contents-text">4）尽量使用handler来处理UI thread & workthread的交互。</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#6-android-线程间通信有哪几种方式"><span class="section table-of-contents-text">6、Android 线程间通信有哪几种方式</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#1共享变量内存"><span class="section table-of-contents-text">1）共享变量（内存）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#2管道"><span class="section table-of-contents-text">2）管道</span></a></li><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#3handle机制"><span class="section table-of-contents-text">3）handle机制</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#26-自定义控件摩天轮的实现过程"><span class="section table-of-contents-text">26、自定义控件：摩天轮的实现过程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#27-gridlayout的使用"><span class="section table-of-contents-text">27、GridLayout的使用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#28-流式布局的实现过程"><span class="section table-of-contents-text">28、流式布局的实现过程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#29-第三方登陆"><span class="section table-of-contents-text">29、第三方登陆</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#30-第三方支付"><span class="section table-of-contents-text">30、第三方支付</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <blockquote>
+<p>&#x672C;&#x6587;&#x662F;&#x5728;CSDN&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E0D;&#x9519;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x5C5E;&#x4E8E;&#x8F6C;&#x8F7D;&#x3002;</p>
+</blockquote>
+<h3 id="&#x4E00;-&#x6027;&#x80FD;&#x4F18;&#x5316;"><a href="#&#x4E00;-&#x6027;&#x80FD;&#x4F18;&#x5316;" class="headerlink" title="&#x4E00; &#x6027;&#x80FD;&#x4F18;&#x5316;"></a>&#x4E00; &#x6027;&#x80FD;&#x4F18;&#x5316;</h3><h4 id="1-&#x5982;&#x4F55;&#x5BF9;-android-&#x5E94;&#x7528;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;"><a href="#1&#x3001;&#x5982;&#x4F55;&#x5BF9;-Android-&#x5E94;&#x7528;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;" class="headerlink" title="1&#x3001;&#x5982;&#x4F55;&#x5BF9; Android &#x5E94;&#x7528;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;"></a>1&#x3001;&#x5982;&#x4F55;&#x5BF9; Android &#x5E94;&#x7528;&#x8FDB;&#x884C;&#x6027;&#x80FD;&#x5206;&#x6790;</h4><p>android &#x6027;&#x80FD;&#x4E3B;&#x8981;&#x4E4B;&#x54CD;&#x5E94;&#x901F;&#x5EA6; &#x548C;UI&#x5237;&#x65B0;&#x901F;&#x5EA6;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x4ECE;&#x51FD;&#x6570;&#x7684;&#x8017;&#x65F6;&#x6765;&#x8BF4;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;TraceView &#x8FD9;&#x662F;androidsdk&#x81EA;&#x5E26;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x7528;&#x4E8E;&#x6D4B;&#x91CF;&#x51FD;&#x6570;&#x8017;&#x65F6;&#x7684;&#x3002;</p>
+<p>UI&#x5E03;&#x5C40;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;2&#x5757;&#xFF0C;&#x4E00;&#x5757;&#x5C31;&#x662F;Hierarchy Viewer &#x53EF;&#x4EE5;&#x770B;&#x5230;View&#x7684;&#x5E03;&#x5C40;&#x5C42;&#x6B21;&#xFF0C;&#x4EE5;&#x53CA;&#x6BCF;&#x4E2A;View&#x5237;&#x65B0;&#x52A0;&#x8F7D;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5F88;&#x5FEB;&#x5B9A;&#x4F4D;&#x5230;&#x90A3;&#x5757;layout &amp; View &#x8017;&#x65F6;&#x6700;&#x957F;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;View&#x6765;&#x51CF;&#x5C11;view&#x7684;&#x5C42;&#x6B21;&#x3002;<br><a id="more"></a></p>
+<h4 id="2-&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x9732;"><a href="#2&#x3001;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x9732;" class="headerlink" title="2&#x3001;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x9732;"></a>2&#x3001;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x9732;</h4><p>&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x662F;&#x4E2A;&#x6298;&#x817E;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x53D1;&#x751F;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#xFF1F;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x7684;&#x6839;&#x672C;&#x539F;&#x56E0;&#xFF1A;&#x957F;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#x6301;&#x6709;&#x77ED;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x77ED;&#x5468;&#x671F;&#x5BF9;&#x8C61;&#x5C31;&#x65E0;&#x6CD5;&#x53CA;&#x65F6;&#x91CA;&#x653E;&#x3002;</p>
+<h5 id="i-&#x9759;&#x6001;&#x96C6;&#x5408;&#x7C7B;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x9732;"><a href="#I-&#x9759;&#x6001;&#x96C6;&#x5408;&#x7C7B;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x9732;" class="headerlink" title="I. &#x9759;&#x6001;&#x96C6;&#x5408;&#x7C7B;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x9732;"></a>I. &#x9759;&#x6001;&#x96C6;&#x5408;&#x7C7B;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x6CC4;&#x9732;</h5><p>&#x4E3B;&#x8981;&#x662F;hashmap&#xFF0C;Vector&#x7B49;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x9759;&#x6001;&#x96C6;&#x5408; &#x8FD9;&#x4E9B;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x53CA;&#x65F6;setnull&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4F1A;&#x4E00;&#x76F4;&#x6301;&#x6709;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x3002;</p>
+<h5 id="iiremove-&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x5220;&#x9664;set&#x96C6;-objectshashfirstname-lastname"><a href="#II-remove-&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x5220;&#x9664;set&#x96C6;-Objects-hash-firstName-lastName" class="headerlink" title="II.remove &#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x5220;&#x9664;set&#x96C6;  Objects.hash(firstName, lastName);"></a>II.remove &#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x5220;&#x9664;set&#x96C6;  Objects.hash(firstName, lastName);</h5><p>&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;hashcode&#x4FEE;&#x6539;&#x540E;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x529E;&#x6CD5;remove&#x4E86;&#x3002;</p>
+<h5 id="iii-observer-&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x76D1;&#x542C;&#x5668;&#x7684;&#x65F6;&#x5019;&#x5F80;&#x5F80;&#x662F;addxxxlistener&#x4F46;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x5FD8;&#x8BB0;removexxxlistener&#x5C31;&#x5BB9;&#x6613;&#x5185;&#x5B58;leak"><a href="#III-observer-&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x76D1;&#x542C;&#x5668;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F80;&#x5F80;&#x662F;addxxxlistener&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FD8;&#x8BB0;removexxxlistener&#xFF0C;&#x5C31;&#x5BB9;&#x6613;&#x5185;&#x5B58;leak&#x3002;" class="headerlink" title="III. observer &#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x76D1;&#x542C;&#x5668;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F80;&#x5F80;&#x662F;addxxxlistener&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FD8;&#x8BB0;removexxxlistener&#xFF0C;&#x5C31;&#x5BB9;&#x6613;&#x5185;&#x5B58;leak&#x3002;"></a>III. observer &#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x76D1;&#x542C;&#x5668;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F80;&#x5F80;&#x662F;addxxxlistener&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FD8;&#x8BB0;removexxxlistener&#xFF0C;&#x5C31;&#x5BB9;&#x6613;&#x5185;&#x5B58;leak&#x3002;</h5><p>&#x5E7F;&#x64AD;&#x6CA1;&#x6709;unregisterrecevier</p>
+<h5 id="iv&#x5404;&#x79CD;&#x6570;&#x636E;&#x94FE;&#x63A5;&#x6CA1;&#x6709;&#x5173;&#x95ED;&#x6570;&#x636E;&#x5E93;contentprovideriosokect&#x7B49;-cursor"><a href="#IV-&#x5404;&#x79CD;&#x6570;&#x636E;&#x94FE;&#x63A5;&#x6CA1;&#x6709;&#x5173;&#x95ED;&#xFF0C;&#x6570;&#x636E;&#x5E93;contentprovider&#xFF0C;io&#xFF0C;sokect&#x7B49;&#x3002;cursor" class="headerlink" title="IV.&#x5404;&#x79CD;&#x6570;&#x636E;&#x94FE;&#x63A5;&#x6CA1;&#x6709;&#x5173;&#x95ED;&#xFF0C;&#x6570;&#x636E;&#x5E93;contentprovider&#xFF0C;io&#xFF0C;sokect&#x7B49;&#x3002;cursor"></a>IV.&#x5404;&#x79CD;&#x6570;&#x636E;&#x94FE;&#x63A5;&#x6CA1;&#x6709;&#x5173;&#x95ED;&#xFF0C;&#x6570;&#x636E;&#x5E93;contentprovider&#xFF0C;io&#xFF0C;sokect&#x7B49;&#x3002;cursor</h5><h5 id="v&#x5185;&#x90E8;&#x7C7B;"><a href="#V-&#x5185;&#x90E8;&#x7C7B;&#xFF1A;" class="headerlink" title="V.&#x5185;&#x90E8;&#x7C7B;&#xFF1A;"></a>V.&#x5185;&#x90E8;&#x7C7B;&#xFF1A;</h5><p>java&#x4E2D;&#x7684;&#x5185;&#x90E8;&#x7C7B;&#xFF08;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#xFF09;&#xFF0C;&#x4F1A;&#x6301;&#x6709;&#x5BBF;&#x4E3B;&#x7C7B;&#x7684;&#x5F3A;&#x5F15;&#x7528;this&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x5982;&#x679C;&#x662F;new Thread&#x8FD9;&#x79CD;&#xFF0C;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;activity&#x4E0D;&#x4F1A;&#x88AB;&#x56DE;&#x6536;&#x3002;</p>
+<p>Context&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5F53;TextView &#x7B49;&#x7B49;&#x90FD;&#x4F1A;&#x6301;&#x6709;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x5F15;&#x7528;&#x3002;&#x5982;&#x679C;&#x6709;static drawable&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x8BE5;&#x5185;&#x5B58;&#x65E0;&#x6CD5;&#x91CA;&#x653E;&#x3002;</p>
+<h5 id="vi&#x5355;&#x4F8B;"><a href="#VI-&#x5355;&#x4F8B;" class="headerlink" title="VI.&#x5355;&#x4F8B;"></a>VI.&#x5355;&#x4F8B;</h5><p>&#x5355;&#x4F8B; &#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x9759;&#x6001;&#x5BF9;&#x8C61;&#xFF0C;&#x5F53;&#x6301;&#x6709;&#x67D0;&#x4E2A;&#x590D;&#x5236;&#x7684;&#x7C7B;A&#x662F;&#xFF0C;A&#x65E0;&#x6CD5;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x5185;&#x5B58;leak&#x3002; </p>
+<h4 id="3&#x5982;&#x4F55;&#x907F;&#x514D;-oom-&#x5F02;&#x5E38;"><a href="#3-&#x5982;&#x4F55;&#x907F;&#x514D;-OOM-&#x5F02;&#x5E38;" class="headerlink" title="3.&#x5982;&#x4F55;&#x907F;&#x514D; OOM &#x5F02;&#x5E38;"></a>3.&#x5982;&#x4F55;&#x907F;&#x514D; OOM &#x5F02;&#x5E38;</h4><p>&#x9996;&#x5148;OOM&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>&#x5F53;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x7533;&#x8BF7;&#x4E00;&#x6BB5;&#x201C;&#x5927;&#x201D;&#x5185;&#x5B58;&#xFF0C;&#x4F46;&#x662F;&#x865A;&#x62DF;&#x673A;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x53CA;&#x65F6;&#x7684;&#x7ED9;&#x5230;&#xFF0C;&#x5373;&#x4F7F;&#x505A;&#x4E86;GC&#x64CD;&#x4F5C;&#x4EE5;&#x540E;</p>
+<p>&#x8FD9;&#x5C31;&#x4F1A;&#x629B;&#x51FA; OutOfMemoryException &#x4E5F;&#x5C31;&#x662F;OOM</p>
+<p>Android&#x7684;OOM&#x600E;&#x4E48;&#x6837;&#xFF1F;</p>
+<p>&#x4E3A;&#x4E86;&#x51CF;&#x5C11;&#x5355;&#x4E2A;APP&#x5BF9;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x5F71;&#x54CD;&#xFF0C;android&#x4E3A;&#x6BCF;&#x4E2A;app&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x4E0A;&#x9650;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void getMemoryLimited(Activity context)</span><br><span class="line">   {</span><br><span class="line">       ActivityManager activityManager =(ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line">       System.out.println(activityManager.getMemoryClass());</span><br><span class="line">       System.out.println(activityManager.getLargeMemoryClass());</span><br><span class="line">       System.out.println(Runtime.getRuntime().maxMemory()/(1024*1024));</span><br><span class="line">   }</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">09-10 10:20:00.477 4153-4153/com.joyfulmath.samples I/System.out: 192</span><br><span class="line">09-10 10:20:00.477 4153-4153/com.joyfulmath.samples I/System.out: 512</span><br><span class="line">09-10 10:20:00.477 4153-4153/com.joyfulmath.samples I/System.out: 192</span><br></pre></td></tr></table></figure>
+<p>HTC M7&#x5B9E;&#x6D4B;&#xFF0C;192M&#x4E0A;&#x9650;&#x3002;512M &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;192M&#x5C31;&#x662F;&#x4E0A;&#x9650;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x67D0;&#x4E9B;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#xFF0C;android&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x66F4;&#x5927;&#x7684;RAM&#x3002;</p>
+<p>&#x5982;&#x4F55;&#x907F;&#x514D;OOM</p>
+<p>&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x5360;&#x7528;</p>
+<h5 id="iarraymapsparsearray&#x4EE3;&#x66FF;hashmap"><a href="#I-ArrayMap-SparseArray&#x4EE3;&#x66FF;hashmap" class="headerlink" title="I.ArrayMap/SparseArray&#x4EE3;&#x66FF;hashmap"></a>I.ArrayMap/SparseArray&#x4EE3;&#x66FF;hashmap</h5><h5 id="ii&#x907F;&#x514D;&#x5728;android&#x91CC;&#x9762;&#x4F7F;&#x7528;enum"><a href="#II-&#x907F;&#x514D;&#x5728;android&#x91CC;&#x9762;&#x4F7F;&#x7528;Enum" class="headerlink" title="II.&#x907F;&#x514D;&#x5728;android&#x91CC;&#x9762;&#x4F7F;&#x7528;Enum"></a>II.&#x907F;&#x514D;&#x5728;android&#x91CC;&#x9762;&#x4F7F;&#x7528;Enum</h5><h5 id="iii&#x51CF;&#x5C11;bitmap&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;"><a href="#III-&#x51CF;&#x5C11;bitmap&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;" class="headerlink" title="III.&#x51CF;&#x5C11;bitmap&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;"></a>III.&#x51CF;&#x5C11;bitmap&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;</h5><p>inSampleSize&#xFF1A;&#x7F29;&#x653E;&#x6BD4;&#x4F8B;&#xFF0C;&#x5728;&#x628A;&#x56FE;&#x7247;&#x8F7D;&#x5165;&#x5185;&#x5B58;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5148;&#x8BA1;&#x7B97;&#x51FA;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x7F29;&#x653E;&#x6BD4;&#x4F8B;&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5927;&#x56FE;&#x8F7D;&#x5165;&#x3002;<br>decode format&#xFF1A;&#x89E3;&#x7801;&#x683C;&#x5F0F;&#xFF0C;&#x9009;&#x62E9;ARGB_8888/RBG_565/ARGB_4444/ALPHA_8&#xFF0C;&#x5B58;&#x5728;&#x5F88;&#x5927;&#x5DEE;&#x5F02;&#x3002;<br>IV.&#x51CF;&#x5C11;&#x8D44;&#x6E90;&#x56FE;&#x7247;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x8FC7;&#x5927;&#x7684;&#x56FE;&#x7247;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x5206;&#x6BB5;&#x52A0;&#x8F7D;</p>
+<p>&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x91CD;&#x590D;&#x5229;&#x7528;</p>
+<p>&#x5927;&#x591A;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;&#xFF0C;&#x90FD;&#x662F;&#x5229;&#x7528;&#x5BF9;&#x8C61;&#x6C60;&#x7684;&#x6280;&#x672F;&#x3002;</p>
+<h5 id="ilistviewgridviewrecycleview-contentview&#x7684;&#x590D;&#x7528;"><a href="#I-listview-gridview-recycleview-contentview&#x7684;&#x590D;&#x7528;" class="headerlink" title="I.listview/gridview/recycleview contentview&#x7684;&#x590D;&#x7528;"></a>I.listview/gridview/recycleview contentview&#x7684;&#x590D;&#x7528;</h5><h5 id="iiinbitmap-&#x5C5E;&#x6027;&#x5BF9;&#x4E8E;&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;argb_8888rbg_565argb_4444alpha_8"><a href="#II-inBitmap-&#x5C5E;&#x6027;&#x5BF9;&#x4E8E;&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;ARGB-8888-RBG-565-ARGB-4444-ALPHA-8" class="headerlink" title="II.inBitmap &#x5C5E;&#x6027;&#x5BF9;&#x4E8E;&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;ARGB_8888/RBG_565/ARGB_4444/ALPHA_8"></a>II.inBitmap &#x5C5E;&#x6027;&#x5BF9;&#x4E8E;&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x590D;&#x7528;ARGB_8888/RBG_565/ARGB_4444/ALPHA_8</h5><p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5728;&#x67D0;&#x4E9B;&#x6761;&#x4EF6;&#x4E0B;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x8981;&#x52A0;&#x8F7D;&#x4E0A;&#x5343;&#x5F20;&#x56FE;&#x7247;&#x7684;&#x65F6;&#x5019;&#x3002;</p>
+<h5 id="iii&#x907F;&#x514D;&#x5728;ondraw&#x65B9;&#x6CD5;&#x91CC;&#x9762;-new&#x5BF9;&#x8C61;"><a href="#III-&#x907F;&#x514D;&#x5728;ondraw&#x65B9;&#x6CD5;&#x91CC;&#x9762;-new&#x5BF9;&#x8C61;" class="headerlink" title="III.&#x907F;&#x514D;&#x5728;ondraw&#x65B9;&#x6CD5;&#x91CC;&#x9762; new&#x5BF9;&#x8C61;"></a>III.&#x907F;&#x514D;&#x5728;ondraw&#x65B9;&#x6CD5;&#x91CC;&#x9762; new&#x5BF9;&#x8C61;</h5><h5 id="ivstringbuilder-&#x4EE3;&#x66FF;"><a href="#IV-StringBuilder-&#x4EE3;&#x66FF;" class="headerlink" title="IV.StringBuilder &#x4EE3;&#x66FF;"></a>IV.StringBuilder &#x4EE3;&#x66FF;</h5><h4 id="4-android-&#x4E2D;&#x5982;&#x4F55;&#x6355;&#x83B7;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;"><a href="#4&#x3001;Android-&#x4E2D;&#x5982;&#x4F55;&#x6355;&#x83B7;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;" class="headerlink" title="4&#x3001;Android &#x4E2D;&#x5982;&#x4F55;&#x6355;&#x83B7;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;"></a>4&#x3001;Android &#x4E2D;&#x5982;&#x4F55;&#x6355;&#x83B7;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;</h4><p> CrashHandler<br>&#x5173;&#x952E;&#x662F;&#x5B9E;&#x73B0;Thread.UncaughtExceptionHandler</p>
+<p>&#x7136;&#x540E;&#x662F;&#x5728;application&#x7684;oncreate&#x91CC;&#x9762;&#x6CE8;&#x518C;&#x3002; </p>
+<h4 id="5-anr-&#x662F;&#x4EC0;&#x4E48;&#x600E;&#x6837;&#x907F;&#x514D;&#x548C;&#x89E3;&#x51B3;-anr&#x91CD;&#x8981;"><a href="#5&#x3001;ANR-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x600E;&#x6837;&#x907F;&#x514D;&#x548C;&#x89E3;&#x51B3;-ANR&#xFF08;&#x91CD;&#x8981;&#xFF09;" class="headerlink" title="5&#x3001;ANR &#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x600E;&#x6837;&#x907F;&#x514D;&#x548C;&#x89E3;&#x51B3; ANR&#xFF08;&#x91CD;&#x8981;&#xFF09;"></a>5&#x3001;ANR &#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x600E;&#x6837;&#x907F;&#x514D;&#x548C;&#x89E3;&#x51B3; ANR&#xFF08;&#x91CD;&#x8981;&#xFF09;</h4><p>ANR-&gt;Application Not Responding</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x89C4;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x6CA1;&#x6709;&#x54CD;&#x5E94;&#x3002;</p>
+<p>&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#xFF1A;</p>
+<h5 id="1-keydispatchtimeout5-seconds-&#x4E3B;&#x8981;&#x7C7B;&#x578B;&#x6309;&#x952E;&#x6216;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x54CD;&#x5E94;"><a href="#1&#xFF09;-KeyDispatchTimeout-5-seconds-&#x2013;&#x4E3B;&#x8981;&#x7C7B;&#x578B;&#x6309;&#x952E;&#x6216;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x54CD;&#x5E94;" class="headerlink" title="1&#xFF09;. KeyDispatchTimeout(5 seconds) &#x2013;&#x4E3B;&#x8981;&#x7C7B;&#x578B;&#x6309;&#x952E;&#x6216;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x54CD;&#x5E94;"></a>1&#xFF09;. KeyDispatchTimeout(5 seconds) &#x2013;&#x4E3B;&#x8981;&#x7C7B;&#x578B;&#x6309;&#x952E;&#x6216;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x54CD;&#x5E94;</h5><h5 id="2-broadcasttimeout10-seconds-broadcastreceiver&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;"><a href="#2&#xFF09;-BroadcastTimeout-10-seconds-&#x2013;BroadcastReceiver&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;" class="headerlink" title="2&#xFF09;. BroadcastTimeout(10 seconds) &#x2013;BroadcastReceiver&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;"></a>2&#xFF09;. BroadcastTimeout(10 seconds) &#x2013;BroadcastReceiver&#x5728;&#x7279;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;</h5><h5 id="3-servicetimeout20-seconds-&#x5C0F;&#x6982;&#x7387;&#x7C7B;&#x578B;-service&#x5728;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;"><a href="#3&#xFF09;-ServiceTimeout-20-seconds-&#x2013;&#x5C0F;&#x6982;&#x7387;&#x7C7B;&#x578B;-Service&#x5728;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;" class="headerlink" title="3&#xFF09;. ServiceTimeout(20 seconds) &#x2013;&#x5C0F;&#x6982;&#x7387;&#x7C7B;&#x578B; Service&#x5728;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;"></a>3&#xFF09;. ServiceTimeout(20 seconds) &#x2013;&#x5C0F;&#x6982;&#x7387;&#x7C7B;&#x578B; Service&#x5728;&#x7279;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x5B8C;&#x6210;</h5><p>&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x8D85;&#x65F6;&#xFF1A;&#x4E8B;&#x4EF6;&#x6CA1;&#x6709;&#x673A;&#x4F1A;&#x5904;&#x7406; &amp; &#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x8D85;&#x65F6;</p>
+<p>&#x600E;&#x4E48;&#x907F;&#x514D;ANR</p>
+<p>ANR&#x7684;&#x5173;&#x952E;</p>
+<p>&#x662F;&#x5904;&#x7406;&#x8D85;&#x65F6;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x5728;UI&#x7EBF;&#x7A0B;&#xFF0C;BroadcastReceiver &#x8FD8;&#x6709;service&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x5904;&#x7406;&#x590D;&#x6742;&#x7684;&#x903B;&#x8F91;&#x548C;&#x8BA1;&#x7B97;</p>
+<p>&#x800C;&#x4EA4;&#x7ED9;work thread&#x64CD;&#x4F5C;&#x3002;</p>
+<h5 id="1&#x907F;&#x514D;&#x5728;activity&#x91CC;&#x9762;&#x505A;&#x8017;&#x65F6;&#x64CD;&#x4F5C;oncreate-onresume"><a href="#1&#xFF09;&#x907F;&#x514D;&#x5728;activity&#x91CC;&#x9762;&#x505A;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;oncreate-amp-onresume" class="headerlink" title="1&#xFF09;&#x907F;&#x514D;&#x5728;activity&#x91CC;&#x9762;&#x505A;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;oncreate &amp; onresume"></a>1&#xFF09;&#x907F;&#x514D;&#x5728;activity&#x91CC;&#x9762;&#x505A;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#xFF0C;oncreate &amp; onresume</h5><h5 id="2&#x907F;&#x514D;&#x5728;onreceiver&#x91CC;&#x9762;&#x505A;&#x8FC7;&#x591A;&#x64CD;&#x4F5C;"><a href="#2&#xFF09;&#x907F;&#x514D;&#x5728;onReceiver&#x91CC;&#x9762;&#x505A;&#x8FC7;&#x591A;&#x64CD;&#x4F5C;" class="headerlink" title="2&#xFF09;&#x907F;&#x514D;&#x5728;onReceiver&#x91CC;&#x9762;&#x505A;&#x8FC7;&#x591A;&#x64CD;&#x4F5C;"></a>2&#xFF09;&#x907F;&#x514D;&#x5728;onReceiver&#x91CC;&#x9762;&#x505A;&#x8FC7;&#x591A;&#x64CD;&#x4F5C;</h5><h5 id="3&#x907F;&#x514D;&#x5728;intent-receiver&#x91CC;&#x542F;&#x52A8;&#x4E00;&#x4E2A;activity&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x753B;&#x9762;&#x5E76;&#x4ECE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#x4E0A;&#x62A2;&#x593A;&#x7126;&#x70B9;"><a href="#3&#xFF09;&#x907F;&#x514D;&#x5728;Intent-Receiver&#x91CC;&#x542F;&#x52A8;&#x4E00;&#x4E2A;Activity&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x753B;&#x9762;&#xFF0C;&#x5E76;&#x4ECE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#x4E0A;&#x62A2;&#x593A;&#x7126;&#x70B9;&#x3002;" class="headerlink" title="3&#xFF09;&#x907F;&#x514D;&#x5728;Intent Receiver&#x91CC;&#x542F;&#x52A8;&#x4E00;&#x4E2A;Activity&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x753B;&#x9762;&#xFF0C;&#x5E76;&#x4ECE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#x4E0A;&#x62A2;&#x593A;&#x7126;&#x70B9;&#x3002;"></a>3&#xFF09;&#x907F;&#x514D;&#x5728;Intent Receiver&#x91CC;&#x542F;&#x52A8;&#x4E00;&#x4E2A;Activity&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x753B;&#x9762;&#xFF0C;&#x5E76;&#x4ECE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#x4E0A;&#x62A2;&#x593A;&#x7126;&#x70B9;&#x3002;</h5><h5 id="4&#x5C3D;&#x91CF;&#x4F7F;&#x7528;handler&#x6765;&#x5904;&#x7406;ui-thread-workthread&#x7684;&#x4EA4;&#x4E92;"><a href="#4&#xFF09;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;handler&#x6765;&#x5904;&#x7406;UI-thread-amp-workthread&#x7684;&#x4EA4;&#x4E92;&#x3002;" class="headerlink" title="4&#xFF09;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;handler&#x6765;&#x5904;&#x7406;UI thread &amp; workthread&#x7684;&#x4EA4;&#x4E92;&#x3002;"></a>4&#xFF09;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;handler&#x6765;&#x5904;&#x7406;UI thread &amp; workthread&#x7684;&#x4EA4;&#x4E92;&#x3002;</h5><p>&#x5982;&#x4F55;&#x89E3;&#x51B3;ANR</p>
+<p>&#x9996;&#x5148;&#x5B9A;&#x4F4D;ANR&#x53D1;&#x751F;&#x7684;log&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">04-01 13:12:11.572 I/InputDispatcher( 220): Application is not responding:Window{2b263310com.android.email/com.android.email.activity.SplitScreenActivitypaused=false}.  5009.8ms since event, 5009.5ms since waitstarted</span><br><span class="line">CPUusage from 4361ms to 699ms ago ----CPU&#x5728;ANR&#x53D1;&#x751F;&#x524D;&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</span><br><span class="line">04-0113:12:15.872 E/ActivityManager(  220): 100%TOTAL: 4.8% user + 7.6% kernel + 87% iowait</span><br><span class="line"></span><br><span class="line">04-0113:12:15.872 E/ActivityManager(  220): CPUusage from 3697ms to 4223ms later:-- ANR&#x540E;CPU&#x7684;&#x4F7F;&#x7528;&#x91CF;</span><br></pre></td></tr></table></figure>
+<p>&#x4ECE;log&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;cpu&#x5728;&#x505A;&#x5927;&#x91CF;&#x7684;io&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x67E5;&#x770B;io&#x64CD;&#x4F5C;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;cpu&#x5360;&#x7528;&#x4E0D;&#x9AD8;&#xFF0C;&#x90A3;&#x5C31;&#x662F; &#x4E3B;&#x7EBF;&#x7A0B;&#x88AB;block&#x4F4F;&#x4E86;&#x3002; </p>
+<h4 id="6-android-&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x6709;&#x54EA;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;"><a href="#6&#x3001;Android-&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x6709;&#x54EA;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;" class="headerlink" title="6&#x3001;Android &#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x6709;&#x54EA;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;"></a>6&#x3001;Android &#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x6709;&#x54EA;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;</h4><h5 id="1&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x5185;&#x5B58;"><a href="#1&#xFF09;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#xFF08;&#x5185;&#x5B58;&#xFF09;" class="headerlink" title="1&#xFF09;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#xFF08;&#x5185;&#x5B58;&#xFF09;"></a>1&#xFF09;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#xFF08;&#x5185;&#x5B58;&#xFF09;</h5><h5 id="2&#x7BA1;&#x9053;"><a href="#2&#xFF09;&#x7BA1;&#x9053;" class="headerlink" title="2&#xFF09;&#x7BA1;&#x9053;"></a>2&#xFF09;&#x7BA1;&#x9053;</h5><h5 id="3handle&#x673A;&#x5236;"><a href="#3&#xFF09;handle&#x673A;&#x5236;" class="headerlink" title="3&#xFF09;handle&#x673A;&#x5236;"></a>3&#xFF09;handle&#x673A;&#x5236;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">runOnUiThread(Runnable)</span><br><span class="line"></span><br><span class="line">view.post(Runnable)</span><br><span class="line">``` </span><br><span class="line">#### 7&#x3001;Devik &#x8FDB;&#x7A0B;&#xFF0C;linux &#x8FDB;&#x7A0B;&#xFF0C;&#x7EBF;&#x7A0B;&#x7684;&#x533A;&#x522B;</span><br><span class="line"></span><br><span class="line">Dalvik&#x8FDB;&#x7A0B;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x6BCF;&#x4E00;&#x4E2A;android app&#x90FD;&#x4F1A;&#x72EC;&#x7ACB;&#x5360;&#x7528;&#x4E00;&#x4E2A;dvm&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x8FD0;&#x884C;&#x5728;linux&#x7CFB;&#x7EDF;&#x4E2D;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x6240;&#x4EE5;dalvik&#x8FDB;&#x7A0B;&#x548C;linux&#x8FDB;&#x7A0B;&#x662F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x3002;</span><br><span class="line"> </span><br><span class="line">#### 8&#x3001;&#x63CF;&#x8FF0;&#x4E00;&#x4E0B; android &#x7684;&#x7CFB;&#x7EDF;&#x67B6;&#x6784;</span><br><span class="line"></span><br><span class="line">&#x4ECE;&#x5C0F;&#x5230;&#x4E0A;&#x5C31;&#x662F;&#xFF1A;</span><br></pre></td></tr></table></figure>
+<p>linux kernel,lib dalvik vm ,application framework, app<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line">#### 9&#x3001;android &#x5E94;&#x7528;&#x5BF9;&#x5185;&#x5B58;&#x662F;&#x5982;&#x4F55;&#x9650;&#x5236;&#x7684;?&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x5408;&#x7406;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#xFF1F;</span><br><span class="line"></span><br><span class="line">activitymanager.getMemoryClass()  &#x83B7;&#x53D6;&#x5185;&#x5B58;&#x9650;&#x5236;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x5173;&#x4E8E;&#x5408;&#x7406;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x907F;&#x514D;OOM &amp; &#x5185;&#x5B58;&#x6CC4;&#x9732;&#x4E2D;&#x5DF2;&#x7ECF;&#x8BF4;&#x660E;&#x3002;</span><br><span class="line"></span><br><span class="line">#### 10&#x3001;&#x7B80;&#x8FF0; android &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x662F;&#x54EA;&#x4E9B;</span><br><span class="line"></span><br><span class="line">##### 1&#xFF09;main code</span><br><span class="line"></span><br><span class="line">##### 2) unit test</span><br><span class="line"></span><br><span class="line">##### 3&#xFF09;mianifest</span><br><span class="line"></span><br><span class="line">##### 4&#xFF09;res-&gt;drawable,drawable-xxhdpi,layout,value,mipmap</span><br><span class="line"></span><br><span class="line">mipmap &#x662F;&#x4E00;&#x79CD;&#x5F88;&#x65E9;&#x5C31;&#x6709;&#x7684;&#x6280;&#x672F;&#x4E86;&#xFF0C;&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#x5C31;&#x662F;&#x7EB9;&#x7406;&#x6620;&#x5C04;&#x6280;&#x672F;.</span><br><span class="line"></span><br><span class="line">google&#x5EFA;&#x8BAE;&#x53EA;&#x628A;&#x542F;&#x52A8;&#x56FE;&#x7247;&#x653E;&#x5165;&#x3002;</span><br><span class="line"></span><br><span class="line">##### 5&#xFF09;lib</span><br><span class="line"></span><br><span class="line">##### 6&#xFF09;color</span><br><span class="line"></span><br><span class="line">#### 11&#x3001;&#x8BF7;&#x89E3;&#x91CA;&#x4E0B; Android &#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x6743;&#x9650;&#x4E0E;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#x7684;&#x533A;&#x522B;</span><br><span class="line"></span><br><span class="line">&#x6587;&#x4EF6;&#x7684;&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#x662F;&#x7531;linux&#x7CFB;&#x7EDF;&#x89C4;&#x5B9A;&#x7684;&#xFF0C;&#x53EA;&#x8BFB;&#xFF0C;&#x8BFB;&#x5199;&#x7B49;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x8FD0;&#x884C;&#x65F6;&#x6743;&#x9650;&#xFF0C;&#x662F;&#x5BF9;&#x4E8E;&#x67D0;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;app&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x5141;&#x8BB8;&#xFF0C;&#x62D2;&#x7EDD;&#xFF0C;&#x8BE2;&#x95EE;&#x3002;&#x8BE5;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x975E;&#x6CD5;&#x7684;&#x7A0B;&#x5E8F;&#x8BBF;&#x95EE;&#x654F;&#x611F;&#x7684;&#x4FE1;&#x606F;&#x3002;</span><br><span class="line"></span><br><span class="line">#### 12&#x3001;Framework &#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x53CA;&#x539F;&#x7406;&#xFF0C;Activity &#x662F;&#x5982;&#x4F55;&#x751F;&#x6210;&#x4E00;&#x4E2A; view &#x7684;&#xFF0C;&#x673A;&#x5236;&#x662F;&#x4EC0;&#x4E48;</span><br><span class="line"></span><br><span class="line">Framework&#x662F;android &#x7CFB;&#x7EDF;&#x5BF9; linux kernel&#xFF0C;lib&#x5E93;&#x7B49;&#x5C01;&#x88C5;&#xFF0C;&#x63D0;&#x4F9B;WMS&#xFF0C;AMS&#xFF0C;bind&#x673A;&#x5236;&#xFF0C;handler-message&#x673A;&#x5236;&#x7B49;&#x65B9;&#x5F0F;&#xFF0C;&#x4F9B;app&#x4F7F;&#x7528;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x7B80;&#x5355;&#x6765;&#x8BF4;framework&#x5C31;&#x662F;&#x63D0;&#x4F9B;app&#x751F;&#x5B58;&#x7684;&#x73AF;&#x5883;&#x3002;</span><br><span class="line"></span><br><span class="line">##### 1&#xFF09;Activity&#x5728;attch&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;phonewindow&#xFF08;window&#x7684;&#x5B50;&#x7C7B;&#xFF09;</span><br><span class="line"></span><br><span class="line">##### 2&#xFF09;onCreate&#x4E2D;&#x7684;setContentView&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;DecorView</span><br><span class="line"></span><br><span class="line">##### 3&#xFF09;DecorView &#x7684;addview&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x628A;layout&#x4E2D;&#x7684;&#x5E03;&#x5C40;&#x52A0;&#x8F7D;&#x8FDB;&#x6765;&#x3002;</span><br><span class="line"></span><br><span class="line">#### 13&#x3001;&#x591A;&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x548C;&#x591A;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x901A;&#x4FE1;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#xFF0C;&#x5206;&#x522B;&#x600E;&#x4E48;&#x5B9E;&#x73B0;</span><br><span class="line"></span><br><span class="line">&#x7EBF;&#x7A0B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x7B2C;6&#x70B9;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x8FDB;&#x7A0B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#xFF1A;bind&#x673A;&#x5236;&#xFF08;IPC-&gt;AIDL&#xFF09;&#xFF0C;linux&#x7EA7;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#xFF0C;boradcast&#xFF0C;</span><br><span class="line"></span><br><span class="line">Activity  &#x4E4B;&#x95F4;&#xFF0C;activity &amp; serview&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#xFF0C;&#x65E0;&#x8BBA;&#x4ED6;&#x4EEC;&#x662F;&#x5426;&#x5728;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5185;&#x3002; </span><br><span class="line"></span><br><span class="line">#### 14&#x3001;Android &#x5C4F;&#x5E55;&#x9002;&#x914D;</span><br><span class="line"></span><br><span class="line">&#x5C4F;&#x5E55;&#x9002;&#x914D;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;xxxdpi&#xFF0C; wrap_content,match_parent. &#x83B7;&#x53D6;&#x5C4F;&#x5E55;&#x5927;&#x5C0F;&#xFF0C;&#x505A;&#x5904;&#x7406;&#x3002;</span><br><span class="line"></span><br><span class="line">dp&#x6765;&#x9002;&#x914D;&#x5C4F;&#x5E55;&#xFF0C;sp&#x6765;&#x786E;&#x5B9A;&#x5B57;&#x4F53;&#x5927;&#x5C0F;</span><br><span class="line"></span><br><span class="line">drawable-xxdpi, values-1280*1920&#x7B49; &#x8FD9;&#x4E9B;&#x5C31;&#x662F;&#x8D44;&#x6E90;&#x7684;&#x9002;&#x914D;&#x3002;</span><br><span class="line"></span><br><span class="line">wrap_content,match_parent, &#x8FD9;&#x4E9B;&#x662F;view&#x7684;&#x81EA;&#x9002;&#x5E94;</span><br><span class="line"></span><br><span class="line">weight&#xFF0C;&#x8FD9;&#x662F;&#x6743;&#x91CD;&#x7684;&#x9002;&#x914D;&#x3002;</span><br><span class="line"></span><br><span class="line">#### 15&#x3001;&#x4EC0;&#x4E48;&#x662F; AIDL &#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x4F7F;&#x7528;</span><br><span class="line"></span><br><span class="line">Android Interface Definition Language</span><br><span class="line"></span><br><span class="line">AIDL&#x662F;&#x4F7F;&#x7528;bind&#x673A;&#x5236;&#x6765;&#x5DE5;&#x4F5C;&#x3002;</span><br><span class="line"></span><br><span class="line">&#x53C2;&#x6570;&#xFF1A;</span><br><span class="line"></span><br><span class="line">java&#x539F;&#x751F;&#x53C2;&#x6570;</span><br><span class="line"></span><br><span class="line">String </span><br><span class="line"></span><br><span class="line">parcelable</span><br><span class="line"></span><br><span class="line">list &amp; map &#x5143;&#x7D20; &#x9700;&#x8981;&#x652F;&#x6301;AIDL</span><br><span class="line"></span><br><span class="line">#### 16&#x3001;Handler &#x673A;&#x5236;</span><br><span class="line"></span><br><span class="line">&#x53C2;&#x8003;&#xFF1A;android &#x8FDB;&#x7A0B;/&#x7EBF;&#x7A0B;&#x7BA1;&#x7406;&#xFF08;&#x4E00;&#xFF09;----&#x6D88;&#x606F;&#x673A;&#x5236;&#x7684;&#x6846;&#x67B6; &#x8FD9;&#x4E2A;&#x7CFB;&#x7C7B;&#x3002;</span><br><span class="line"></span><br><span class="line">#### 17&#x3001;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;</span><br><span class="line"></span><br><span class="line">android &#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;</span><br><span class="line"></span><br><span class="line">#### 18&#x3001;&#x5B50;&#x7EBF;&#x7A0B;&#x53D1;&#x6D88;&#x606F;&#x5230;&#x4E3B;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x66F4;&#x65B0; UI&#xFF0C;&#x9664;&#x4E86; handler &#x548C; AsyncTask&#xFF0C;&#x8FD8;&#x6709;&#x4EC0;&#x4E48;</span><br><span class="line"></span><br><span class="line">EventBus&#xFF0C;&#x5E7F;&#x64AD;&#xFF0C;view.post, runinUiThread</span><br><span class="line"></span><br><span class="line">&#x4F46;&#x662F;&#x65E0;&#x8BBA;&#x5404;&#x79CD;&#x82B1;&#x6837;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x5C31;2&#x79CD;&#xFF1A;handler&#x673A;&#x5236; + &#x5E7F;&#x64AD;</span><br><span class="line"></span><br><span class="line">#### 19&#x3001;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x80FD;&#x4E0D;&#x80FD; new handler&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;</span><br><span class="line"></span><br><span class="line">&#x5FC5;&#x987B;&#x53EF;&#x4EE5;&#x3002;&#x5B50;&#x7EBF;&#x7A0B; &#x53EF;&#x4EE5;new &#x4E00;&#x4E2A;mainHandler&#xFF0C;&#x7136;&#x540E;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x5230;UI Thread&#x3002;</span><br><span class="line"></span><br><span class="line">#### 20&#x3001;Android &#x4E2D;&#x7684;&#x52A8;&#x753B;&#x6709;&#x54EA;&#x51E0;&#x7C7B;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x7279;&#x70B9;&#x548C;&#x533A;&#x522B;&#x662F;&#x4EC0;&#x4E48;</span><br><span class="line"></span><br><span class="line">##### &#x89C6;&#x56FE;&#x52A8;&#x753B;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x8865;&#x95F4;&#x52A8;&#x753B;&#x3002;&#x53EA;&#x662F;&#x89C6;&#x89C9;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x6548;&#x679C;&#xFF0C;&#x5B9E;&#x9645;view&#x5C5E;&#x6027;&#x6CA1;&#x6709;&#x53D8;&#x5316;&#xFF0C;&#x6027;&#x80FD;&#x597D;&#xFF0C;&#x4F46;&#x662F;&#x652F;&#x6301;&#x65B9;&#x5F0F;&#x5C11;&#x3002;</span><br><span class="line"></span><br><span class="line">##### &#x5C5E;&#x6027;&#x52A8;&#x753B;&#xFF0C;&#x901A;&#x8FC7;&#x53D8;&#x5316;&#x5C5E;&#x6027;&#x6765;&#x8FBE;&#x5230;&#x52A8;&#x753B;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x6027;&#x80FD;&#x7565;&#x5DEE;&#xFF0C;&#x652F;&#x6301;&#x70B9;&#x51FB;&#x7B49;&#x4E8B;&#x4EF6;&#x3002;android 3.0</span><br><span class="line"></span><br><span class="line">##### &#x5E27;&#x52A8;&#x753B;&#xFF0C;&#x901A;&#x8FC7;drawable&#x4E00;&#x5E27;&#x5E27;&#x753B;&#x51FA;&#x6765;&#x3002;</span><br><span class="line"></span><br><span class="line">##### Gif&#x52A8;&#x753B;&#xFF0C;&#x539F;&#x7406;&#x540C;&#x4E0A;&#xFF0C;canvas&#x753B;&#x51FA;&#x6765;&#x3002;  </span><br><span class="line"></span><br><span class="line">#### 21&#x3001;&#x5982;&#x4F55;&#x4FEE;&#x6539; Activity &#x8FDB;&#x5165;&#x548C;&#x9000;&#x51FA;&#x52A8;&#x753B;</span><br><span class="line"></span><br><span class="line"> overridePendingTransition</span><br><span class="line"></span><br><span class="line">#### 22&#x3001;SurfaceView &amp; View &#x7684;&#x533A;&#x522B;</span><br><span class="line"></span><br><span class="line">view&#x7684;&#x66F4;&#x65B0;&#x5FC5;&#x987B;&#x5728;UI thread&#x4E2D;&#x8FDB;&#x884C;</span><br><span class="line"></span><br><span class="line">surfaceview&#x4F1A;&#x5355;&#x72EC;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x505A;ui&#x7684;&#x66F4;&#x65B0;&#x3002;</span><br><span class="line"></span><br><span class="line">surfaceview &#x652F;&#x6301;open GL&#x7ED8;&#x5236;&#x3002;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">### &#x4E8C;&#x9879;&#x76EE;&#x6846;&#x67B6;&#x7684;&#x4F7F;&#x7528;</span><br><span class="line"></span><br><span class="line">#### 23&#x3001;&#x5F00;&#x53D1;&#x4E2D;&#x90FD;&#x4F7F;&#x7528;&#x8FC7;&#x54EA;&#x4E9B;&#x6846;&#x67B6;&#x3001;&#x5E73;&#x53F0;</span><br><span class="line"></span><br><span class="line">##### I.EventBus &#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;&#xFF0C;&#x7531;handler&#x5B9E;&#x73B0;&#xFF0C;&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;</span><br><span class="line"></span><br><span class="line">##### II.xUtils-&gt;DbUtils,ViewUtils,HttpUtils,BitmapUtils</span><br><span class="line"></span><br><span class="line">##### III.&#x767E;&#x5EA6;&#x5730;&#x56FE;</span><br><span class="line"></span><br><span class="line">##### IV.volley</span><br><span class="line"></span><br><span class="line">##### V.fastjson</span><br><span class="line"></span><br><span class="line">##### VI.picciso</span><br><span class="line"></span><br><span class="line">##### VII.&#x53CB;&#x76DF;</span><br><span class="line"></span><br><span class="line">##### VIII.zxing</span><br><span class="line"></span><br><span class="line">##### IX.Gson</span><br><span class="line"></span><br><span class="line">#### 24&#x3001;&#x4F7F;&#x7528;&#x8FC7;&#x90A3;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;View</span><br><span class="line"></span><br><span class="line">pull2RefreshListView</span><br><span class="line"></span><br><span class="line">#### 25&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF1A;&#x7ED8;&#x5236;&#x5706;&#x73AF;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</span><br></pre></td></tr></table></figure></p>
+<p>package com.joyfulmath.samples.Cycle;</p>
+<p>import android.content.Context;<br>import android.graphics.Canvas;<br>import android.graphics.Paint;<br>import android.util.AttributeSet;<br>import android.view.View;</p>
+<p>/**</p>
+<ul>
+<li><p>Created by Administrator on 2016/9/11 0011.<br>*/<br>public class CycleView extends View {<br> Paint mPaint = new Paint();<br> public CycleView(Context context) {</p>
+<pre><code>this(context, null);
+</code></pre><p> }</p>
+<p> public CycleView(Context context, AttributeSet attrs) {</p>
+<pre><code>super(context, attrs);
+initView();
+</code></pre><p> }</p>
+<p> private void initView() {</p>
+<pre><code>mPaint.setAntiAlias(true);
+mPaint.setStyle(Paint.Style.STROKE);
+mPaint.setStrokeWidth(20);
+</code></pre><p> }</p>
+<p> @Override<br> protected void onDraw(Canvas canvas) {</p>
+<pre><code>super.onDraw(canvas);
+canvas.drawCircle(100,100,50,mPaint);
+</code></pre><p> }<br>}<br>```<br>&#x5173;&#x952E;&#x662F;canvas.drawCycle &amp; paint.setsytle(stoken)</p>
+</li>
+</ul>
+<h4 id="26-&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x6469;&#x5929;&#x8F6E;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;"><a href="#26&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF1A;&#x6469;&#x5929;&#x8F6E;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;" class="headerlink" title="26&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF1A;&#x6469;&#x5929;&#x8F6E;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;"></a>26&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#xFF1A;&#x6469;&#x5929;&#x8F6E;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</h4><h4 id="27-gridlayout&#x7684;&#x4F7F;&#x7528;"><a href="#27&#x3001;GridLayout&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="27&#x3001;GridLayout&#x7684;&#x4F7F;&#x7528;"></a>27&#x3001;GridLayout&#x7684;&#x4F7F;&#x7528;</h4><p>&#x53EF;&#x4EE5;&#x4E0D;&#x9700;&#x8981;adapter</p>
+<h4 id="28-&#x6D41;&#x5F0F;&#x5E03;&#x5C40;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;"><a href="#28&#x3001;&#x6D41;&#x5F0F;&#x5E03;&#x5C40;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;" class="headerlink" title="28&#x3001;&#x6D41;&#x5F0F;&#x5E03;&#x5C40;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;"></a>28&#x3001;&#x6D41;&#x5F0F;&#x5E03;&#x5C40;&#x7684;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</h4><p>TBD.</p>
+<h4 id="29-&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;"><a href="#29&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;" class="headerlink" title="29&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;"></a>29&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;</h4><p>QQ &amp; &#x5FAE;&#x4FE1;&#x90FD;&#x6709;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;&#x7684;sdk&#xFF0C;&#x8981;&#x53BB;&#x6CE8;&#x518C;app</p>
+<h4 id="30-&#x7B2C;&#x4E09;&#x65B9;&#x652F;&#x4ED8;"><a href="#30&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x652F;&#x4ED8;" class="headerlink" title="30&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x652F;&#x4ED8;"></a>30&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x652F;&#x4ED8;</h4><p>&#x9700;&#x8981;&#x770B;&#x652F;&#x4ED8;&#x5B9D;&#x7684;API&#x6587;&#x6863;</p>
+
+            </div>
+        </div>
+    </div>
+</article>  
+<div class="card"> 
+	 <nav id="pagination" class="indigo" >
+		
+		
+		<a style="float: right;" href="/2017/05/10/Python 面试问答 Top 25/" >&nbsp;&nbsp;&nbsp;&nbsp;下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		
+		<div class="clearfix"></div>
+	</nav> 
+</div>
+
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2017/05/10/Android 高级面试题及答案/" data-title="Android 高级面试题及答案" data-url="http://qianmeng.github.io/2017/05/10/Android 高级面试题及答案/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="http://weibo.com/u/1819068247" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qian_meng" target="_blank">CSDN 地址</a>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">Github地址</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016  All rights reserved. 
+        </div>
+    </div>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal();
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56073371" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"145"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</body>
+</html>

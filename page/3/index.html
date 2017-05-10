@@ -193,7 +193,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/面试/">
-                    面试 <span class="right">5 篇</span></a>
+                    面试 <span class="right">6 篇</span></a>
                 </a>
             </li>
 
@@ -201,7 +201,7 @@
 
             <li class="collapse-level-1" collapse-level="1">
                 <a class="no-padding" href="/categories/面试/Android/">
-                    Android <span class="right">2 篇</span></a>
+                    Android <span class="right">3 篇</span></a>
                 </a>
             </li>
 
@@ -256,24 +256,16 @@
         
 
             <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
-                    Apache-Http-Server <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/后台/MetaQ/">
-                    MetaQ <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
                 <a class="no-padding" href="/categories/后台/Apache-CXF/">
                     Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -290,6 +282,14 @@
             <li class="collapse-level-1" collapse-level="1">
                 <a class="no-padding" href="/categories/后台/Hibernate/">
                     Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -541,6 +541,51 @@
 
 
 <div id="article-list" class="container main-container">
+    
+        <article class="simple-article">
+        <div class="card">
+            <div class="card-content">
+                <div class="article-title">
+                    
+    
+        <h1 class="indigo-link-context"><a href="/2015/06/27/Apache  CXF 应用小结/">Apache  CXF 应用小结</a></h1>
+    
+
+
+                </div>
+
+                <time class="pink-link-context" datetime="2015-06-27T10:06:50.000Z"><a href="/2015/06/27/Apache  CXF 应用小结/">2015-06-27</a></time>
+
+                
+    <div class="tags-row">
+        
+            <a href="/tags/Apache-CXF/" class="chip pink lighten-1">Apache  CXF</a>
+        
+            <a href="/tags/Java/" class="chip pink lighten-1">Java</a>
+        
+    </div>
+
+
+
+                
+                    <div class="entry pink-link-context">
+                        <p>最新项目中需要用到webservices发布接口，之前项目用的都是xfire，由于框架中Spring版本原因，xfire用不起来了，然后去搜了下，开源中国里找到了这段话：</p>
+<blockquote>
+<p>如果你要在新项目里用XFire，请改用CXF.CXF是XFire的延续，可以被看作是XFire2.0。CXF有很多新特性，且修复了很多XFire的bug，更重要的是CXF兼容JAX-WS！XFire将继续被维护和修复bug，但是新功能的开发都转移到了CXF上。详细信息请参考XFire/Celtix合并声明和CXF官网</p>
+</blockquote>
+<p>才发现xfire早在几年前就停止更新啦，转而替代产品是CXF（突然发现公司框架好老土！），学习了下CXF，发现确实好用，配置简单，调用方便，具体貌似还有一些强大的功能，暂时没用到，不去深究，下面来简单介绍下CXF的具体使用。<br>
+                    </div>
+                
+            </div>
+
+            
+            <div class="card-action pink-link-context">
+                <a href="2015/06/27/Apache  CXF 应用小结/">READ MORE</a>
+            </div>
+            
+        </div>
+</article>
+
     
         <article class="simple-article">
         <div class="card">
@@ -922,50 +967,6 @@
             
             <div class="card-action pink-link-context">
                 <a href="2015/03/07/PostGreSQL 自动备份脚本（.backup文件格式）/">READ MORE</a>
-            </div>
-            
-        </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="indigo-link-context"><a href="/2015/02/07/itms-services协议，不通过AppStore，直接安装IOS应用程序/">itms-services协议，不通过AppStore，直接安装IOS应用程序</a></h1>
-    
-
-
-                </div>
-
-                <time class="pink-link-context" datetime="2015-02-07T10:06:50.000Z"><a href="/2015/02/07/itms-services协议，不通过AppStore，直接安装IOS应用程序/">2015-02-07</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/IOS/" class="chip pink lighten-1">IOS</a>
-        
-            <a href="/tags/协议/" class="chip pink lighten-1">协议</a>
-        
-    </div>
-
-
-
-                
-                    <div class="entry pink-link-context">
-                        <p>最近开发的一个IOS项目需要不通过将APP发布到Appstore上直接安装到客户手机上，本来觉得苹果这么封闭的流程，应该不可以实现的吧，结果竟然还正能实现，这边主要是利用苹果自家的浏览器safari和itms-services协议，下面介绍下主要步骤和实现过程中遇到的问题。</p>
-<blockquote>
-<p>通过itms-services协议，可以通过safari浏览器直接在iOS设备上安装应用程序。利用这种方式，只要在内网布置一个服务器，测试人员只需要通过测试设备的safari浏览器访问特定的url既可以实现安装</p>
-</blockquote>
-                    </div>
-                
-            </div>
-
-            
-            <div class="card-action pink-link-context">
-                <a href="2015/02/07/itms-services协议，不通过AppStore，直接安装IOS应用程序/">READ MORE</a>
             </div>
             
         </div>
