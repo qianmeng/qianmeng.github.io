@@ -261,9 +261,9 @@
         <title>股票知识扫盲</title>
         <pubTime>2016-08-13T10:06:50.000Z</pubTime>
         
-        <tag>股票</tag>
-         
         <tag>基础</tag>
+         
+        <tag>股票</tag>
          
          
            
@@ -286,9 +286,9 @@
         <title>期货知识扫盲</title>
         <pubTime>2016-08-07T10:06:50.000Z</pubTime>
         
-        <tag>基础</tag>
-         
         <tag>期货</tag>
+         
+        <tag>基础</tag>
          
          
            
@@ -816,9 +816,9 @@
         <title>MetaQ 简单使用（数据同步框架）</title>
         <pubTime>2014-08-01T10:06:50.000Z</pubTime>
         
-        <tag>服务</tag>
-         
         <tag>Java</tag>
+         
+        <tag>服务</tag>
          
         <tag>MetaQ</tag>
          
