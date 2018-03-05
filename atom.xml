@@ -869,9 +869,9 @@ canvas.drawCircle(100,100,50,mPaint);
       <category term="股票" scheme="http://qianmeng.github.io/categories/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/%E8%82%A1%E7%A5%A8/"/>
     
     
-      <category term="股票" scheme="http://qianmeng.github.io/tags/%E8%82%A1%E7%A5%A8/"/>
-    
       <category term="基础" scheme="http://qianmeng.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="股票" scheme="http://qianmeng.github.io/tags/%E8%82%A1%E7%A5%A8/"/>
     
   </entry>
   

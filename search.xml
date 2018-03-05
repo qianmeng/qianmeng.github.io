@@ -2258,12 +2258,6 @@ hexo  s --&gt; hexo server
   
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://qianmeng.github.io/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://qianmeng.github.io/about/index.html</url>
       <content type="html"><![CDATA[<p>&#x5927;&#x5BB6;&#x597D;&#xFF0C;&#x6211;&#x662F;&#x94B1;&#x731B;&#x3002;&#x6B22;&#x8FCE;&#x6765;&#x5230;&#x6211;&#x7684;&#x4E2A;&#x4EBA;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x3002;</p>
@@ -2281,6 +2275,12 @@ hexo  s --&gt; hexo server
 </ul>
 <h1 id="&#x5DE5;&#x4F5C;&#x7ECF;&#x5386;"><a href="#&#x5DE5;&#x4F5C;&#x7ECF;&#x5386;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x7ECF;&#x5386;"></a>&#x5DE5;&#x4F5C;&#x7ECF;&#x5386;</h1><h3 id="&#x5357;&#x4EAC;&#x5168;&#x9AD8;&#x79D1;&#x6280;&#x4FE1;&#x606F;&#x6709;&#x9650;&#x516C;&#x53F8;2012-09-&#x81F3;&#x4ECA;"><a href="#&#x5357;&#x4EAC;&#x5168;&#x9AD8;&#x79D1;&#x6280;&#x4FE1;&#x606F;&#x6709;&#x9650;&#x516C;&#x53F8;&#xFF08;2012-09-&#x81F3;&#x4ECA;&#xFF09;" class="headerlink" title="&#x5357;&#x4EAC;&#x5168;&#x9AD8;&#x79D1;&#x6280;&#x4FE1;&#x606F;&#x6709;&#x9650;&#x516C;&#x53F8;&#xFF08;2012-09 &#x81F3;&#x4ECA;&#xFF09;"></a>&#x5357;&#x4EAC;&#x5168;&#x9AD8;&#x79D1;&#x6280;&#x4FE1;&#x606F;&#x6709;&#x9650;&#x516C;&#x53F8;&#xFF08;2012-09 &#x81F3;&#x4ECA;&#xFF09;</h3><p>&#x672C;&#x4EBA;&#x5DE5;&#x4F5C;&#x5C06;&#x8FD1;5&#x5E74;&#x4E86;&#xFF0C;&#x867D;&#x8BF4;&#x53EA;&#x5728;&#x4E00;&#x5BB6;&#x516C;&#x53F8;&#x5446;&#x8FC7;&#xFF0C;&#x4F46;&#x5DE5;&#x4F5C;&#x5185;&#x5BB9;&#x5E76;&#x4E0D;&#x5355;&#x4E00;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x4E00;&#x76F4;&#x7559;&#x4E0B;&#x6765;&#x7684;&#x539F;&#x56E0;&#x3002;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x8DF3;&#x69FD;&#x65E0;&#x975E;&#x5C31;&#x662F;&#x5BF9;&#x516C;&#x53F8;&#x5DE5;&#x4F5C;&#x73AF;&#x5883;&#x4E0D;&#x6EE1;&#x610F;&#x3001;&#x957F;&#x65F6;&#x95F4;&#x5446;&#x4E0B;&#x53BB;&#x4E0D;&#x5229;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x6210;&#x957F;&#x3001;&#x85AA;&#x6C34;&#x4E0D;&#x6EE1;&#x610F;&#xFF08;&#x5927;&#x591A;&#x6570;&#x8FD9;&#x4E2A;&#x539F;&#x56E0;&#xFF09;&#x3002;&#x4F46;&#x6211;&#x5374;&#x7559;&#x4E0B;&#x5566;&#xFF0C;&#x539F;&#x56E0;&#x5176;&#x5B9E;&#x81EA;&#x5DF1;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x80FD;&#x8BF4;&#x6E05;&#x695A;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x539F;&#x56E0;&#x5E76;&#x4E0D;&#x91CD;&#x8981;&#xFF0C;&#x91CD;&#x8981;&#x7684;&#x662F;&#x611F;&#x89C9;&#x81EA;&#x5DF1;&#x6CA1;&#x90A3;&#x4E48;&#x5927;&#x7684;&#x91CE;&#x5FC3;&#xFF08;&#x8FD9;&#x548C;&#x6CA1;&#x4E0A;&#x8FDB;&#x5FC3;&#x4E24;&#x7801;&#x4E8B;&#xFF09;&#xFF0C;&#x53E6;&#x5916;&#x4E2A;&#x4EBA;&#x80FD;&#x529B;&#x7684;&#x63D0;&#x5347;&#x8FD8;&#x662F;&#x5728;&#x4E8E;&#x81EA;&#x5DF1;&#xFF0C;&#x5916;&#x754C;&#x7684;&#x73AF;&#x5883;&#x5F71;&#x54CD;&#x5E76;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x7684;&#x5927;&#x3002;</p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://qianmeng.github.io/reading/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
