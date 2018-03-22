@@ -1,0 +1,983 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>互联网协议（二） | 钱猛的个人博客</title>
+    <meta name="author" content="钱猛">
+    
+    <meta name="description" content="钱猛的个人博客。全栈发展向。无所谓做什么，只要是当前最感兴趣的事！随心、随性、随缘！">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="互联网协议（二）"/>
+    <meta property="og:site_name" content="钱猛 &amp; 博客"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="钱猛 &amp; 博客" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fc7f849e9fbb3ea12b2683af4ccaa000";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">钱猛 &amp; 博客 | 
+			<span style="color:#E91E63;font-size:18px;">
+			<i class="fa fa-flag"></i><span id="busuanzi_value_site_pv"></span>. 
+			<i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span>
+			</span> 
+			</a> 
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-tag " href="/tags" >
+                            <i class="fa fa-tag "></i>
+                            
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="https://raw.githubusercontent.com/qianmeng/resources/master/head.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">钱猛</p>
+                        <p class="desc">全栈工程师</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-tag " href="/tags" >
+                    <i class="fa fa-tag "></i>
+                    
+                    标签
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/总结/">
+                    总结 <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/个人总结/">
+                    个人总结 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/编程经验/">
+                    编程经验 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/个人技能/">
+                    个人技能 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/总结/公司管理/">
+                    公司管理 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/AngularJs/">
+                    AngularJs <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后台/">
+                    后台 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/MetaQ/">
+                    MetaQ <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-CXF/">
+                    Apache-CXF <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Apache-Http-Server/">
+                    Apache-Http-Server <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Ehcache/">
+                    Ehcache <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后台/Hibernate/">
+                    Hibernate <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/量化交易/">
+                    量化交易 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/Matlab/">
+                    Matlab <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/爬虫/">
+                    爬虫 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/期货/">
+                    期货 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/量化交易/股票/">
+                    股票 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/架构/">
+                    架构 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/架构/Hexo/">
+                    Hexo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/面试/">
+                    面试 <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/Android/">
+                    Android <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/Python/">
+                    Python <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/web/">
+                    web <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/面试/前端/">
+                    前端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/PostGreSQL/">
+                    PostGreSQL <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Vollery/">
+                    Vollery <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/网络/">
+                    网络 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/网络/互联网协议/">
+                    互联网协议 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IOS/">
+                    IOS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/IOS/itms-services/">
+                    itms-services <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/美女/">
+                    美女 <span class="right">17 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/美女/素人/">
+                    素人 <span class="right">17 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/星座/">
+                    星座 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/星座/归类/">
+                    归类 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/星座/性格/">
+                    性格 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/微信/">
+                    微信 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/微信/帐号区别/">
+                    帐号区别 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    
+<nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/网络/">网络</a><a class="breadcrumb" href="/categories/网络/互联网协议/">互联网协议</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>互联网协议（二）</h1>
+    
+
+
+            </div>
+            <i class="fa fa-pencil-square"></i><time class="pink-link-context" datetime="2018-03-22T10:06:50.000Z"><a href="/2018/03/22/互联网协议入门（二）/">2018-03-22</a></time>
+
+			<i class="fa fa-flag"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner"></i></span> 人点击
+            
+    <div class="tags-row">
+        
+            <a href="/tags/协议/" class="chip pink lighten-1">协议</a>
+        
+            <a href="/tags/网络/" class="chip pink lighten-1">网络</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#七-一个小结"><span class="section table-of-contents-text">七、一个小结</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#八-用户的上网设置"><span class="section table-of-contents-text">八、用户的上网设置</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#81-静态ip地址"><span class="section table-of-contents-text">8.1 静态IP地址</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#82-动态ip地址"><span class="section table-of-contents-text">8.2 动态IP地址</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#83-dhcp协议"><span class="section table-of-contents-text">8.3 DHCP协议</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#84-上网设置小结"><span class="section table-of-contents-text">8.4 上网设置：小结</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#九-一个实例访问网页"><span class="section table-of-contents-text">九、一个实例：访问网页</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#91-本机参数"><span class="section table-of-contents-text">9.1 本机参数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#92-dns协议"><span class="section table-of-contents-text">9.2 DNS协议</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#93-子网掩码"><span class="section table-of-contents-text">9.3 子网掩码</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#94-应用层协议"><span class="section table-of-contents-text">9.4 应用层协议</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#95-tcp协议"><span class="section table-of-contents-text">9.5 TCP协议</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#96-ip协议"><span class="section table-of-contents-text">9.6 IP协议</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#97-以太网协议"><span class="section table-of-contents-text">9.7 以太网协议</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#98-服务器端响应"><span class="section table-of-contents-text">9.8 服务器端响应</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>&#x672C;&#x6587;&#x6765;&#x81EA;&#x201C;&#x962E;&#x4E00;&#x5CF0;&#x7684;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;&#x201D;&#xFF0C;&#x611F;&#x89C9;&#x86EE;&#x9002;&#x5408;&#x7A0B;&#x5E8F;&#x5458;&#x626B;&#x76F2;&#x4F7F;&#x7528;&#x3002;</p>
+<blockquote>
+<p>&#x300A;&#x4E92;&#x8054;&#x7F51;&#x534F;&#x8BAE;&#x5165;&#x95E8;(&#x4E00;)&#x300B;&#x4ECB;&#x7ECD;&#x4E86;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x603B;&#x4F53;&#x6784;&#x601D;&#xFF0C;&#x4ECE;&#x4E0B;&#x81F3;&#x4E0A;&#xFF0C;&#x6BCF;&#x4E00;&#x5C42;&#x534F;&#x8BAE;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x4ECE;&#x8BBE;&#x8BA1;&#x8005;&#x7684;&#x89D2;&#x5EA6;&#x770B;&#x95EE;&#x9898;&#xFF0C;&#x4ECA;&#x5929;&#x6211;&#x60F3;&#x5207;&#x6362;&#x5230;&#x7528;&#x6237;&#x7684;&#x89D2;&#x5EA6;&#xFF0C;&#x770B;&#x770B;&#x7528;&#x6237;&#x662F;&#x5982;&#x4F55;&#x4ECE;&#x4E0A;&#x81F3;&#x4E0B;&#xFF0C;&#x4E0E;&#x8FD9;&#x4E9B;&#x534F;&#x8BAE;&#x4E92;&#x52A8;&#x7684;&#x3002;</p>
+</blockquote>
+<h3 id="&#x4E03;-&#x4E00;&#x4E2A;&#x5C0F;&#x7ED3;"><a href="#&#x4E03;&#x3001;&#x4E00;&#x4E2A;&#x5C0F;&#x7ED3;" class="headerlink" title="&#x4E03;&#x3001;&#x4E00;&#x4E2A;&#x5C0F;&#x7ED3;"></a>&#x4E03;&#x3001;&#x4E00;&#x4E2A;&#x5C0F;&#x7ED3;</h3><p>&#x5148;&#x5BF9;&#x524D;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x505A;&#x4E00;&#x4E2A;&#x5C0F;&#x7ED3;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#xFF0C;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x5C31;&#x662F;&#x4EA4;&#x6362;&#x6570;&#x636E;&#x5305;&#x3002;&#x7535;&#x8111;A&#x5411;&#x7535;&#x8111;B&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x540E;&#x8005;&#x6536;&#x5230;&#x4E86;&#xFF0C;&#x56DE;&#x590D;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x4E24;&#x53F0;&#x7535;&#x8111;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x3002;&#x6570;&#x636E;&#x5305;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A;<br><img src="//img-blog.csdn.net/20180321110203895?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>&#x53D1;&#x9001;&#x8FD9;&#x4E2A;&#x5305;&#xFF0C;&#x9700;&#x8981;&#x77E5;&#x9053;&#x4E24;&#x4E2A;&#x5730;&#x5740;</strong>&#xFF1A;</p>
+<p><em>&#x5BF9;&#x65B9;&#x7684;MAC&#x5730;&#x5740;
+</em>&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;</p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x6570;&#x636E;&#x5305;&#x624D;&#x80FD;&#x51C6;&#x786E;&#x9001;&#x5230;&#x63A5;&#x6536;&#x8005;&#x624B;&#x4E2D;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#xFF0C;MAC&#x5730;&#x5740;&#x6709;&#x5C40;&#x9650;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x53F0;&#x7535;&#x8111;&#x4E0D;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#xFF0C;&#x5C31;&#x65E0;&#x6CD5;&#x77E5;&#x9053;&#x5BF9;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x7F51;&#x5173;&#xFF08;gateway&#xFF09;&#x8F6C;&#x53D1;&#x3002;<br><img src="//img-blog.csdn.net/2018032111031441?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;1&#x53F7;&#x7535;&#x8111;&#x8981;&#x5411;4&#x53F7;&#x7535;&#x8111;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x3002;&#x5B83;&#x5148;&#x5224;&#x65AD;4&#x53F7;&#x7535;&#x8111;&#x662F;&#x5426;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#xFF0C;&#x7ED3;&#x679C;&#x53D1;&#x73B0;&#x4E0D;&#x662F;&#xFF08;&#x540E;&#x6587;&#x4ECB;&#x7ECD;&#x5224;&#x65AD;&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x628A;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x53D1;&#x5230;&#x7F51;&#x5173;A&#x3002;&#x7F51;&#x5173;A&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x534F;&#x8BAE;&#xFF0C;&#x53D1;&#x73B0;4&#x53F7;&#x7535;&#x8111;&#x4F4D;&#x4E8E;&#x5B50;&#x7F51;&#x7EDC;B&#xFF0C;&#x53C8;&#x628A;&#x6570;&#x636E;&#x5305;&#x53D1;&#x7ED9;&#x7F51;&#x5173;B&#xFF0C;&#x7F51;&#x5173;B&#x518D;&#x8F6C;&#x53D1;&#x5230;4&#x53F7;&#x7535;&#x8111;&#x3002;</p>
+<p><strong>1&#x53F7;&#x7535;&#x8111;&#x628A;&#x6570;&#x636E;&#x5305;&#x53D1;&#x5230;&#x7F51;&#x5173;A&#xFF0C;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x7F51;&#x5173;A&#x7684;MAC&#x5730;&#x5740;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6570;&#x636E;&#x5305;&#x7684;&#x76EE;&#x6807;&#x5730;&#x5740;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5206;&#x6210;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x573A;&#x666F;	                       &#x6570;&#x636E;&#x5305;&#x5730;&#x5740;</span><br><span class="line">&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;	       &#x5BF9;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;</span><br><span class="line">&#x975E;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;	      &#x7F51;&#x5173;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;</span><br></pre></td></tr></table></figure>
+<p>&#x573A;&#x666F;&#x6570;&#x636E;&#x5305;&#x5730;&#x5740;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#x5BF9;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x975E;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#x7F51;&#x5173;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;</p>
+<p>&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;&#x4E4B;&#x524D;&#xFF0C;&#x7535;&#x8111;&#x5FC5;&#x987B;&#x5224;&#x65AD;&#x5BF9;&#x65B9;&#x662F;&#x5426;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x76F8;&#x5E94;&#x7684;MAC&#x5730;&#x5740;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x770B;&#xFF0C;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x5B8C;&#x6210;&#x7684;&#x3002;</p>
+<h3 id="&#x516B;-&#x7528;&#x6237;&#x7684;&#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;"><a href="#&#x516B;&#x3001;&#x7528;&#x6237;&#x7684;&#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;" class="headerlink" title="&#x516B;&#x3001;&#x7528;&#x6237;&#x7684;&#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;"></a>&#x516B;&#x3001;&#x7528;&#x6237;&#x7684;&#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;</h3><h4 id="81-&#x9759;&#x6001;ip&#x5730;&#x5740;"><a href="#8-1-&#x9759;&#x6001;IP&#x5730;&#x5740;" class="headerlink" title="8.1 &#x9759;&#x6001;IP&#x5730;&#x5740;"></a>8.1 &#x9759;&#x6001;IP&#x5730;&#x5740;</h4><p>&#x4F60;&#x4E70;&#x4E86;&#x4E00;&#x53F0;&#x65B0;&#x7535;&#x8111;&#xFF0C;&#x63D2;&#x4E0A;&#x7F51;&#x7EBF;&#xFF0C;&#x5F00;&#x673A;&#xFF0C;&#x8FD9;&#x65F6;&#x7535;&#x8111;&#x80FD;&#x591F;&#x4E0A;&#x7F51;&#x5417;&#xFF1F;<br><img src="//img-blog.csdn.net/20180321110647496?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>&#x901A;&#x5E38;&#x4F60;&#x5FC5;&#x987B;&#x505A;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#x3002;&#x6709;&#x65F6;&#xFF0C;&#x7BA1;&#x7406;&#x5458;&#xFF08;&#x6216;&#x8005;ISP&#xFF09;&#x4F1A;&#x544A;&#x8BC9;&#x4F60;&#x4E0B;&#x9762;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F60;&#x628A;&#x5B83;&#x4EEC;&#x586B;&#x5165;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x5C31;&#x80FD;&#x8FDE;&#x4E0A;&#x7F51;&#x4E86;&#xFF1A;</strong></p>
+<ul>
+<li>&#x672C;&#x673A;&#x7684;IP&#x5730;&#x5740;</li>
+<li>&#x5B50;&#x7F51;&#x63A9;&#x7801;</li>
+<li>&#x7F51;&#x5173;&#x7684;IP&#x5730;&#x5740;</li>
+<li>DNS&#x7684;IP&#x5730;&#x5740;</li>
+</ul>
+<p>&#x4E0B;&#x56FE;&#x662F;Windows&#x7CFB;&#x7EDF;&#x7684;&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x3002;<br><img src="//img-blog.csdn.net/20180321110751293?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x8FD9;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x7F3A;&#x4E00;&#x4E0D;&#x53EF;&#xFF0C;&#x540E;&#x6587;&#x4F1A;&#x89E3;&#x91CA;&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5B83;&#x4EEC;&#x624D;&#x80FD;&#x4E0A;&#x7F51;&#x3002;&#x7531;&#x4E8E;&#x5B83;&#x4EEC;&#x662F;&#x7ED9;&#x5B9A;&#x7684;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x6BCF;&#x6B21;&#x5F00;&#x673A;&#xFF0C;&#x90FD;&#x4F1A;&#x5206;&#x5230;&#x540C;&#x6837;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x88AB;&#x79F0;&#x4F5C;&#x201D;&#x9759;&#x6001;IP&#x5730;&#x5740;&#x4E0A;&#x7F51;&#x201D;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BBE;&#x7F6E;&#x5F88;&#x4E13;&#x4E1A;&#xFF0C;&#x666E;&#x901A;&#x7528;&#x6237;&#x671B;&#x800C;&#x751F;&#x754F;&#xFF0C;&#x800C;&#x4E14;&#x5982;&#x679C;&#x4E00;&#x53F0;&#x7535;&#x8111;&#x7684;IP&#x5730;&#x5740;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x5176;&#x4ED6;&#x7535;&#x8111;&#x5C31;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x591F;&#x7075;&#x6D3B;&#x3002;&#x51FA;&#x4E8E;&#x8FD9;&#x4E24;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x201D;&#x52A8;&#x6001;IP&#x5730;&#x5740;&#x4E0A;&#x7F51;&#x201D;&#x3002;</p>
+<h4 id="82-&#x52A8;&#x6001;ip&#x5730;&#x5740;"><a href="#8-2-&#x52A8;&#x6001;IP&#x5730;&#x5740;" class="headerlink" title="8.2 &#x52A8;&#x6001;IP&#x5730;&#x5740;"></a>8.2 &#x52A8;&#x6001;IP&#x5730;&#x5740;</h4><p>&#x6240;&#x8C13;&#x201D;&#x52A8;&#x6001;IP&#x5730;&#x5740;&#x201D;&#xFF0C;&#x6307;&#x8BA1;&#x7B97;&#x673A;&#x5F00;&#x673A;&#x540E;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x5230;&#x4E00;&#x4E2A;IP&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x7528;&#x4EBA;&#x4E3A;&#x8BBE;&#x5B9A;&#x3002;&#x5B83;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#x53EB;&#x505A;DHCP&#x534F;&#x8BAE;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x89C4;&#x5B9A;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x6709;&#x4E00;&#x53F0;&#x8BA1;&#x7B97;&#x673A;&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#x672C;&#x7F51;&#x7EDC;&#x7684;&#x6240;&#x6709;IP&#x5730;&#x5740;&#xFF0C;&#x5B83;&#x53EB;&#x505A;&#x201D;DHCP&#x670D;&#x52A1;&#x5668;&#x201D;&#x3002;&#x65B0;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x52A0;&#x5165;&#x7F51;&#x7EDC;&#xFF0C;&#x5FC5;&#x987B;&#x5411;&#x201D;DHCP&#x670D;&#x52A1;&#x5668;&#x201D;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x201D;DHCP&#x8BF7;&#x6C42;&#x201D;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x7533;&#x8BF7;IP&#x5730;&#x5740;&#x548C;&#x76F8;&#x5173;&#x7684;&#x7F51;&#x7EDC;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x53F0;&#x8BA1;&#x7B97;&#x673A;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#xFF0C;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x5BF9;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#x548C;IP&#x5730;&#x5740;&#xFF0C;&#x624D;&#x80FD;&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x65B0;&#x52A0;&#x5165;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E24;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x600E;&#x4E48;&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;&#x5462;&#xFF1F;</p>
+<p>DHCP&#x534F;&#x8BAE;&#x505A;&#x4E86;&#x4E00;&#x4E9B;&#x5DE7;&#x5999;&#x7684;&#x89C4;&#x5B9A;&#x3002;</p>
+<h4 id="83-dhcp&#x534F;&#x8BAE;"><a href="#8-3-DHCP&#x534F;&#x8BAE;" class="headerlink" title="8.3 DHCP&#x534F;&#x8BAE;"></a>8.3 DHCP&#x534F;&#x8BAE;</h4><p><strong>&#x9996;&#x5148;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF0C;&#x5EFA;&#x7ACB;&#x5728;UDP&#x534F;&#x8BAE;&#x4E4B;&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</strong><br><img src="//img-blog.csdn.net/20180321110856785?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#xFF08;1&#xFF09;&#x6700;&#x524D;&#x9762;&#x7684;&#x201D;&#x4EE5;&#x592A;&#x7F51;&#x6807;&#x5934;&#x201D;&#xFF0C;&#x8BBE;&#x7F6E;&#x53D1;&#x51FA;&#x65B9;&#xFF08;&#x672C;&#x673A;&#xFF09;&#x7684;MAC&#x5730;&#x5740;&#x548C;&#x63A5;&#x6536;&#x65B9;&#xFF08;DHCP&#x670D;&#x52A1;&#x5668;&#xFF09;&#x7684;MAC&#x5730;&#x5740;&#x3002;&#x524D;&#x8005;&#x5C31;&#x662F;&#x672C;&#x673A;&#x7F51;&#x5361;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x540E;&#x8005;&#x8FD9;&#x65F6;&#x4E0D;&#x77E5;&#x9053;&#xFF0C;&#x5C31;&#x586B;&#x5165;&#x4E00;&#x4E2A;&#x5E7F;&#x64AD;&#x5730;&#x5740;&#xFF1A;FF-FF-FF-FF-FF-FF&#x3002;</p>
+<p>&#xFF08;2&#xFF09;&#x540E;&#x9762;&#x7684;&#x201D;IP&#x6807;&#x5934;&#x201D;&#xFF0C;&#x8BBE;&#x7F6E;&#x53D1;&#x51FA;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x63A5;&#x6536;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x3002;&#x8FD9;&#x65F6;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E24;&#x8005;&#xFF0C;&#x672C;&#x673A;&#x90FD;&#x4E0D;&#x77E5;&#x9053;&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x53D1;&#x51FA;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x5C31;&#x8BBE;&#x4E3A;0.0.0.0&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x8BBE;&#x4E3A;255.255.255.255&#x3002;</p>
+<p>&#xFF08;3&#xFF09;&#x6700;&#x540E;&#x7684;&#x201D;UDP&#x6807;&#x5934;&#x201D;&#xFF0C;&#x8BBE;&#x7F6E;&#x53D1;&#x51FA;&#x65B9;&#x7684;&#x7AEF;&#x53E3;&#x548C;&#x63A5;&#x6536;&#x65B9;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x662F;DHCP&#x534F;&#x8BAE;&#x89C4;&#x5B9A;&#x597D;&#x7684;&#xFF0C;&#x53D1;&#x51FA;&#x65B9;&#x662F;68&#x7AEF;&#x53E3;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x662F;67&#x7AEF;&#x53E3;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x6784;&#x9020;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x53D1;&#x51FA;&#x4E86;&#x3002;&#x4EE5;&#x592A;&#x7F51;&#x662F;&#x5E7F;&#x64AD;&#x53D1;&#x9001;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#x7684;&#x6BCF;&#x53F0;&#x8BA1;&#x7B97;&#x673A;&#x90FD;&#x6536;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x5305;&#x3002;&#x56E0;&#x4E3A;&#x63A5;&#x6536;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#x662F;FF-FF-FF-FF-FF-FF&#xFF0C;&#x770B;&#x4E0D;&#x51FA;&#x662F;&#x53D1;&#x7ED9;&#x8C01;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x53F0;&#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x5305;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#xFF0C;&#x8FD8;&#x5FC5;&#x987B;&#x5206;&#x6790;&#x8FD9;&#x4E2A;&#x5305;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x624D;&#x80FD;&#x786E;&#x5B9A;&#x662F;&#x4E0D;&#x662F;&#x53D1;&#x7ED9;&#x81EA;&#x5DF1;&#x7684;&#x3002;&#x5F53;&#x770B;&#x5230;&#x53D1;&#x51FA;&#x65B9;IP&#x5730;&#x5740;&#x662F;0.0.0.0&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x662F;255.255.255.255&#xFF0C;&#x4E8E;&#x662F;DHCP&#x670D;&#x52A1;&#x5668;&#x77E5;&#x9053;&#x201D;&#x8FD9;&#x4E2A;&#x5305;&#x662F;&#x53D1;&#x7ED9;&#x6211;&#x7684;&#x201D;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x8BA1;&#x7B97;&#x673A;&#x5C31;&#x53EF;&#x4EE5;&#x4E22;&#x5F03;&#x8FD9;&#x4E2A;&#x5305;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;DHCP&#x670D;&#x52A1;&#x5668;&#x8BFB;&#x51FA;&#x8FD9;&#x4E2A;&#x5305;&#x7684;&#x6570;&#x636E;&#x5185;&#x5BB9;&#xFF0C;&#x5206;&#x914D;&#x597D;IP&#x5730;&#x5740;&#xFF0C;&#x53D1;&#x9001;&#x56DE;&#x53BB;&#x4E00;&#x4E2A;&#x201D;DHCP&#x54CD;&#x5E94;&#x201D;&#x6570;&#x636E;&#x5305;&#x3002;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x5305;&#x7684;&#x7ED3;&#x6784;&#x4E5F;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x4EE5;&#x592A;&#x7F51;&#x6807;&#x5934;&#x7684;MAC&#x5730;&#x5740;&#x662F;&#x53CC;&#x65B9;&#x7684;&#x7F51;&#x5361;&#x5730;&#x5740;&#xFF0C;IP&#x6807;&#x5934;&#x7684;IP&#x5730;&#x5740;&#x662F;DHCP&#x670D;&#x52A1;&#x5668;&#x7684;IP&#x5730;&#x5740;&#xFF08;&#x53D1;&#x51FA;&#x65B9;&#xFF09;&#x548C;255.255.255.255&#xFF08;&#x63A5;&#x6536;&#x65B9;&#xFF09;&#xFF0C;UDP&#x6807;&#x5934;&#x7684;&#x7AEF;&#x53E3;&#x662F;67&#xFF08;&#x53D1;&#x51FA;&#x65B9;&#xFF09;&#x548C;68&#xFF08;&#x63A5;&#x6536;&#x65B9;&#xFF09;&#xFF0C;&#x5206;&#x914D;&#x7ED9;&#x8BF7;&#x6C42;&#x7AEF;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x672C;&#x7F51;&#x7EDC;&#x7684;&#x5177;&#x4F53;&#x53C2;&#x6570;&#x5219;&#x5305;&#x542B;&#x5728;Data&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x65B0;&#x52A0;&#x5165;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x54CD;&#x5E94;&#x5305;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x77E5;&#x9053;&#x4E86;&#x81EA;&#x5DF1;&#x7684;IP&#x5730;&#x5740;&#x3001;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x3001;&#x7F51;&#x5173;&#x5730;&#x5740;&#x3001;DNS&#x670D;&#x52A1;&#x5668;&#x7B49;&#x7B49;&#x53C2;&#x6570;&#x3002;</p>
+<h4 id="84-&#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;&#x5C0F;&#x7ED3;"><a href="#8-4-&#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;&#xFF1A;&#x5C0F;&#x7ED3;" class="headerlink" title="8.4 &#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;&#xFF1A;&#x5C0F;&#x7ED3;"></a>8.4 &#x4E0A;&#x7F51;&#x8BBE;&#x7F6E;&#xFF1A;&#x5C0F;&#x7ED3;</h4><p><strong>&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#x7684;&#x5C31;&#x662F;&#x4E00;&#x70B9;&#xFF1A;&#x4E0D;&#x7BA1;&#x662F;&#x201D;&#x9759;&#x6001;IP&#x5730;&#x5740;&#x201D;&#x8FD8;&#x662F;&#x201D;&#x52A8;&#x6001;IP&#x5730;&#x5740;&#x201D;&#xFF0C;&#x7535;&#x8111;&#x4E0A;&#x7F51;&#x7684;&#x9996;&#x8981;&#x6B65;&#x9AA4;&#xFF0C;&#x662F;&#x786E;&#x5B9A;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x56DB;&#x4E2A;&#x503C;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x503C;&#x5F97;&#x91CD;&#x590D;&#x4E00;&#x904D;&#xFF1A;</strong></p>
+<ul>
+<li>&#x672C;&#x673A;&#x7684;IP&#x5730;&#x5740;</li>
+<li>&#x5B50;&#x7F51;&#x63A9;&#x7801;</li>
+<li>&#x7F51;&#x5173;&#x7684;IP&#x5730;&#x5740;</li>
+<li>DNS&#x7684;IP&#x5730;&#x5740;</li>
+</ul>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x51E0;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x7535;&#x8111;&#x5C31;&#x53EF;&#x4EE5;&#x4E0A;&#x7F51;&#x201D;&#x51B2;&#x6D6A;&#x201D;&#x4E86;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x7F51;&#x9875;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E92;&#x8054;&#x7F51;&#x534F;&#x8BAE;&#x662F;&#x600E;&#x4E48;&#x8FD0;&#x4F5C;&#x7684;&#x3002;</p>
+<h3 id="&#x4E5D;-&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x8BBF;&#x95EE;&#x7F51;&#x9875;"><a href="#&#x4E5D;&#x3001;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;&#x8BBF;&#x95EE;&#x7F51;&#x9875;" class="headerlink" title="&#x4E5D;&#x3001;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;&#x8BBF;&#x95EE;&#x7F51;&#x9875;"></a>&#x4E5D;&#x3001;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;&#x8BBF;&#x95EE;&#x7F51;&#x9875;</h3><h4 id="91-&#x672C;&#x673A;&#x53C2;&#x6570;"><a href="#9-1-&#x672C;&#x673A;&#x53C2;&#x6570;" class="headerlink" title="9.1 &#x672C;&#x673A;&#x53C2;&#x6570;"></a>9.1 &#x672C;&#x673A;&#x53C2;&#x6570;</h4><p>&#x6211;&#x4EEC;&#x5047;&#x5B9A;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E0A;&#x4E00;&#x8282;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x597D;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x7F51;&#x7EDC;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li>&#x672C;&#x673A;&#x7684;IP&#x5730;&#x5740;&#xFF1A;192.168.1.100</li>
+<li>&#x5B50;&#x7F51;&#x63A9;&#x7801;&#xFF1A;255.255.255.0</li>
+<li>&#x7F51;&#x5173;&#x7684;IP&#x5730;&#x5740;&#xFF1A;192.168.1.1</li>
+<li>DNS&#x7684;IP&#x5730;&#x5740;&#xFF1A;8.8.8.8</li>
+</ul>
+<p>&#x7136;&#x540E;&#x4ED6;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x60F3;&#x8981;&#x8BBF;&#x95EE;Google&#xFF0C;&#x5728;&#x5730;&#x5740;&#x680F;&#x8F93;&#x5165;&#x4E86;&#x7F51;&#x5740;&#xFF1A;www.google.com&#x3002;<br><img src="//img-blog.csdn.net/20180321111032119?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8981;&#x5411;Google&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x7F51;&#x9875;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x5305;&#x3002;</p>
+<h4 id="92-dns&#x534F;&#x8BAE;"><a href="#9-2-DNS&#x534F;&#x8BAE;" class="headerlink" title="9.2 DNS&#x534F;&#x8BAE;"></a>9.2 DNS&#x534F;&#x8BAE;</h4><p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x5FC5;&#x987B;&#x8981;&#x77E5;&#x9053;&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x77E5;&#x9053;&#x7F51;&#x5740;www.google.com&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x7684;IP&#x5730;&#x5740;&#x3002;</p>
+<p>DNS&#x534F;&#x8BAE;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;&#x7F51;&#x5740;&#x8F6C;&#x6362;&#x6210;IP&#x5730;&#x5740;&#x3002;&#x5DF2;&#x77E5;DNS&#x670D;&#x52A1;&#x5668;&#x4E3A;8.8.8.8&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5411;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x53D1;&#x9001;&#x4E00;&#x4E2A;DNS&#x6570;&#x636E;&#x5305;&#xFF08;53&#x7AEF;&#x53E3;&#xFF09;&#x3002;<br><img src="//img-blog.csdn.net/20180321111101436?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x7136;&#x540E;&#xFF0C;DNS&#x670D;&#x52A1;&#x5668;&#x505A;&#x51FA;&#x54CD;&#x5E94;&#xFF0C;&#x544A;&#x8BC9;&#x6211;&#x4EEC;Google&#x7684;IP&#x5730;&#x5740;&#x662F;172.194.72.105&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86;&#x5BF9;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x3002;</p>
+<h4 id="93-&#x5B50;&#x7F51;&#x63A9;&#x7801;"><a href="#9-3-&#x5B50;&#x7F51;&#x63A9;&#x7801;" class="headerlink" title="9.3 &#x5B50;&#x7F51;&#x63A9;&#x7801;"></a>9.3 &#x5B50;&#x7F51;&#x63A9;&#x7801;</h4><p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x5224;&#x65AD;&#xFF0C;&#x8FD9;&#x4E2A;IP&#x5730;&#x5740;&#x662F;&#x4E0D;&#x662F;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#xFF0C;&#x8FD9;&#x5C31;&#x8981;&#x7528;&#x5230;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x3002;</p>
+<p>&#x5DF2;&#x77E5;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x662F;255.255.255.0&#xFF0C;&#x672C;&#x673A;&#x7528;&#x5B83;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;IP&#x5730;&#x5740;192.168.1.100&#xFF0C;&#x505A;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x7684;AND&#x8FD0;&#x7B97;&#xFF08;&#x4E24;&#x4E2A;&#x6570;&#x4F4D;&#x90FD;&#x4E3A;1&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;1&#xFF0C;&#x5426;&#x5219;&#x4E3A;0&#xFF09;&#xFF0C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x4E3A;192.168.1.0&#xFF1B;&#x7136;&#x540E;&#x5BF9;Google&#x7684;IP&#x5730;&#x5740;172.194.72.105&#x4E5F;&#x505A;&#x4E00;&#x4E2A;AND&#x8FD0;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x4E3A;172.194.72.0&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x7ED3;&#x679C;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x6240;&#x4EE5;&#x7ED3;&#x8BBA;&#x662F;&#xFF0C;Google&#x4E0E;&#x672C;&#x673A;&#x4E0D;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5B50;&#x7F51;&#x7EDC;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x5411;Google&#x53D1;&#x9001;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x7F51;&#x5173;192.168.1.1&#x8F6C;&#x53D1;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#x5C06;&#x662F;&#x7F51;&#x5173;&#x7684;MAC&#x5730;&#x5740;&#x3002;</p>
+<h4 id="94-&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;"><a href="#9-4-&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;" class="headerlink" title="9.4 &#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;"></a>9.4 &#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;</h4><p><strong>&#x6D4F;&#x89C8;&#x7F51;&#x9875;&#x7528;&#x7684;&#x662F;HTTP&#x534F;&#x8BAE;&#xFF0C;&#x5B83;&#x7684;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x6784;&#x9020;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</strong><br><img src="//img-blog.csdn.net/20180321111142538?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>HTTP&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">&#x3000;&#x3000;Host: www.google.com</span><br><span class="line">&#x3000;&#x3000;Connection: keep-alive</span><br><span class="line">&#x3000;&#x3000;User-Agent: Mozilla/5.0 (Windows NT 6.1) ......</span><br><span class="line">&#x3000;&#x3000;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">&#x3000;&#x3000;Accept-Encoding: gzip,deflate,sdch</span><br><span class="line">&#x3000;&#x3000;Accept-Language: zh-CN,zh;q=0.8</span><br><span class="line">&#x3000;&#x3000;Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3</span><br><span class="line">&#x3000;&#x3000;Cookie: ... ...</span><br></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x5047;&#x5B9A;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x957F;&#x5EA6;&#x4E3A;4960&#x5B57;&#x8282;&#xFF0C;&#x5B83;&#x4F1A;&#x88AB;&#x5D4C;&#x5728;TCP&#x6570;&#x636E;&#x5305;&#x4E4B;&#x4E2D;&#x3002;</p>
+<h4 id="95-tcp&#x534F;&#x8BAE;"><a href="#9-5-TCP&#x534F;&#x8BAE;" class="headerlink" title="9.5 TCP&#x534F;&#x8BAE;"></a>9.5 TCP&#x534F;&#x8BAE;</h4><p>TCP&#x6570;&#x636E;&#x5305;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x7AEF;&#x53E3;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#xFF08;Google&#xFF09;&#x7684;HTTP&#x7AEF;&#x53E3;&#x9ED8;&#x8BA4;&#x662F;80&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#xFF08;&#x672C;&#x673A;&#xFF09;&#x7684;&#x7AEF;&#x53E3;&#x662F;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x751F;&#x6210;&#x7684;1024-65535&#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;&#xFF0C;&#x5047;&#x5B9A;&#x4E3A;51775&#x3002;</p>
+<p>TCP&#x6570;&#x636E;&#x5305;&#x7684;&#x6807;&#x5934;&#x957F;&#x5EA6;&#x4E3A;20&#x5B57;&#x8282;&#xFF0C;&#x52A0;&#x4E0A;&#x5D4C;&#x5165;HTTP&#x7684;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x603B;&#x957F;&#x5EA6;&#x53D8;&#x4E3A;4980&#x5B57;&#x8282;&#x3002;</p>
+<h4 id="96-ip&#x534F;&#x8BAE;"><a href="#9-6-IP&#x534F;&#x8BAE;" class="headerlink" title="9.6 IP&#x534F;&#x8BAE;"></a>9.6 IP&#x534F;&#x8BAE;</h4><p>&#x7136;&#x540E;&#xFF0C;TCP&#x6570;&#x636E;&#x5305;&#x518D;&#x5D4C;&#x5165;IP&#x6570;&#x636E;&#x5305;&#x3002;IP&#x6570;&#x636E;&#x5305;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x53CC;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x662F;&#x5DF2;&#x77E5;&#x7684;&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x662F;192.168.1.100&#xFF08;&#x672C;&#x673A;&#xFF09;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x662F;172.194.72.105&#xFF08;Google&#xFF09;&#x3002;</p>
+<p>IP&#x6570;&#x636E;&#x5305;&#x7684;&#x6807;&#x5934;&#x957F;&#x5EA6;&#x4E3A;20&#x5B57;&#x8282;&#xFF0C;&#x52A0;&#x4E0A;&#x5D4C;&#x5165;&#x7684;TCP&#x6570;&#x636E;&#x5305;&#xFF0C;&#x603B;&#x957F;&#x5EA6;&#x53D8;&#x4E3A;5000&#x5B57;&#x8282;&#x3002;</p>
+<h4 id="97-&#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;"><a href="#9-7-&#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;" class="headerlink" title="9.7 &#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;"></a>9.7 &#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;</h4><p>&#x6700;&#x540E;&#xFF0C;IP&#x6570;&#x636E;&#x5305;&#x5D4C;&#x5165;&#x4EE5;&#x592A;&#x7F51;&#x6570;&#x636E;&#x5305;&#x3002;&#x4EE5;&#x592A;&#x7F51;&#x6570;&#x636E;&#x5305;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x53CC;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x4E3A;&#x672C;&#x673A;&#x7684;&#x7F51;&#x5361;MAC&#x5730;&#x5740;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x4E3A;&#x7F51;&#x5173;192.168.1.1&#x7684;MAC&#x5730;&#x5740;&#xFF08;&#x901A;&#x8FC7;ARP&#x534F;&#x8BAE;&#x5F97;&#x5230;&#xFF09;&#x3002;</p>
+<p>&#x4EE5;&#x592A;&#x7F51;&#x6570;&#x636E;&#x5305;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#xFF0C;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E3A;1500&#x5B57;&#x8282;&#xFF0C;&#x800C;&#x73B0;&#x5728;&#x7684;IP&#x6570;&#x636E;&#x5305;&#x957F;&#x5EA6;&#x4E3A;5000&#x5B57;&#x8282;&#x3002;&#x56E0;&#x6B64;&#xFF0C;IP&#x6570;&#x636E;&#x5305;&#x5FC5;&#x987B;&#x5206;&#x5272;&#x6210;&#x56DB;&#x4E2A;&#x5305;&#x3002;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x5305;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;IP&#x6807;&#x5934;&#xFF08;20&#x5B57;&#x8282;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x56DB;&#x4E2A;&#x5305;&#x7684;IP&#x6570;&#x636E;&#x5305;&#x7684;&#x957F;&#x5EA6;&#x5206;&#x522B;&#x4E3A;1500&#x3001;1500&#x3001;1500&#x3001;560&#x3002;<br><img src="//img-blog.csdn.net/20180321111259175?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<h4 id="98-&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x54CD;&#x5E94;"><a href="#9-8-&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x54CD;&#x5E94;" class="headerlink" title="9.8 &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x54CD;&#x5E94;"></a>9.8 &#x670D;&#x52A1;&#x5668;&#x7AEF;&#x54CD;&#x5E94;</h4><p>&#x7ECF;&#x8FC7;&#x591A;&#x4E2A;&#x7F51;&#x5173;&#x7684;&#x8F6C;&#x53D1;&#xFF0C;Google&#x7684;&#x670D;&#x52A1;&#x5668;172.194.72.105&#xFF0C;&#x6536;&#x5230;&#x4E86;&#x8FD9;&#x56DB;&#x4E2A;&#x4EE5;&#x592A;&#x7F51;&#x6570;&#x636E;&#x5305;&#x3002;</p>
+<p>&#x6839;&#x636E;IP&#x6807;&#x5934;&#x7684;&#x5E8F;&#x53F7;&#xFF0C;Google&#x5C06;&#x56DB;&#x4E2A;&#x5305;&#x62FC;&#x8D77;&#x6765;&#xFF0C;&#x53D6;&#x51FA;&#x5B8C;&#x6574;&#x7684;TCP&#x6570;&#x636E;&#x5305;&#xFF0C;&#x7136;&#x540E;&#x8BFB;&#x51FA;&#x91CC;&#x9762;&#x7684;&#x201D;HTTP&#x8BF7;&#x6C42;&#x201D;&#xFF0C;&#x63A5;&#x7740;&#x505A;&#x51FA;&#x201D;HTTP&#x54CD;&#x5E94;&#x201D;&#xFF0C;&#x518D;&#x7528;TCP&#x534F;&#x8BAE;&#x53D1;&#x56DE;&#x6765;&#x3002;</p>
+<p>&#x672C;&#x673A;&#x6536;&#x5230;HTTP&#x54CD;&#x5E94;&#x4EE5;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x7F51;&#x9875;&#x663E;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x5B8C;&#x6210;&#x4E00;&#x6B21;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x3002;<br><img src="//img-blog.csdn.net/20180321111326991?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FpYW5fbWVuZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="&#x8FD9;&#x91CC;&#x5199;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5C31;&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#xFF0C;&#x867D;&#x7136;&#x7ECF;&#x8FC7;&#x4E86;&#x7B80;&#x5316;&#xFF0C;&#x4F46;&#x5B83;&#x5927;&#x81F4;&#x4E0A;&#x53CD;&#x6620;&#x4E86;&#x4E92;&#x8054;&#x7F51;&#x534F;&#x8BAE;&#x7684;&#x6574;&#x4E2A;&#x901A;&#x4FE1;&#x8FC7;&#x7A0B;&#x3002;&#xFF08;&#x5B8C;&#xFF09;</p>
+
+            </div>
+        </div>
+    </div>
+</article>  
+<div class="card"> 
+	 <nav id="pagination" class="indigo" >
+		
+		
+		<a style="float: right;" href="/2018/03/22/互联网协议入门（一）/" >&nbsp;&nbsp;&nbsp;&nbsp;下一页&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		
+		<div class="clearfix"></div>
+	</nav> 
+</div>
+
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2018/03/22/互联网协议入门（二）/" data-title="互联网协议（二）" data-url="http://qianmeng.github.io/2018/03/22/互联网协议入门（二）/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'kidmid'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="http://weibo.com/u/1819068247" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.csdn.net/qian_meng" target="_blank">CSDN 地址</a>
+                
+                    <a class="social-link" href="https://github.com/qianmeng" target="_blank">Github地址</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016  All rights reserved. 
+        </div>
+    </div>
+</footer> 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-search').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal();
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=56073371" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"145"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</body>
+</html>
