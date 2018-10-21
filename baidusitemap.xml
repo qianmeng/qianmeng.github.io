@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>https://kidmid.gitee.io/qianmeng/qianmeng/2016/11/19/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB-Windows%20%E7%9A%84%E7%BB%BF%E8%89%B2%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7%E9%9B%86/</loc>
-    <lastmod>2018-10-13T11:52:44.604Z</lastmod>
+    <loc>https://kidmid.gitee.io/qianmeng/qianmeng/2018/11/19/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB-Windows%20%E7%9A%84%E7%BB%BF%E8%89%B2%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7%E9%9B%86/</loc>
+    <lastmod>2018-10-21T12:41:57.351Z</lastmod>
     <data>
         <display>
         <title>工具分享-Windows 的绿色软件工具集</title>
-        <pubTime>2016-11-19T05:22:50.000Z</pubTime>
+        <pubTime>2018-11-19T05:22:50.000Z</pubTime>
         
         <tag>工具</tag>
          
@@ -22,6 +22,56 @@
           
              
               <breadCrumb title="系统工具" url="https://kidmid.gitee.io/qianmeng/qianmeng/categories/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://kidmid.gitee.io/qianmeng/qianmeng/2018/10/08/2018%E4%B8%96%E7%95%8C%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%A4%A7%E4%BC%9A%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2018-10-21T12:41:42.495Z</lastmod>
+    <data>
+        <display>
+        <title>2018世界人工智能峰会总结</title>
+        <pubTime>2018-10-08T10:06:50.000Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>大数据</tag>
+         
+         
+           
+             
+              <breadCrumb title="总结" url="https://kidmid.gitee.io/qianmeng/qianmeng/categories/%E6%80%BB%E7%BB%93/"/>
+          
+             
+              <breadCrumb title="会展总结" url="https://kidmid.gitee.io/qianmeng/qianmeng/categories/%E6%80%BB%E7%BB%93/%E4%BC%9A%E5%B1%95%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://kidmid.gitee.io/qianmeng/qianmeng/2018/10/07/2018%E4%BA%91%E6%A0%96%E5%A4%A7%E4%BC%9A%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2018-10-21T12:41:30.232Z</lastmod>
+    <data>
+        <display>
+        <title>2018云栖大会总结</title>
+        <pubTime>2018-10-07T10:06:50.000Z</pubTime>
+        
+        <tag>人工智能</tag>
+         
+        <tag>大数据</tag>
+         
+         
+           
+             
+              <breadCrumb title="总结" url="https://kidmid.gitee.io/qianmeng/qianmeng/categories/%E6%80%BB%E7%BB%93/"/>
+          
+             
+              <breadCrumb title="会展总结" url="https://kidmid.gitee.io/qianmeng/qianmeng/categories/%E6%80%BB%E7%BB%93/%E4%BC%9A%E5%B1%95%E6%80%BB%E7%BB%93/"/>
           
         </display>
     </data>
@@ -1037,9 +1087,9 @@
         <title>Apache Http Server 解决不同域名共用服务器80端口问题</title>
         <pubTime>2015-05-27T10:06:50.000Z</pubTime>
         
-        <tag>服务</tag>
-         
         <tag>Apache Http Server</tag>
+         
+        <tag>服务</tag>
          
          
            
@@ -1393,9 +1443,9 @@
         <title>Ehcache 初探（在项目中的简单使用）</title>
         <pubTime>2014-07-07T10:06:50.000Z</pubTime>
         
-        <tag>Ehcache</tag>
-         
         <tag>服务</tag>
+         
+        <tag>Ehcache</tag>
          
          
            
